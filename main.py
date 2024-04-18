@@ -17,8 +17,8 @@ while resp != "0":
     print("#####      1 - Módulo Clientes         #####")
     print("#####      2 - Módulo Estoque          #####")
     print("#####      3 - Módulo Compras          #####")
-    print("#####      4 - Módulo Livros/Mangas/HQ #####")
-    print("#####      5 - Módulo Vendas           #####")
+    print("#####      4 - Módulo Vendas           #####")
+    print("#####      5 - Módulo Livros/Mangas/HQ #####")
     print("#####      6 - Módulo Informações      #####")
     print("#####      0 - Sair                    #####")
     resp = input("##### Escolha sua opção: ")
@@ -46,8 +46,16 @@ while resp != "0":
       print("############################################")
       print()
       input("Tecle <ENTER> para continuar...")
-      
+
     elif resp == "4":
+      print()
+      print("############################################")
+      print("#####     Você está no Módulo Vendas    ####")
+      print("############################################")
+      print()
+      input("Tecle <ENTER> para continuar...")
+      
+    elif resp == "5":
       print()
       print("#################################################")
       print("#####  Você está no Módulo Livros/Mangas/HQ  ####")
@@ -55,14 +63,6 @@ while resp != "0":
       print()
       input("Tecle <ENTER> para continuar...")
     
-    elif resp == "5":
-      print()
-      print("############################################")
-      print("#####     Você está no Módulo Vendas    ####")
-      print("############################################")
-      print()
-      input("Tecle <ENTER> para continuar...")
-
     elif resp == "6":
       print()
       print("############################################")

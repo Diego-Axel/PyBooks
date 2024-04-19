@@ -64,7 +64,7 @@ while resp != "0":
       print("##### Projeto de Gestão de uma Livraria ####")
       print("##### Desenvolvido por:                 ####")
       print("##### Diêgo Axel @diegoaxelbsr          ####")
-      print("##### Projeto do curso de               ####")
+      print("##### Projeto do curso de:              ####")
       print("##### Sistemas de Informação - UFRN     ####")
       print("##### Licença Pública Geral GNU         ####")
       print("##### www.gnu.org/licenses/gpl.html     ####")

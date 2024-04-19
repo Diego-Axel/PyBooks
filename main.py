@@ -2,7 +2,7 @@
 ######       SISTEMA DE GESTÃO DE UMA LIVRARIA        ######
 ######  MATÉRIA: LÓGICA E ALGORITIMOS DE PROGRAMAÇÃO  ######
 ######                   DIÊGO AXEL                   ######
-######                    CAICÓ-RM                    ######
+######                    CAICÓ-RN                    ######
 ############################################################
 
 # imports
@@ -16,11 +16,11 @@ while resp != "0":
     print("############################################")
     print("#####      1 - Módulo Clientes         #####")
     print("#####      2 - Módulo Estoque          #####")
-    print("#####      3 - Módulo Compras          #####")
-    print("#####      4 - Módulo Vendas           #####")
-    print("#####      5 - Módulo Livros/Mangas/HQ #####")
-    print("#####      6 - Módulo Informações      #####")
+    print("#####      3 - Módulo Vendas/Compras   #####")
+    print("#####      4 - Módulo Produtos         #####")
+    print("#####      5 - Módulo Informações      #####")
     print("#####      0 - Sair                    #####")
+    print()
     resp = input("##### Escolha sua opção: ")
 
     if resp == "1":
@@ -41,29 +41,21 @@ while resp != "0":
 
     elif resp == "3":
       print()
-      print("############################################")
-      print("#####    Você está no Módulo Compras    ####")
-      print("############################################")
-      print()
-      input("Tecle <ENTER> para continuar...")
-
-    elif resp == "4":
-      print()
-      print("############################################")
-      print("#####     Você está no Módulo Vendas    ####")
-      print("############################################")
+      print("#############################################")
+      print("##### Você está no Módulo Vendas/Compras ####")
+      print("#############################################")
       print()
       input("Tecle <ENTER> para continuar...")
       
-    elif resp == "5":
+    elif resp == "4":
       print()
       print("#################################################")
-      print("#####  Você está no Módulo Livros/Mangas/HQ  ####")
+      print("#####      Você está no Módulo Produtos      ####")
       print("#################################################")
       print()
       input("Tecle <ENTER> para continuar...")
     
-    elif resp == "6":
+    elif resp == "5":
       print()
       print("############################################")
       print("#####  Você está no Módulo Informações  ####")

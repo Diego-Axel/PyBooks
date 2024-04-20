@@ -16,10 +16,11 @@ while resp != "0":
   print("############################################")
   print("#####      1 - Módulo Clientes         #####")
   print("#####      2 - Módulo Estoque          #####")
-  print("#####      3 - Módulo Vendas/Compras   #####")
-  print("#####      4 - Módulo Produtos         #####")
+  print("#####      3 - Módulo Vendas           #####")
+  print("#####      4 - Módulo Relatório        #####")
   print("#####      5 - Módulo Informações      #####")
   print("#####      0 - Sair                    #####")
+  print("############################################")
   print()
   resp = input("##### Escolha sua opção: ")
 
@@ -42,7 +43,7 @@ while resp != "0":
   elif resp == "3":
     print()
     print("#############################################")
-    print("##### Você está no Módulo Vendas/Compras ####")
+    print("#####     Você está no Módulo Vendas     ####")
     print("#############################################")
     print()
     input("Tecle <ENTER> para continuar...")
@@ -50,7 +51,7 @@ while resp != "0":
   elif resp == "4":
     print()
     print("#################################################")
-    print("#####      Você está no Módulo Produtos      ####")
+    print("#####     Você está no Módulo Relatório      ####")
     print("#################################################")
     print()
     input("Tecle <ENTER> para continuar...")
@@ -70,14 +71,7 @@ while resp != "0":
     print("##### www.gnu.org/licenses/gpl.html     ####")
     print()
     input("Tecle <ENTER> para continuar...")
-    
-  else:
-    print()
-    print("############################################")
-    print("#####         Escolha inválida          ####")
-    print("############################################")
-    print()
-    input("Tecle <ENTER> para voltar ao menu inicial...")
+
 
 print()
 print("Você encerrou o programa!")

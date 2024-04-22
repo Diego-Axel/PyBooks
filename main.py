@@ -8,9 +8,30 @@
 # imports
 import os
 
-resp = ""
-while resp != "0":
+op_princ = ""
+while op_princ != "0":
   os.system('clear || cls')
+
+  print("""
+        
+       _ _                  _      
+      | (_)_ ___ _ __ _ _ _(_)__ _ 
+      | | \ V / '_/ _` | '_| / _` |
+      |_|_|\_/|_| \__,_|_| |_\__,_|   
+  
+         .--.                   .---.   
+     .---|__|           .-.     |~~~|   
+  .--|===|--|_          |_|     |~~~|--.
+  |  |===|  |'\     .---!~|  .--|   |--|
+  |==|   |  |.'\    |===| |--|==|   |  |
+  |==|   |  |\.'\   |   | |__|  |   |  |
+  |  |   |  | \  \  |===| |==|  |   |  |
+  |  |   |__|  \.'\ |   |_|__|  |~~~|__|
+  |  |===|--|   \.'\|===|~|--|==|~~~|--|
+  ^--^---'--^    `-'`---^-^--^--^---'--'
+
+  """)
+
   print("############################################")
   print("######  Sistema de Gestão - Livraria  ######")
   print("############################################")
@@ -22,57 +43,101 @@ while resp != "0":
   print("#####      0 - Sair                    #####")
   print("############################################")
   print()
-  resp = input("##### Escolha sua opção: ")
+  op_princ = input("##### Escolha sua opção: ")
 
-  if resp == "1":
-    print()
-    print("############################################")
-    print("#####   Você está no Módulo Clientes    ####")
-    print("############################################")
-    print()
-    input("Tecle <ENTER> para continuar...")
+  if op_princ == "1":
+    op_cliente = ""
+    while op_cliente != "0":
+      os.system('clear || cls')
+      print()
+      print("############################################")
+      print("#####   Você está no Módulo Clientes   #####")
+      print("############################################")
+      print("##### 1 - Cadastrar Cliente            #####")
+      print("##### 2 - Exibir Dados do Cliente      #####")
+      print("##### 3 - Alterar Dados do Cliente     #####")
+      print("##### 4 - Excluir Cliente              #####")
+      print("##### 0 - Retornar ao Menu Principal   #####")
+      print("############################################")
+      print()
+      op_cliente = input("##### Escolha sua opção: ")
+      print()
+      input("Tecle <ENTER> para continuar...")
     
-  elif resp == "2":
-    print()
-    print("############################################")
-    print("#####    Você está no Módulo Estoque    ####")
-    print("############################################")
-    print()
-    input("Tecle <ENTER> para continuar...")
+  elif op_princ == "2":
+    op_estoque = ""
+    while op_estoque != "0":
+      os.system('clear || cls')
+      print()
+      print("############################################")
+      print("#####    Você está no Módulo Estoque   #####")
+      print("############################################")
+      print("##### 1 - Cadastrar Produto            #####")
+      print("##### 2 - Exibir Dados do Produto      #####")
+      print("##### 3 - Alterar Dados do Produto     #####")
+      print("##### 4 - Excluir Produto              #####")
+      print("##### 0 - Retornar ao Menu Principal   #####")
+      print("############################################")
+      print()
+      op_estoque = input("##### Escolha sua opção: ")
+      print()
+      input("Tecle <ENTER> para continuar...")
 
-  elif resp == "3":
-    print()
-    print("#############################################")
-    print("#####     Você está no Módulo Vendas     ####")
-    print("#############################################")
-    print()
-    input("Tecle <ENTER> para continuar...")
+  elif op_princ == "3":
+    op_vendas = ""
+    while op_vendas != "0":
+      os.system('clear || cls')
+      print()
+      print("#############################################")
+      print("#####    Você está no Módulo Vendas     #####")
+      print("#############################################")
+      print("##### 1 - Cadastrar uma Venda           #####")
+      print("##### 2 - Exibir Dados de Venda         #####")
+      print("##### 3 - Alterar Dados de Venda        #####")
+      print("##### 4 - Excluir Venda                 #####")
+      print("##### 0 - Retornar ao Menu Principal    #####")
+      print("#############################################")
+      print()
+      op_vendas = input("##### Escolha sua opção: ")
+      print()
+      input("Tecle <ENTER> para continuar...")
       
-  elif resp == "4":
-    print()
-    print("#################################################")
-    print("#####     Você está no Módulo Relatório      ####")
-    print("#################################################")
-    print()
-    input("Tecle <ENTER> para continuar...")
+  elif op_princ == "4":
+    op_relatorio = ""
+    while op_relatorio != "0":
+      os.system('clear || cls')
+      print()
+      print("#################################################")
+      print("#####     Você está no Módulo Relatório     #####")
+      print("#################################################")
+      print("##### 1 - Ver Relatório de Clientes         #####")
+      print("##### 2 - Ver Relatório de Estoque          #####")
+      print("##### 3 - Ver Relatório de Vendas           #####")
+      print("##### 0 - Retornar ao Menu Principal        #####")
+      print("#################################################")
+      print()
+      op_relatorio = input("#### Escolha sua opção: ")
+      print()
+      input("Tecle <ENTER> para continuar...")
     
-  elif resp == "5":
+  elif op_princ == "5":
+    os.system('clear || cls')
     print()
-    print("############################################")
-    print("#####  Você está no Módulo Informações  ####")
-    print("############################################")
+    print("#############################################")
+    print("#####  Você está no Módulo Informações  #####")
+    print("#############################################")
+    print("##### Projeto de Gestão de uma Livraria #####")
+    print("##### Desenvolvido por: Diêgo Axel      #####")
+    print("##### Instagram: @diegoaxelbsr          #####")
+    print("##### E-mail: diegoaxelbsr@gmail.com    #####")
+    print("##### Telefone: 55 (84) 99977-4459      #####")
+    print("##### Projeto do curso de: BSI  ->      #####")
+    print("##### Sistemas de Informação - UFRN     #####")
+    print("##### GitHub: Diego-Axel | Olha lá ;)   #####")
+    print("#############################################")
     print()
-    print("##### Projeto de Gestão de uma Livraria ####")
-    print("##### Desenvolvido por:                 ####")
-    print("##### Diêgo Axel @diegoaxelbsr          ####")
-    print("##### Projeto do curso de:              ####")
-    print("##### Sistemas de Informação - UFRN     ####")
-    print("##### Licença Pública Geral GNU         ####")
-    print("##### www.gnu.org/licenses/gpl.html     ####")
-    print()
-    input("Tecle <ENTER> para continuar...")
+    input("Tecle <ENTER> para retornar ao Menu Principal...")
 
 
 print()
-print("Você encerrou o programa!")
-print("Até logo!")
+print("Programa encerrado.")

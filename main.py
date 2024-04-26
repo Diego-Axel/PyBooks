@@ -10,7 +10,7 @@ import os
 
 op_princ = ""
 while op_princ != "0":
-  os.system('clear || cls')
+  os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
 
   print("""
         
@@ -48,7 +48,7 @@ while op_princ != "0":
   if op_princ == "1":
     op_cliente = ""
     while op_cliente != "0":
-      os.system('clear || cls')
+      os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
       print()
       print("############################################")
       print("#####   Você está no Módulo Clientes   #####")
@@ -62,12 +62,11 @@ while op_princ != "0":
       print()
       op_cliente = input("##### Escolha sua opção: ")
       print()
-      input("Tecle <ENTER> para continuar...")
-    
+      input("Tecle <ENTER> para continuar...")  
   elif op_princ == "2":
     op_estoque = ""
     while op_estoque != "0":
-      os.system('clear || cls')
+      os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
       print()
       print("############################################")
       print("#####    Você está no Módulo Estoque   #####")
@@ -82,11 +81,10 @@ while op_princ != "0":
       op_estoque = input("##### Escolha sua opção: ")
       print()
       input("Tecle <ENTER> para continuar...")
-
   elif op_princ == "3":
     op_vendas = ""
     while op_vendas != "0":
-      os.system('clear || cls')
+      os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
       print()
       print("#############################################")
       print("#####    Você está no Módulo Vendas     #####")
@@ -100,12 +98,11 @@ while op_princ != "0":
       print()
       op_vendas = input("##### Escolha sua opção: ")
       print()
-      input("Tecle <ENTER> para continuar...")
-      
+      input("Tecle <ENTER> para continuar...")     
   elif op_princ == "4":
     op_relatorio = ""
     while op_relatorio != "0":
-      os.system('clear || cls')
+      os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
       print()
       print("#################################################")
       print("#####     Você está no Módulo Relatório     #####")
@@ -118,10 +115,9 @@ while op_princ != "0":
       print()
       op_relatorio = input("#### Escolha sua opção: ")
       print()
-      input("Tecle <ENTER> para continuar...")
-    
+      input("Tecle <ENTER> para continuar...")     
   elif op_princ == "5":
-    os.system('clear || cls')
+    os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
     print()
     print("#############################################")
     print("#####  Você está no Módulo Informações  #####")
@@ -139,7 +135,7 @@ while op_princ != "0":
     input("Tecle <ENTER> para retornar ao Menu Principal...")
 
 
-os.system('clear || cls')
+os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
 print()
 print("Programa encerrado.")
 print()

@@ -62,7 +62,64 @@ while op_princ != "0":
       print()
       op_cliente = input("##### Escolha sua opção: ")
       print()
-      input("Tecle <ENTER> para continuar...")  
+      if op_cliente == "1":
+        os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+        print()
+        print("############################################")
+        print("#####        Cadastrar Cliente         #####")
+        print("############################################")
+        print()
+        nome = input("##### Nome: ")
+        print()
+        email = input("#### E-mail: ")
+        print()
+        celular = input("##### Celular: ")
+        print()
+        cpf = input("##### CPF: ")
+        print()
+        print("Cliente cadastrado com sucesso!")
+        input("Tecle <ENTER> para continuar...")
+      elif op_cliente == "2":
+        os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+        print()
+        print("############################################")
+        print("#####      Exibir Dados do Cliente     #####")
+        print("############################################")
+        print()
+        print("##### Nome: %s"%nome)
+        print("##### E-mail: %s"%email)
+        print("##### Celular: %s"%celular)
+        print("##### CPF: %s"%cpf)
+        print()
+        input("Tecle <ENTER> para continuar...")
+      elif op_cliente == "3":
+        os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+        print()
+        print("############################################")
+        print("#####     Alterar Dados do Cliente     #####")
+        print("############################################")
+        print()
+        nome = input("##### Nome: ")
+        print()
+        email = input("#### E-mail: ")
+        print()
+        celular = input("##### Celular: ")
+        print()
+        cpf = input("##### CPF: ")
+        print()
+        print("Cliente alterado com sucesso!")
+        input("Tecle <ENTER> para continuar...")
+      elif op_cliente == "4":
+        os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+        print()
+        print("############################################")
+        print("#####          Excluir Cliente         #####")
+        print("############################################")
+        print()
+        cpf = input("#### CPF: ")
+        print()
+        print("Cliente excluído com sucesso!")
+        input("Tecle <ENTER> para continuar...")  
   elif op_princ == "2":
     op_estoque = ""
     while op_estoque != "0":
@@ -133,7 +190,6 @@ while op_princ != "0":
     print("#############################################")
     print()
     input("Tecle <ENTER> para retornar ao Menu Principal...")
-
 
 os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
 print()

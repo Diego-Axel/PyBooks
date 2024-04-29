@@ -11,6 +11,8 @@ import os
 # Dicionarios
 clientes = {}
 produtos = {}
+livro_genero = {}
+vendas = {}
 
 op_princ = ""
 while op_princ != "0":
@@ -94,7 +96,7 @@ while op_princ != "0":
         print("#####      Exibir Dados do Cliente     #####")
         print("############################################")
         print()
-        decisao = input("Deseja ver TODOS seus CLIENTES (S/N)? ")
+        decisao = input("##### Deseja ver TODOS seus CLIENTES (S/N)? ")
         decisao = decisao.upper()
         if (decisao == "SIM") or (decisao == "S"):
           print()
@@ -268,7 +270,7 @@ while op_princ != "0":
         print("#####      Exibir Dados do Produto     #####")
         print("############################################")
         print()
-        decisao = input("Deseja ver TODOS seus PRODUTOS (S/N)?")
+        decisao = input("##### Deseja ver TODOS seus PRODUTOS (S/N)?")
         decisao = decisao.upper()
         if (decisao == "SIM") or (decisao == "S"):
           print()
@@ -283,7 +285,7 @@ while op_princ != "0":
             print("##### Autor: ",produtos[code_produto][2])
             print("##### Ano: ",produtos[code_produto][3])
             print("##### Tipo de Capa: ",produtos[code_produto][4])
-            print("##### Quantiade Em Estoque: ",produtos[code_produto][5])
+            print("##### Quantidade Em Estoque: ",produtos[code_produto][5])
             print()
           else:
             print("Produto inexiste!")
@@ -297,23 +299,103 @@ while op_princ != "0":
         print("############################################")
         print()
         code_produto = input("##### Digite o Código do Produto: ")
-        if code_produto in produtos:
-          print()
-          nome_livro = input("##### Nome do Livro: ")
-          print()
-          descricao = input("##### Descrição: ")
-          print()
-          autor = input("##### Autor: ")
-          print()
-          ano = input("##### Ano: ")
-          print()
-          tipo_capa = input("##### Tipo de Capa: ")
-          print()
-          qtd_estoque = int(input("##### Quantidade em Estoque(NÚMERO): "))
-        else:
-          print()
-          print("Produto inexistente!")
-
+        dados_produto = True
+        while dados_produto:
+          os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+          if code_produto in produtos:
+            print()
+            print("###########################################")
+            print("######    Dados Atuais do Produto     #####")
+            print("###########################################")
+            print()
+            print("##### Nome do Livro: ",produtos[code_produto][0])
+            print("##### Descrição: ",produtos[code_produto][1])
+            print("##### Autor: ",produtos[code_produto][2])
+            print("##### Ano: ",produtos[code_produto][3])
+            print("##### Tipo de Capa: ",produtos[code_produto][4])
+            print("##### Quantidade Em Estoque: ",produtos[code_produto][5])
+            print()
+            decisao = input("##### Qual dado você deseja ALTERAR? ")
+            decisao = decisao.upper()
+            if (decisao == "NOME") or (decisao == "NOME DO LIVRO"):
+              print()
+              nome_livro = input("##### Digite o novo Nome do Livro: ")
+              print()
+              print("Produto Alterado com sucesso!")
+              print()
+              resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
+              resp = resp.upper()
+              if (resp == "S") or (resp == "SIM"):
+                print()
+              else:
+                dados_produto = False
+            elif (decisao == "DESCRIÇÃO") or (decisao == "DESCRICAO"):
+              print()
+              descricao = input("##### Digite a nova Descrição: ")
+              print()
+              print("Produto Alterado com sucesso!")
+              print()
+              resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
+              resp = resp.upper()
+              if (resp == "S") or (resp == "SIM"):
+                print()
+              else:
+                dados_produto = False
+            elif decisao == "AUTOR":
+              print()
+              autor = input("##### Digite o novo Autor: ")
+              print()
+              print("Produto Alterado com sucesso!")
+              print()
+              resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
+              resp = resp.upper()
+              if (resp == "S") or (resp == "SIM"):
+                print()
+              else:
+                dados_produto = False
+            elif decisao == "ANO":
+              print()
+              ano = input("##### Digite o novo Ano: ")
+              print()
+              print("Produto Alterado com sucesso!")
+              print()
+              resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
+              resp = resp.upper()
+              if (resp == "S") or (resp == "SIM"):
+                print()
+              else:
+                dados_produto = False
+            elif decisao == "TIPO DE CAPA":
+              print()
+              tipo_capa = input("##### Tipo de Capa: ")
+              print()
+              print("Produto Alterado com sucesso!")
+              print()
+              resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
+              resp = resp.upper()
+              if (resp == "S") or (resp == "SIM"):
+                print()
+              else:
+                dados_produto = False
+            elif decisao == "QUANTIDADE EM ESTOQUE":
+              print()
+              qtd_estoque = int(input("##### Quantidade em Estoque(NÚMERO): "))
+              print()
+              print("Produto Alterado com sucesso!")
+              print()
+              resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
+              resp = resp.upper()
+              if (resp == "S") or (resp == "SIM"):
+                print()
+              else:
+                dados_produto = False
+            produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, qtd_estoque]
+          else:
+            print()
+            print("Produto inexistente!")
+            dados_produto = False
+        print()
+        input("Tecle <ENTER> para continuar...")
 
   elif op_princ == "3":
     op_vendas = ""

@@ -81,7 +81,7 @@ while op_princ != "0":
         print()
         email = input("#### E-mail: ")
         print()
-        celular = input("##### Celular: ")
+        celular = input("##### Celular com DDD: ")
         print()
         cpf = input("##### CPF: ")
         clientes[code_cliente] = [nome, email, celular, cpf]

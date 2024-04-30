@@ -50,7 +50,6 @@ while op_princ != "0":
   print()
   op_princ = input("##### Escolha sua opção: ")
   if op_princ == "1":
-    # qtd_clientes = 0
     op_cliente = ""
     while op_cliente != "0":
       os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -75,7 +74,6 @@ while op_princ != "0":
         print("############################################")
         print()
         code_cliente = len(clientes) + 1
-        # qtd_clientes += 1
         print()
         nome = input("##### Nome: ")
         print()
@@ -450,7 +448,6 @@ while op_princ != "0":
             print()
             del produtos[code_produto]
             print("Produto excluído com sucesso!")
-            qtd_produtos -= 1
           else:
             print("Exclusão não realizada!")
         else:

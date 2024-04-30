@@ -472,6 +472,7 @@ while op_princ != "0":
       print()
       op_vendas = input("##### Escolha sua opção: ")
       if op_vendas == "1":
+        os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
         print()
       print()
       input("Tecle <ENTER> para continuar...")

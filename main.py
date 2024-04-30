@@ -230,7 +230,6 @@ while op_princ != "0":
           print()
         input("Tecle <ENTER> para continuar...")  
   elif op_princ == "2":
-    qtd_produtos = 0
     op_estoque = ""
     while op_estoque != "0":
       os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -286,7 +285,6 @@ while op_princ != "0":
         print("#####      Exibir Dados do Produto     #####")
         print("############################################")
         print()
-        print("##### Você tem um TOTAL de %s Produtos Cadastrados"%qtd_produtos)
         decisao = input("##### Deseja ver TODOS seus PRODUTOS (S/N)? ")
         decisao = decisao.upper()
         if (decisao == "SIM") or (decisao == "S"):

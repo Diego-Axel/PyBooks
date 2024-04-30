@@ -50,6 +50,7 @@ while op_princ != "0":
   print()
   op_princ = input("##### Escolha sua opção: ")
   if op_princ == "1":
+    qtd_cliente = 0
     op_cliente = ""
     while op_cliente != "0":
       os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -74,6 +75,7 @@ while op_princ != "0":
         print("############################################")
         print()
         code_cliente = len(clientes) + 1
+        qtd_cliente += 1
         print()
         nome = input("##### Nome: ")
         print()
@@ -97,29 +99,17 @@ while op_princ != "0":
         print("#####      Exibir Dados do Cliente     #####")
         print("############################################")
         print()
-        decisao = input("##### Deseja ver TODOS seus CLIENTES (S/N)? ")
-        decisao = decisao.upper()
-        if (decisao == "SIM") or (decisao == "S"):
-          for cl in clientes:
-            print()
-            print("##### Código: ",cl)
-            print("##### Nome: ",clientes[code_cliente][0])
-            print("##### E-mail: ",clientes[code_cliente][1])
-            print("##### Celular: ",clientes[code_cliente][2])
-            print("##### CPF: ",clientes[code_cliente][3])
-            print()
-        else:
+        print("##### Você tem %d Clientes Cadastrados."%qtd_cliente)
+        code_cliente = int(input("##### Digite o Código do Cliente: "))
+        if (code_cliente in clientes) and (clientes[code_cliente][4]):
           print()
-          code_cliente = int(input("##### Digite o Código do Cliente: "))
-          if (code_cliente in clientes) and (clientes[code_cliente][4]):
-            print()
-            print("##### Nome: ",clientes[code_cliente][0])
-            print("##### E-mail: ",clientes[code_cliente][1])
-            print("##### Celular: ",clientes[code_cliente][2])
-            print("##### CPF: ",clientes[code_cliente][3])
-            print()
-          else:
-            print("Cliente inexistente!")
+          print("##### Nome: ",clientes[code_cliente][0])
+          print("##### E-mail: ",clientes[code_cliente][1])
+          print("##### Celular: ",clientes[code_cliente][2])
+          print("##### CPF: ",clientes[code_cliente][3])
+          print()
+        else:
+          print("Cliente inexistente ou inativo!")
         print()
         input("Tecle <ENTER> para continuar...")
       elif op_cliente == "3":
@@ -229,6 +219,7 @@ while op_princ != "0":
           print()
         input("Tecle <ENTER> para continuar...")  
   elif op_princ == "2":
+    qtd_produto = 0
     op_estoque = ""
     while op_estoque != "0":
       os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -253,6 +244,7 @@ while op_princ != "0":
         print("############################################")
         print()
         code_produto = len(produtos) + 1
+        qtd_produto += 1
         print()
         nome_livro = input("##### Nome do Livro: ")
         print()
@@ -286,27 +278,21 @@ while op_princ != "0":
         print("#####      Exibir Dados do Produto     #####")
         print("############################################")
         print()
-        decisao = input("##### Deseja ver TODOS seus PRODUTOS (S/N)? ")
-        decisao = decisao.upper()
-        if (decisao == "SIM") or (decisao == "S"):
+        print("##### ")
+        code_produto = input("##### Digite o Código do Produto: ")
+        if (code_produto in produtos) and (produtos[code_produto][7]):
           print()
-          print(produtos)
+          print("##### Nome do Livro: ",produtos[code_produto][0])
+          print("##### Descrição: ",produtos[code_produto][1])
+          print("##### Autor: ",produtos[code_produto][2])
+          print("##### Ano: ",produtos[code_produto][3])
+          print("##### Tipo de Capa: ",produtos[code_produto][4])
+          print("##### Gênero: ", produtos[code_produto][5])
+          print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
+          print()
         else:
+          print("Produto inexiste ou inativo!")
           print()
-          code_produto = input("##### Digite o Código do Produto: ")
-          if (code_produto in produtos) and (produtos[code_produto][7]):
-            print()
-            print("##### Nome do Livro: ",produtos[code_produto][0])
-            print("##### Descrição: ",produtos[code_produto][1])
-            print("##### Autor: ",produtos[code_produto][2])
-            print("##### Ano: ",produtos[code_produto][3])
-            print("##### Tipo de Capa: ",produtos[code_produto][4])
-            print("##### Gênero: ", produtos[code_produto][5])
-            print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
-            print()
-          else:
-            print("Produto inexiste!")
-            print()
         input("Tecle <ENTER> para continuar...")
       elif op_estoque == "3":
         os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -434,7 +420,7 @@ while op_princ != "0":
         print("#####          Excluir Produto         #####")
         print("############################################")
         print()
-        code_produto = input("##### Digite o Código do Produto: ")
+        code_produto = int(input("##### Digite o Código do Produto: "))
         if code_produto in produtos:
           print()
           print("##### Nome do Livro: ",produtos[code_produto][0])

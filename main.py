@@ -471,8 +471,11 @@ while op_princ != "0":
       print("#############################################")
       print()
       op_vendas = input("##### Escolha sua opção: ")
+      if op_vendas == "1":
+        print()
       print()
-      input("Tecle <ENTER> para continuar...")     
+      input("Tecle <ENTER> para continuar...")
+
   elif op_princ == "4":
     op_relatorio = ""
     while op_relatorio != "0":

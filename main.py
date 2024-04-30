@@ -525,3 +525,15 @@ print("""
                                                \_____\___\____ \        
                                              
   """)
+
+#import random
+#import string
+
+#def gerar_codigo(tamanho):     # Desenvolvido por: Paulo Douglas Github: Paulo-Douglas
+#    caracteres = string.ascii_uppercase  
+#    codigo = ''.join(random.choice(caracteres) for _ in range(tamanho))
+#    return codigo
+
+#tamanho_codigo = 4  # Tamanho do código desejado
+#codigo_gerado = gerar_codigo(tamanho_codigo)
+#print("Código gerado:", codigo_gerado)

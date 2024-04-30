@@ -101,8 +101,8 @@ while op_princ != "0":
         decisao = input("##### Deseja ver TODOS seus CLIENTES (S/N)? ")
         decisao = decisao.upper()
         if (decisao == "SIM") or (decisao == "S"):
-          print()
-          print(clientes , "\n")
+          for cl in clientes:
+            print("CÓDIGO", "NOME", end="\t\t")
         else:
           print()
           code_cliente = int(input("##### Digite o Código do Cliente: "))

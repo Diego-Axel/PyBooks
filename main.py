@@ -102,7 +102,12 @@ while op_princ != "0":
         decisao = decisao.upper()
         if (decisao == "SIM") or (decisao == "S"):
           for cl in clientes:
-            print("CÓDIGO", "NOME", end="\t\t")
+            print("##### Código: ",cl)
+            print("##### Nome: ",clientes[code_cliente][0])
+            print("##### E-mail: ",clientes[code_cliente][1])
+            print("##### Celular: ",clientes[code_cliente][2])
+            print("##### CPF: ",clientes[code_cliente][3])
+            print()
         else:
           print()
           code_cliente = int(input("##### Digite o Código do Cliente: "))

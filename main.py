@@ -50,7 +50,7 @@ while op_princ != "0":
   print()
   op_princ = input("##### Escolha sua opção: ")
   if op_princ == "1":
-    qtd_clientes = 0
+    # qtd_clientes = 0
     op_cliente = ""
     while op_cliente != "0":
       os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -74,8 +74,8 @@ while op_princ != "0":
         print("#####        Cadastrar Cliente         #####")
         print("############################################")
         print()
-        code_cliente = input("##### Digite o Código do Cliente: ")
-        qtd_clientes += 1
+        code_cliente = len(clientes) + 1
+        # qtd_clientes += 1
         print()
         nome = input("##### Nome: ")
         print()
@@ -84,7 +84,8 @@ while op_princ != "0":
         celular = input("##### Celular com DDD: ")
         print()
         cpf = input("##### CPF: ")
-        clientes[code_cliente] = [nome, email, celular, cpf]
+        ativo = True
+        clientes[code_cliente] = [nome, email, celular, cpf, ativo]
         print()
         print(clientes)
         print("Cliente cadastrado com sucesso!")
@@ -97,7 +98,6 @@ while op_princ != "0":
         print("#####      Exibir Dados do Cliente     #####")
         print("############################################")
         print()
-        print("##### Você tem um TOTAL de %s Clientes Cadastrados"%qtd_clientes)
         decisao = input("##### Deseja ver TODOS seus CLIENTES (S/N)? ")
         decisao = decisao.upper()
         if (decisao == "SIM") or (decisao == "S"):
@@ -105,8 +105,8 @@ while op_princ != "0":
           print(clientes , "\n")
         else:
           print()
-          code_cliente = input("##### Digite o Código do Cliente: ")
-          if code_cliente in clientes:
+          code_cliente = int(input("##### Digite o Código do Cliente: "))
+          if (code_cliente in clientes) and (clientes[code_cliente][4]):
             print()
             print("##### Nome: ",clientes[code_cliente][0])
             print("##### E-mail: ",clientes[code_cliente][1])
@@ -202,7 +202,7 @@ while op_princ != "0":
         print("#####          Excluir Cliente         #####")
         print("############################################")
         print()
-        code_cliente = input("##### Digite o Código do Cliente: ")
+        code_cliente = int(input("##### Digite o Código do Cliente: "))
         if code_cliente in clientes:
           print()
           print("##### Nome: ",clientes[code_cliente][0])
@@ -214,9 +214,9 @@ while op_princ != "0":
           decisao = decisao.upper()
           if (decisao == "SIM") or (decisao == "S"):
             print()
-            del clientes[code_cliente]
+            clientes[code_cliente][4] = False
+            # del clientes[code_cliente]
             print("Cliente excluído(a) com sucesso!")
-            qtd_clientes -= 1 
           else:
             print("Exclusão não realizada!")
         else:

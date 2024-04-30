@@ -51,6 +51,7 @@ while op_princ != "0":
   op_princ = input("##### Escolha sua opção: ")
   if op_princ == "1":
     op_cliente = ""
+    qtd_clientes = 0
     while op_cliente != "0":
       os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
       print()
@@ -74,6 +75,7 @@ while op_princ != "0":
         print("############################################")
         print()
         code_cliente = input("##### Digite o Código do Cliente: ")
+        qtd_clientes += 1
         print()
         nome = input("##### Nome: ")
         print()
@@ -95,6 +97,7 @@ while op_princ != "0":
         print("#####      Exibir Dados do Cliente     #####")
         print("############################################")
         print()
+        print("##### Você tem um TOTAL de %s Clientes Cadastrados"%qtd_clientes)
         decisao = input("##### Deseja ver TODOS seus CLIENTES (S/N)? ")
         decisao = decisao.upper()
         if (decisao == "SIM") or (decisao == "S"):

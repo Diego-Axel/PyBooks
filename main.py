@@ -294,7 +294,7 @@ while op_princ != "0":
         else:
           print()
           code_produto = input("##### Digite o Código do Produto: ")
-          if code_produto in produtos:
+          if (code_produto in produtos) and (produtos[code_produto][7]):
             print()
             print("##### Nome do Livro: ",produtos[code_produto][0])
             print("##### Descrição: ",produtos[code_produto][1])
@@ -449,7 +449,7 @@ while op_princ != "0":
           decisao = decisao.upper()
           if (decisao == "SIM") or (decisao == "S"):
             print()
-            del produtos[code_produto]
+            produtos[code_produto][7] = False
             print("Produto excluído com sucesso!")
           else:
             print("Exclusão não realizada!")

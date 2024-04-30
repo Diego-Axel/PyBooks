@@ -82,6 +82,7 @@ while op_princ != "0":
         celular = input("##### Celular com DDD: ")
         print()
         cpf = input("##### CPF: ")
+        print()
         ativo = True
         clientes[code_cliente] = [nome, email, celular, cpf, ativo]
         print()
@@ -251,7 +252,7 @@ while op_princ != "0":
         print("#####        Cadastrar Produto         #####")
         print("############################################")
         print()
-        code_produto = input("##### Digite o Código do Produto: ")
+        code_produto = len(produtos) + 1
         print()
         nome_livro = input("##### Nome do Livro: ")
         print()
@@ -270,7 +271,9 @@ while op_princ != "0":
         print()
         qtd_estoque = int(input("##### Quantidade em Estoque (NÚMERO): "))
         print()
-        produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque]
+        ativo_prd = True
+        print()
+        produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque, ativo_prd]
         print()
         print(produtos)
         print("Produto cadastrado com sucesso!")

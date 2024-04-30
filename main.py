@@ -102,6 +102,7 @@ while op_princ != "0":
         decisao = decisao.upper()
         if (decisao == "SIM") or (decisao == "S"):
           for cl in clientes:
+            print()
             print("##### Código: ",cl)
             print("##### Nome: ",clientes[code_cliente][0])
             print("##### E-mail: ",clientes[code_cliente][1])

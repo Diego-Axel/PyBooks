@@ -216,6 +216,7 @@ while op_princ != "0":
             print()
             del clientes[code_cliente]
             print("Cliente excluído(a) com sucesso!")
+            qtd_clientes -= 1 
           else:
             print("Exclusão não realizada!")
         else:
@@ -281,7 +282,7 @@ while op_princ != "0":
         print("############################################")
         print()
         print("##### Você tem um TOTAL de %s Produtos Cadastrados"%qtd_produtos)
-        decisao = input("##### Deseja ver TODOS seus PRODUTOS (S/N)?" )
+        decisao = input("##### Deseja ver TODOS seus PRODUTOS (S/N)? ")
         decisao = decisao.upper()
         if (decisao == "SIM") or (decisao == "S"):
           print()
@@ -422,6 +423,38 @@ while op_princ != "0":
             dados_produto = False
         print()
         input("Tecle <ENTER> para continuar...")
+      elif op_estoque == "4":
+        os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+        print()
+        print("############################################")
+        print("#####          Excluir Produto         #####")
+        print("############################################")
+        print()
+        code_produto = input("##### Digite o Código do Produto: ")
+        if code_produto in produtos:
+          print()
+          print("##### Nome do Livro: ",produtos[code_produto][0])
+          print("##### Descrição: ",produtos[code_produto][1])
+          print("##### Autor: ",produtos[code_produto][2])
+          print("##### Ano: ",produtos[code_produto][3])
+          print("##### Tipo de Capa: ",produtos[code_produto][4])
+          print("##### Gênero: ", produtos[code_produto][5])
+          print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
+          print()
+          decisao = input("Tem certeza que deseja EXCLUIR esse Produto (S/N)? ")
+          decisao = decisao.upper()
+          if (decisao == "SIM") or (decisao == "S"):
+            print()
+            del produtos[code_produto]
+            print("Produto excluído com sucesso!")
+            qtd_produtos -= 1
+          else:
+            print("Exclusão não realizada!")
+        else:
+          print("Produto inexistente!")
+          print()
+        input("Tecle <ENTER> para continuar...")
+
   elif op_princ == "3":
     op_vendas = ""
     while op_vendas != "0":

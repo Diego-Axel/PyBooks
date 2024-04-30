@@ -255,7 +255,6 @@ while op_princ != "0":
         print("############################################")
         print()
         code_produto = input("##### Digite o Código do Produto: ")
-        qtd_produtos += 1
         print()
         nome_livro = input("##### Nome do Livro: ")
         print()

@@ -123,7 +123,7 @@ while op_princ != "0":
         dados_cliente = True
         while dados_cliente:
           os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-          if code_cliente in clientes:
+          if (code_cliente in clientes) and (clientes[code_cliente][4]):
             print()
             print("###########################################")
             print("######    Dados Atuais do Cliente     #####")
@@ -186,7 +186,7 @@ while op_princ != "0":
             clientes[code_cliente] = [nome, email, celular, cpf]
           else:
             print()
-            print("Cliente inexistente!")
+            print("Cliente inexistente ou inativo!")
             dados_cliente = False
         print()
         input("Tecle <ENTER> para continuar...")
@@ -198,7 +198,7 @@ while op_princ != "0":
         print("############################################")
         print()
         code_cliente = int(input("##### Digite o Código do Cliente: "))
-        if code_cliente in clientes:
+        if (code_cliente in clientes) and (clientes[code_cliente][4]):
           print()
           print("##### Nome: ",clientes[code_cliente][0])
           print("##### E-mail: ",clientes[code_cliente][1])
@@ -215,7 +215,7 @@ while op_princ != "0":
           else:
             print("Exclusão não realizada!")
         else:
-          print("Cliente inexistente!")
+          print("Cliente inexistente ou inativo!")
           print()
         input("Tecle <ENTER> para continuar...")  
   elif op_princ == "2":
@@ -278,7 +278,7 @@ while op_princ != "0":
         print("#####      Exibir Dados do Produto     #####")
         print("############################################")
         print()
-        print("##### ")
+        print("##### Você tem %d Produtos Cadastrados."%qtd_produto)
         code_produto = input("##### Digite o Código do Produto: ")
         if (code_produto in produtos) and (produtos[code_produto][7]):
           print()
@@ -291,7 +291,7 @@ while op_princ != "0":
           print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
           print()
         else:
-          print("Produto inexiste ou inativo!")
+          print("Produto inexiste ou deletado!")
           print()
         input("Tecle <ENTER> para continuar...")
       elif op_estoque == "3":
@@ -305,7 +305,7 @@ while op_princ != "0":
         dados_produto = True
         while dados_produto:
           os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-          if code_produto in produtos:
+          if (code_produto in produtos) and (produtos[code_produto][7]):
             print()
             print("###########################################")
             print("######    Dados Atuais do Produto     #####")
@@ -409,7 +409,7 @@ while op_princ != "0":
             produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque]
           else:
             print()
-            print("Produto inexistente!")
+            print("Produto inexistente ou deletado!")
             dados_produto = False
         print()
         input("Tecle <ENTER> para continuar...")
@@ -421,7 +421,7 @@ while op_princ != "0":
         print("############################################")
         print()
         code_produto = int(input("##### Digite o Código do Produto: "))
-        if code_produto in produtos:
+        if (code_produto in produtos) and (produtos[code_produto][7]):
           print()
           print("##### Nome do Livro: ",produtos[code_produto][0])
           print("##### Descrição: ",produtos[code_produto][1])
@@ -440,7 +440,7 @@ while op_princ != "0":
           else:
             print("Exclusão não realizada!")
         else:
-          print("Produto inexistente!")
+          print("Produto inexistente ou deletado!")
           print()
         input("Tecle <ENTER> para continuar...")
 

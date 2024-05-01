@@ -7,6 +7,12 @@
 
 # imports
 import os
+import datetime
+
+data = datetime.date.today()
+dia = data.day
+mes = data.month
+ano = data.year
 
 # Dicionarios
 clientes = {
@@ -81,7 +87,6 @@ while op_princ != "0":
         print()
         code_cliente = len(clientes) + 1
         qtd_cliente += 1
-        print()
         nome = input("##### Nome: ")
         print()
         email = input("#### E-mail: ")
@@ -450,6 +455,7 @@ while op_princ != "0":
         input("Tecle <ENTER> para continuar...")
 
   elif op_princ == "3":
+    qtd_vendas = 0
     op_vendas = ""
     while op_vendas != "0":
       os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -472,9 +478,15 @@ while op_princ != "0":
         print("############################################")
         print()
         code_venda = len(vendas) + 1
+        qtd_vendas += 1
+        nome_venda = input("##### Nome do Cliente: ")
+        print()
+        forma_pgto = input("##### Forma de pagamento: ")
+        print()
+
       print()
       input("Tecle <ENTER> para continuar...")
-
+      
   elif op_princ == "4":
     op_relatorio = ""
     while op_relatorio != "0":

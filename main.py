@@ -462,7 +462,9 @@ while op_princ != "0":
       op_vendas = input("##### Escolha sua opção: ")
       if op_vendas == "1":
         os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-        code_venda = input("Digite o código ")
+        print("############################################")
+        print("#####         Cadastrar Venda          #####")
+        print("############################################")
         print()
       print()
       input("Tecle <ENTER> para continuar...")

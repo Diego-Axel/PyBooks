@@ -9,7 +9,12 @@
 import os
 
 # Dicionarios
-clientes = {}
+clientes = {
+    1: ['Jaqueline', 'jaqueline@gmail.com', '(84)99977-2243', '123.321.123-33', True],
+    2: ['Carlos', 'carlos@gmail.com', '(84)99977-5500', '123.321.123-11', True],
+    3: ['Thomas Daniel', 'TDaniel@gmail.com', '(84)99911-0000', '123.321.123-07', True]
+    
+}
 produtos = {}
 vendas = {}
 
@@ -50,7 +55,7 @@ while op_princ != "0":
   print()
   op_princ = input("##### Escolha sua opção: ")
   if op_princ == "1":
-    qtd_cliente = 0
+    qtd_cliente = 3
     op_cliente = ""
     while op_cliente != "0":
       os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -466,6 +471,7 @@ while op_princ != "0":
         print("#####         Cadastrar Venda          #####")
         print("############################################")
         print()
+        code_venda = len(vendas) + 1
       print()
       input("Tecle <ENTER> para continuar...")
 

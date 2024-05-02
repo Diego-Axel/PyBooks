@@ -802,10 +802,6 @@ print("""
 #print("Código gerado:", codigo_gerado)
 
 
-
-
-
-
 # import re
 
 # def validar_email(email):

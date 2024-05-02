@@ -6,6 +6,7 @@
 ############################################################
 
 # imports
+import time
 import os
 import datetime
 
@@ -14,15 +15,34 @@ dia = data.day
 mes = data.month
 ano = data.year
 
-# Dicionarios
+
+################################################################
+################################################################
+##########                DICIONARIOS                 ##########
+################################################################
+################################################################
+
+# Dados para Testes
+
 clientes = {
     1: ['Jaqueline', 'jaqueline@gmail.com', '(84)99977-2243', '123.321.123-33', True],
     2: ['Carlos', 'carlos@gmail.com', '(84)99977-5500', '123.321.123-11', True],
-    3: ['Thomas Daniel', 'TDaniel@gmail.com', '(84)99911-0000', '123.321.123-07', True]
+    3: ['Thomas Daniel', 'TDaniel@gmail.com', '(84)99911-0000', '123.321.123-07', True],
+    4: ['Joaqum Dutra', 'joaquim@gmail.com', '(84)99911-0000', '123.321.123-07', False]
     
 }
-produtos = {}
-vendas = {}
+
+produtos = {
+    1: ['Harry Potter', 'Um bruxinho que embarca em uma aventura cheia de fantasia.', 'Diego Axel', '2001', 'Dura', 2, 2, True],
+    2: ['Clean Code', 'Livro para programadores que querem deixar seu código mais legível e limpo.', 'Flavius Gorgônio', '2005', 'Dura', 4, 6, False],
+    3: ['Python Básico', 'Aprenda Python do Zero!', 'FULANO', '1999', 'Mole', 4, 10, True]
+}
+
+vendas = {
+    1: [datetime.date(2024, 5, 1), 'Axel', 'Harry Potter', '4', 20.43, 'Cartão', True],
+    2: [datetime.date(2024, 5, 1), 'Denise', 'Clean Code', '5', 15.67, 'Débito', True],
+    3: [datetime.date(2024, 5, 1), 'Carlos', 'Jurassic Park', '1', 20.23, 'Dinheiro', False]
+}
 
 op_princ = ""
 while op_princ != "0":
@@ -61,7 +81,6 @@ while op_princ != "0":
   print()
   op_princ = input("##### Escolha sua opção: ")
   if op_princ == "1":
-    qtd_cliente = 3
     op_cliente = ""
     while op_cliente != "0":
       os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -86,7 +105,6 @@ while op_princ != "0":
         print("############################################")
         print()
         code_cliente = len(clientes) + 1
-        qtd_cliente += 1
         nome = input("##### Nome: ")
         print()
         email = input("#### E-mail: ")
@@ -109,7 +127,6 @@ while op_princ != "0":
         print("#####      Exibir Dados do Cliente     #####")
         print("############################################")
         print()
-        print("##### Você tem %d Clientes Cadastrados."%qtd_cliente)
         code_cliente = int(input("##### Digite o Código do Cliente: "))
         if (code_cliente in clientes) and (clientes[code_cliente][4]):
           print()
@@ -129,7 +146,7 @@ while op_princ != "0":
         print("#####     Alterar Dados do Cliente     #####")
         print("############################################")
         print()
-        code_cliente = input("##### Digite o Código do Cliente: ")
+        code_cliente = int(input("##### Digite o Código do Cliente: "))
         dados_cliente = True
         while dados_cliente:
           os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -157,7 +174,7 @@ while op_princ != "0":
                 print()
               else:
                 dados_cliente = False
-            elif decisao == "E-MAIL":
+            elif (decisao == "E-MAIL") or (decisao == "EMAIL"):
               print()
               email = input("#### Digite o novo E-mail: ")
               print()
@@ -193,7 +210,7 @@ while op_princ != "0":
                 print()
               else:
                 dados_cliente = False
-            clientes[code_cliente] = [nome, email, celular, cpf]
+            clientes[code_cliente] = [nome, email, celular, cpf, ativo]
           else:
             print()
             print("Cliente inexistente ou inativo!")
@@ -220,7 +237,6 @@ while op_princ != "0":
           if (decisao == "SIM") or (decisao == "S"):
             print()
             clientes[code_cliente][4] = False
-            # del clientes[code_cliente]
             print("Cliente excluído(a) com sucesso!")
           else:
             print("Exclusão não realizada!")
@@ -229,7 +245,6 @@ while op_princ != "0":
           print()
         input("Tecle <ENTER> para continuar...")  
   elif op_princ == "2":
-    qtd_produto = 0
     op_estoque = ""
     while op_estoque != "0":
       os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -254,7 +269,6 @@ while op_princ != "0":
         print("############################################")
         print()
         code_produto = len(produtos) + 1
-        qtd_produto += 1
         print()
         nome_livro = input("##### Nome do Livro: ")
         print()
@@ -288,8 +302,7 @@ while op_princ != "0":
         print("#####      Exibir Dados do Produto     #####")
         print("############################################")
         print()
-        print("##### Você tem %d Produtos Cadastrados."%qtd_produto)
-        code_produto = input("##### Digite o Código do Produto: ")
+        code_produto = int(input("##### Digite o Código do Produto: "))
         if (code_produto in produtos) and (produtos[code_produto][7]):
           print()
           print("##### Nome do Livro: ",produtos[code_produto][0])
@@ -311,7 +324,7 @@ while op_princ != "0":
         print("#####     Alterar Dados do Produto     #####")
         print("############################################")
         print()
-        code_produto = input("##### Digite o Código do Produto: ")
+        code_produto = int(input("##### Digite o Código do Produto: "))
         dados_produto = True
         while dados_produto:
           os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -416,7 +429,7 @@ while op_princ != "0":
                 print()
               else:
                 dados_produto = False
-            produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque]
+            produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque, ativo_prd]
           else:
             print()
             print("Produto inexistente ou deletado!")
@@ -453,9 +466,7 @@ while op_princ != "0":
           print("Produto inexistente ou deletado!")
           print()
         input("Tecle <ENTER> para continuar...")
-
   elif op_princ == "3":
-    qtd_vendas = 0
     op_vendas = ""
     while op_vendas != "0":
       os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -478,15 +489,164 @@ while op_princ != "0":
         print("############################################")
         print()
         code_venda = len(vendas) + 1
-        qtd_vendas += 1
+        data_venda = ("%02d/%02d/%d"%(dia, mes, ano))
+        print()
         nome_venda = input("##### Nome do Cliente: ")
         print()
-        forma_pgto = input("##### Forma de pagamento: ")
+        livro_compradro = input("##### Nome do Livro Comprado: ")
         print()
-
-      print()
-      input("Tecle <ENTER> para continuar...")
-      
+        unidades = input("##### Unidades Adquiridas: ")
+        print()
+        valor = float(input("##### Valor da compra (R$): "))
+        print()
+        forma_pgto = input("##### Forma de pagamento: ")
+        ativo_venda = True
+        print()
+        vendas[code_venda] = [data, nome_venda, livro_compradro, unidades, valor, forma_pgto, ativo_venda]
+        print(vendas)
+        print()
+        print("Venda cadastrada com sucesso!")
+        print()
+        input("Tecle <ENTER> para continuar...")
+      elif op_vendas == "2":
+        os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+        print()
+        print("############################################")
+        print("#####      Exibir Dados do Vendas      #####")
+        print("############################################")
+        print()
+        code_venda = int(input("##### Digite o Código de Venda: "))
+        if (code_venda in vendas) and (vendas[code_venda][6]):
+          print()
+          print("##### Data de venda: ",vendas[code_venda][0])
+          print("##### Nome do Cliente: ",vendas[code_venda][1])
+          print("##### Livro Comprado: ",vendas[code_venda][2])
+          print("##### Unidades Adquiridas: ",vendas[code_venda][3])
+          print("##### Valor R$",vendas[code_venda][4])
+          print("##### Forma de Pagamento: ",vendas[code_venda][5])
+          print()
+        else:
+          print()
+          print("Venda inexistente ou deletada!")
+          print()
+        input("tecle <ENTER> para continuar...")
+      elif op_vendas == "3":
+        os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+        print()
+        print("############################################")
+        print("#####      Alterar Dados de Venda      #####")
+        print("############################################")
+        print()
+        code_venda = int(input("##### Digite o Código da Venda: "))
+        dados_venda = True
+        while dados_venda:
+          os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+          if (code_venda in vendas) and (vendas[code_venda][6]):
+            print()
+            print("##### Data de venda: ",vendas[code_venda][0])
+            print("##### Nome do Cliente: ",vendas[code_venda][1])
+            print("##### Livro Comprado: ",vendas[code_venda][2])
+            print("##### Unidades Adquiridas: ",vendas[code_venda][3])
+            print("##### Valor R$",vendas[code_venda][4])
+            print("##### Forma de Pagamento: ",vendas[code_venda][5])
+            print()
+            decisao = input("##### Qual dado você deseja ALTERAR? ")
+            decisao = decisao.upper()
+            if (decisao == "NOME DO CLIENTE") or (decisao == "NOME") or (decisao == "CLIENTE"):
+              print()
+              nome_venda = input("##### Digite o novo Nome do Cliente que realizou a venda: ")
+              print()
+              print("##### Venda Alterada com sucesso")
+              print()
+              resp = input("##### Deseja Alterar mais dados (S/N)? ")
+              resp = resp.upper()
+              if (resp == "SIM") or (resp == "S"):
+                print()
+              else:
+                dados_venda = False
+            elif (decisao == "NOME DO LIVRO") or (decisao == "LIVRO COMPRADO") or (decisao == "LIVRO"):
+              print()
+              livro_compradro = input("##### Digite o novo Nome do Livro que foi vendido: ")
+              print()
+              print("##### Venda Alterada com sucesso")
+              print()
+              resp = input("##### Deseja Alterar mais dados (S/N)? ")
+              resp = resp.upper()
+              if (resp == "SIM") or (resp == "S"):
+                print()
+              else:
+                dados_venda = False
+            elif (decisao == "UNIDADES") or (decisao == "UNIDADE") or (decisao == "UNIDADES VENDIDAS"):
+              print()
+              unidades = input("##### Digite a nova quantidade de unidade(s) vendida(s):  ")
+              print()
+              print("##### Venda Alterada com sucesso")
+              print()
+              resp = input("##### Deseja Alterar mais dados (S/N)? ")
+              resp = resp.upper()
+              if (resp == "SIM") or (resp == "S"):
+                print()
+              else:
+                dados_venda = False
+            elif (decisao == "VALOR") or (decisao == "VALOR DE VENDA"):
+              print()
+              valor = float(input("##### Digite o novo valor (R$) da venda: "))
+              print()
+              print("##### Venda Alterada com sucesso")
+              print()
+              resp = input("##### Deseja Alterar mais dados (S/N)? ")
+              resp = resp.upper()
+              if (resp == "SIM") or (resp == "S"):
+                print()
+              else:
+                dados_venda = False
+            elif (decisao == "FORMA DE PAGAMENTO") or (decisao == "PAGAMENTO"):
+              print()
+              forma_pgto = input("##### Digite a nova forma de pagamento desta venda: : ")
+              print()
+              print("##### Venda Alterada com sucesso")
+              print()
+              resp = input("##### Deseja Alterar mais dados (S/N)? ")
+              resp = resp.upper()
+              if (resp == "SIM") or (resp == "S"):
+                print()
+              else:
+                dados_venda = False
+            vendas[code_venda] = [data_venda, nome_venda, livro_compradro, unidades, valor, forma_pgto, ativo_venda]
+          else:
+            dados_venda = False
+            print()
+            print("Venda inexistente ou deletada!")
+            print()
+        input("tecle <ENTER> para continuar...")
+      elif op_vendas == "4":
+        os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+        print()
+        print("############################################")
+        print("#####           Excluir Venda          #####")
+        print("############################################")
+        print()
+        code_venda = int(input("##### Digite o Código da Venda: "))
+        if (code_venda in vendas) and (vendas[code_venda][6]):
+          print()
+          print("##### Data de venda: ",vendas[code_venda][0])
+          print("##### Nome do Cliente: ",vendas[code_venda][1])
+          print("##### Livro Comprado: ",vendas[code_venda][2])
+          print("##### Unidades Adquiridas: ",vendas[code_venda][3])
+          print("##### Valor R$",vendas[code_venda][4])
+          print("##### Forma de Pagamento: ",vendas[code_venda][5])
+          print()
+          decisao = input("Tem certeza que deseja EXCLUIR essa Venda (S/N)? ")
+          decisao = decisao.upper()
+          if (decisao == "SIM") or (decisao == "S"):
+            print()
+            vendas[code_venda][6] = False
+            print("Venda excluída com sucesso!")
+            print()
+        else:
+          print("##### Venda inexistente ou deletada!")
+          print()
+        input("tecle <ENTER> para continuar...")
   elif op_princ == "4":
     op_relatorio = ""
     while op_relatorio != "0":
@@ -503,7 +663,90 @@ while op_princ != "0":
       print()
       op_relatorio = input("#### Escolha sua opção: ")
       print()
-      input("Tecle <ENTER> para continuar...")     
+      if op_relatorio == "1":
+        os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+        print()
+        print("#################################################")
+        print("#####          Relatório de Clientes        #####")
+        print("#################################################")
+        print()
+        for code_cliente in clientes:
+          if clientes[code_cliente][4]:
+            print("##### Código do Cliente: ",code_cliente)
+            print("##### Nome: ",clientes[code_cliente][0])
+            print("##### E-mail: ",clientes[code_cliente][1])
+            print("##### Celular: ",clientes[code_cliente][2])
+            print("##### CPF: ",clientes[code_cliente][3])
+          else:
+            print("################################")
+            print("#####  CLIENTE NÃO ATIVO!  #####")
+            print("################################")
+            print("##### Código do Cliente: ",code_cliente)
+            print("##### Nome: ",clientes[code_cliente][0])
+            print("##### E-mail: ",clientes[code_cliente][1])
+            print("##### Celular: ",clientes[code_cliente][2])
+            print("##### CPF: ",clientes[code_cliente][3])
+          print("-------------------------------------------------")
+        input("tecle <ENTER> para continuar...")
+      elif op_relatorio == "2":
+        os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+        print()
+        print("#################################################")
+        print("#####          Relatório de Estoque         #####")
+        print("#################################################")
+        print()
+        for code_produto in produtos:
+          if produtos[code_produto][7]:
+            print("##### Código do Produto: ",code_produto)
+            print("##### Nome do Livro: ",produtos[code_produto][0])
+            print("##### Descrição: ",produtos[code_produto][1])
+            print("##### Autor: ",produtos[code_produto][2])
+            print("##### Ano: ",produtos[code_produto][3])
+            print("##### Tipo de Capa: ",produtos[code_produto][4])
+            print("##### Gênero: ", produtos[code_produto][5])
+            print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
+          else:
+              print("################################")
+              print("#####   PRODUTO DELETADO   #####")
+              print("################################")
+              print("##### Nome do Livro: ",produtos[code_produto][0])
+              print("##### Descrição: ",produtos[code_produto][1])
+              print("##### Autor: ",produtos[code_produto][2])
+              print("##### Ano: ",produtos[code_produto][3])
+              print("##### Tipo de Capa: ",produtos[code_produto][4])
+              print("##### Gênero: ", produtos[code_produto][5])
+              print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
+          print("-------------------------------------------------")
+        input("tecle <ENTER> para continuar...")  
+      elif op_relatorio == "3":
+        os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+        print()
+        print("#################################################")
+        print("#####          Relatório de Vendas          #####")
+        print("#################################################")
+        print()
+        for code_venda in vendas:
+          if vendas[code_venda][6]:
+            print("##### Código de Venda: ",code_venda)
+            print("##### Data de venda: ",vendas[code_venda][0])
+            print("##### Nome do Cliente: ",vendas[code_venda][1])
+            print("##### Livro Comprado: ",vendas[code_venda][2])
+            print("##### Unidades Adquiridas: ",vendas[code_venda][3])
+            print("##### Valor R$",vendas[code_venda][4])
+            print("##### Forma de Pagamento: ",vendas[code_venda][5])
+          else:
+              print("################################")
+              print("#####    VENDA DELETADA    #####")
+              print("################################")
+              print("##### Código de Venda: ",code_venda)
+              print("##### Data de venda: ",vendas[code_venda][0])
+              print("##### Nome do Cliente: ",vendas[code_venda][1])
+              print("##### Livro Comprado: ",vendas[code_venda][2])
+              print("##### Unidades Adquiridas: ",vendas[code_venda][3])
+              print("##### Valor R$",vendas[code_venda][4])
+              print("##### Forma de Pagamento: ",vendas[code_venda][5])
+          print("-------------------------------------------------")
+        input("tecle <ENTER> para continuar...")
   elif op_princ == "5":
     os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
     print()
@@ -557,3 +800,21 @@ print("""
 #tamanho_codigo = 4  # Tamanho do código desejado
 #codigo_gerado = gerar_codigo(tamanho_codigo)
 #print("Código gerado:", codigo_gerado)
+
+
+
+
+
+
+# import re
+
+# def validar_email(email):
+#     padrao = re.compile(r'^[\w-]+@[a-z\d]+\.[\w]{2,3}$')
+#     return padrao.match(email) is not None
+
+# # Exemplo de uso:
+# email = input("Digite um endereço de e-mail: ")
+# if validar_email(email):
+#     print("O e-mail é válido.")
+# else:
+#     print("O e-mail não é válido.")

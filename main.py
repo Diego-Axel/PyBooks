@@ -9,6 +9,7 @@
 import time
 import os
 import datetime
+import re
 
 data = datetime.date.today()
 dia = data.day
@@ -49,6 +50,12 @@ vendas = {
 ##########               F U N Ç Õ E S                ##########
 ################################################################
 ################################################################
+
+
+def validar_email(email): # Função para verificar se o e-mail é válido
+  padrao = re.compile(r'^[\w-]+@[a-z\d]+\.[\w]{2,3}$')
+  return padrao.match(email) is not None
+
 
 def menu_principal(): # Funcão do Menu Principal
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -114,7 +121,15 @@ def cadastrar_cliente():
   code_cliente = len(clientes) + 1
   nome = input("##### Nome: ")
   print()
-  email = input("#### E-mail: ")
+  verificador = True
+  while verificador:
+    email = input("#### E-mail: ")
+    if validar_email(email):
+      print("E-mail válido!")
+      verificador = False
+    else:
+      print("O e-mail não é válido. Por favor digite novamente.")
+      print()
   print()
   celular = input("##### Celular com DDD: ")
   print()
@@ -187,7 +202,15 @@ def alterar_cliente():
           dados_cliente = False
       elif (decisao == "E-MAIL") or (decisao == "EMAIL"):
         print()
-        email = input("#### Digite o novo E-mail: ")
+        verificador = True
+        while verificador:
+          email = input("#### Digite o novo E-mail: ")
+          if validar_email(email):
+            print("O e-mail é válido.")
+            verificador = False
+          else:
+            print("O e-mail não é válido. Por favor digite novamente.")
+            print()
         print()
         print("Cliente Alterado com sucesso!")
         print()

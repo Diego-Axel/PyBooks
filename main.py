@@ -280,7 +280,13 @@ def cadastrar_produto():
   print("###########################")
   print("| 1 - Ação \n| 2 - Ficção \n| 3 - Suspense \n| 4 - Educativo \n| 5 - Infantil \n| 6 - Recreativo \n| 7 - Amplo")
   print()
-  genero = int(input("##### Tipo de Gênero (NÚMERO): "))
+  verificador = True
+  while verificador:
+    try: # Tratar exeções junto com o EXCEPT
+      genero = int(input("##### Tipo de Gênero (NÚMERO): "))
+      verificador = False
+    except ValueError:
+      print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
   print()
   qtd_estoque = int(input("##### Quantidade em Estoque (NÚMERO): "))
   print()

@@ -283,12 +283,18 @@ def cadastrar_produto():
   verificador = True
   while verificador:
     try: # Tratar exeções junto com o EXCEPT
-      genero = int(input("##### Tipo de Gênero (NÚMERO): "))
+      genero = int(input("##### Tipo de Gênero (NÚMERO INTEIRO): "))
       verificador = False
     except ValueError:
       print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
   print()
-  qtd_estoque = int(input("##### Quantidade em Estoque (NÚMERO): "))
+  verificador = True
+  while verificador:
+    try:
+      qtd_estoque = int(input("##### Quantidade em Estoque (NÚMERO INTEIRO): "))
+      verificador = False
+    except ValueError:
+      print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
   print()
   ativo_prd = True
   print()

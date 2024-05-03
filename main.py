@@ -173,82 +173,39 @@ def alterar_cliente():
   print("############################################")
   print()
   code_cliente = int(input("##### Digite o Código do Cliente: "))
-  dados_cliente = True
-  while dados_cliente:
-    os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-    if (code_cliente in clientes) and (clientes[code_cliente][4]):
-      print()
-      print("###########################################")
-      print("######    Dados Atuais do Cliente     #####")
-      print("###########################################")
-      print()
-      print("##### Nome: ",clientes[code_cliente][0])
-      print("##### E-mail: ",clientes[code_cliente][1])
-      print("##### Celular: ",clientes[code_cliente][2])
-      print("##### CPF: ",clientes[code_cliente][3])
-      print()
-      decisao = input("##### Qual dado você deseja ALTERAR? ")
-      decisao = decisao.upper()
-      if decisao == "NOME":
+  if (code_cliente in clientes) and (clientes[code_cliente][4]):
+    print()
+    print("###########################################")
+    print("######    Dados Atuais do Cliente     #####")
+    print("###########################################")
+    print()
+    print("##### Nome: ",clientes[code_cliente][0])
+    print("##### E-mail: ",clientes[code_cliente][1])
+    print("##### Celular: ",clientes[code_cliente][2])
+    print("##### CPF: ",clientes[code_cliente][3])
+    print()        
+    print("##### Informe os novos dados do Cliente:")
+    nome = input("##### Nome: ")
+    print()
+    verificador = True
+    while verificador:
+      email = input("##### E-mail: ")
+      if validar_email(email):
+        print("E-mail válido!")
         print()
-        nome = input("##### Digite o novo Nome: ")
-        print("Cliente Alterado com sucesso!")
+        verificador = False
+      else:
+        print("O e-mail não é válido. Por favor digite novamente.")
         print()
-        resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
-        resp = resp.upper()
-        if resp == "S" or resp == "SIM":
-          print()
-        else:
-          dados_cliente = False
-      elif (decisao == "E-MAIL") or (decisao == "EMAIL"):
-        print()
-        verificador = True
-        while verificador:
-          email = input("#### Digite o novo E-mail: ")
-          if validar_email(email):
-            print("O e-mail é válido.")
-            verificador = False
-          else:
-            print("O e-mail não é válido. Por favor digite novamente.")
-            print()
-        print()
-        print("Cliente Alterado com sucesso!")
-        print()
-        resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
-        resp = resp.upper()
-        if resp == "S" or resp == "SIM":
-          print()
-        else:
-          dados_cliente = False
-      elif decisao == "CELULAR":  
-        print()
-        celular = input("##### Digite o novo Celular: ")
-        print()
-        print("Cliente Alterado com sucesso!")
-        print()
-        resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
-        resp = resp.upper()
-        if resp == "S" or resp == "SIM":
-          print()
-        else:
-          dados_cliente = False
-      elif decisao == "CPF":
-        print()
-        cpf = input("##### Digite o novo CPF: ")
-        print()
-        print("Cliente Alterado com sucesso!")
-        print()
-        resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
-        resp = resp.upper()
-        if resp == "S" or resp == "SIM":
-          print()
-        else:
-          dados_cliente = False
-      clientes[code_cliente] = [nome, email, celular, cpf,]
-    else:
-      print()
-      print("Cliente inexistente ou inativo!")
-      dados_cliente = False
+    celular = input("##### Celular: ")
+    print()
+    cpf = input("##### CPF: ")
+    print()
+    ativo = True
+    clientes[code_cliente] = [nome, email, celular, cpf, ativo]
+  else:
+    print()
+    print("Cliente inexistente ou inativo!")   
   print()
   input("Tecle <ENTER> para continuar...")
 

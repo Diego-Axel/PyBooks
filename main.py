@@ -368,9 +368,21 @@ def alterar_produto():
     print("###########################")
     print("| 1 - Ação \n| 2 - Ficção \n| 3 - Suspense \n| 4 - Educativo \n| 5 - Infantil \n| 6 - Recreativo \n| 7 - Amplo")
     print()
-    genero = int(input("##### Tipo de Gênero (NÚMERO): "))
+    verificador = True
+    while verificador:
+      try:
+        genero = int(input("##### Tipo de Gênero (NÚMERO INTEIRO): "))
+        verificador = False
+      except ValueError:
+        print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
     print()
-    qtd_estoque = int(input("##### Quantidade em Estoque (NÚMERO): "))
+    verificador = True
+    while verificador:
+      try:
+        qtd_estoque = int(input("##### Quantidade em Estoque (NÚMERO INTEIRO): "))
+        verificador = False
+      except ValueError:
+        print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
     print()
     ativo_prd = True
     produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque, ativo_prd]
@@ -443,9 +455,21 @@ def cadastrar_venda():
   print()
   livro_comprado = input("##### Nome do Livro Comprado: ")
   print()
-  unidades = input("##### Unidades Adquiridas: ")
+  verificador = True
+  while verificador:
+    try:
+      unidades = int(input("##### Unidades Adquiridas (NÚMERO INTEIRO): "))
+      verificador = False
+    except ValueError:
+      print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
   print()
-  valor = float(input("##### Valor da compra (R$): "))
+  verificador = True
+  while verificador:
+    try:
+      valor = float(input("##### Valor da compra (R$ -> DECIMAL): "))
+      verificador = False
+    except ValueError:
+      print("!!! Resposta não reconhecida como número DECIMAL(R$). Tente novamente !!!")
   print()
   forma_pgto = input("##### Forma de pagamento: ")
   ativo_venda = True
@@ -506,9 +530,21 @@ def alterar_venda():
     print()
     livro_comprado = input("##### Livro Comprado: ")
     print()
-    unidades = input("##### Unidades Adquiridas: ")
+    verificador = True
+    while verificador:
+      try: 
+        unidades = int(input("##### Unidades Adquiridas (NÚMERO INTEIRO): "))
+        verificador = False
+      except ValueError:
+        print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
     print()
-    valor = float(input("Valor R$: "))
+    verificador = True
+    while verificador:
+      try:
+        valor = float(input("##### Valor da compra (R$ -> DECIMAL): "))
+        verificador = False
+      except ValueError:
+        print("!!! Resposta não reconhecida como número DECIMAL(R$). Tente novamente !!!")
     print()
     forma_pgto = input("##### Forma de Pagamento: ")
     print()
@@ -574,6 +610,7 @@ def relatorio_clientes():
   print("#####          Relatório de Clientes        #####")
   print("#################################################")
   print()
+  print("---------------------------------------")
   for code_cliente in clientes:
     if clientes[code_cliente][4]:
       print("##### Código do Cliente: ",code_cliente)
@@ -590,7 +627,7 @@ def relatorio_clientes():
       print("##### E-mail: ",clientes[code_cliente][1])
       print("##### Celular: ",clientes[code_cliente][2])
       print("##### CPF: ",clientes[code_cliente][3])
-    print("-------------------------------------------------")
+    print("---------------------------------------")
   input("tecle <ENTER> para continuar...")
 
 
@@ -601,6 +638,7 @@ def relatorio_estoque():
   print("#####          Relatório de Estoque         #####")
   print("#################################################")
   print()
+  print("-----------------------------------------------------------------------")
   for code_produto in produtos:
     if produtos[code_produto][7]:
       print("##### Código do Produto: ",code_produto)
@@ -622,7 +660,7 @@ def relatorio_estoque():
         print("##### Tipo de Capa: ",produtos[code_produto][4])
         print("##### Gênero: ", produtos[code_produto][5])
         print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
-    print("-------------------------------------------------")
+    print("-----------------------------------------------------------------------")
   input("tecle <ENTER> para continuar...")  
 
 
@@ -633,6 +671,7 @@ def relatorio_vendas():
   print("#####          Relatório de Vendas          #####")
   print("#################################################")
   print()
+  print("-------------------------------------")
   for code_venda in vendas:
     if vendas[code_venda][6]:
       print("##### Código de Venda: ",code_venda)
@@ -653,7 +692,7 @@ def relatorio_vendas():
         print("##### Unidades Adquiridas: ",vendas[code_venda][3])
         print("##### Valor R$",vendas[code_venda][4])
         print("##### Forma de Pagamento: ",vendas[code_venda][5])
-    print("-------------------------------------------------")
+    print("-------------------------------------")
   input("tecle <ENTER> para continuar...")
 
 

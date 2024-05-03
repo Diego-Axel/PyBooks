@@ -275,7 +275,9 @@ def cadastrar_produto():
   print()
   tipo_capa = input("##### Tipo de Capa: ")
   print()
+  print("###########################")
   print("##### GÊNERO TEXTUTAL #####")
+  print("###########################")
   print("| 1 - Ação \n| 2 - Ficção \n| 3 - Suspense \n| 4 - Educativo \n| 5 - Infantil \n| 6 - Recreativo \n| 7 - Amplo")
   print()
   genero = int(input("##### Tipo de Gênero (NÚMERO): "))
@@ -324,115 +326,45 @@ def alterar_produto():
   print("############################################")
   print()
   code_produto = int(input("##### Digite o Código do Produto: "))
-  dados_produto = True
-  while dados_produto:
-    os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-    if (code_produto in produtos) and (produtos[code_produto][7]):
-      print()
-      print("###########################################")
-      print("######    Dados Atuais do Produto     #####")
-      print("###########################################")
-      print()
-      print("##### Nome do Livro: ",produtos[code_produto][0])
-      print("##### Descrição: ",produtos[code_produto][1])
-      print("##### Autor: ",produtos[code_produto][2])
-      print("##### Ano: ",produtos[code_produto][3])
-      print("##### Tipo de Capa: ",produtos[code_produto][4])
-      print("##### Gênero: ", produtos[code_produto][5])
-      print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
-      print()
-      decisao = input("##### Qual dado você deseja ALTERAR? ")
-      decisao = decisao.upper()
-      if (decisao == "NOME") or (decisao == "NOME DO LIVRO"):
-        print()
-        nome_livro = input("##### Digite o novo Nome do Livro: ")
-        print()
-        print("Produto Alterado com sucesso!")
-        print()
-        resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
-        resp = resp.upper()
-        if (resp == "S") or (resp == "SIM"):
-          print()
-        else:
-          dados_produto = False
-      elif (decisao == "DESCRIÇÃO") or (decisao == "DESCRICAO"):
-        print()
-        descricao = input("##### Digite a nova Descrição: ")
-        print()
-        print("Produto Alterado com sucesso!")
-        print()
-        resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
-        resp = resp.upper()
-        if (resp == "S") or (resp == "SIM"):
-          print()
-        else:
-          dados_produto = False
-      elif decisao == "AUTOR":
-        print()
-        autor = input("##### Digite o novo Autor: ")
-        print()
-        print("Produto Alterado com sucesso!")
-        print()
-        resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
-        resp = resp.upper()
-        if (resp == "S") or (resp == "SIM"):
-          print()
-        else:
-          dados_produto = False
-      elif decisao == "ANO":
-        print()
-        ano = input("##### Digite o novo Ano: ")
-        print()
-        print("Produto Alterado com sucesso!")
-        print()
-        resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
-        resp = resp.upper()
-        if (resp == "S") or (resp == "SIM"):
-          print()
-        else:
-          dados_produto = False
-      elif decisao == "TIPO DE CAPA":
-        print()
-        tipo_capa = input("##### Tipo de Capa: ")
-        print()
-        print("Produto Alterado com sucesso!")
-        print()
-        resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
-        resp = resp.upper()
-        if (resp == "S") or (resp == "SIM"):
-          print()
-        else:
-          dados_produto = False
-      elif (decisao == "GÊNERO") or (decisao == "GENERO"):
-        print("| 1 - Ação \n| 2 - Ficção \n| 3 - Suspense \n| 4 - Educativo \n| 5 - Infantil \n| 6 - Recreativo \n| 7 - Amplo")
-        print()
-        genero = int(input("##### Digite o NÚMERO do novo Gênreo: "))
-        print()
-        print("Produto Alterado com sucesso!")
-        print()
-        resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
-        resp = resp.upper()
-        if (resp == "S") or (resp == "SIM"):
-          print()
-        else:
-          dados_produto = False
-      elif decisao == "QUANTIDADE EM ESTOQUE":
-        print()
-        qtd_estoque = int(input("##### Quantidade em Estoque(NÚMERO): "))
-        print()
-        print("Produto Alterado com sucesso!")
-        print()
-        resp = input("##### Deseja ALTERAR mais dados (S/N)? ")
-        resp = resp.upper()
-        if (resp == "S") or (resp == "SIM"):
-          print()
-        else:
-          dados_produto = False
-      produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque,]
-    else:
-      print()
-      print("Produto inexistente ou deletado!")
-      dados_produto = False
+  if (code_produto in produtos) and (produtos[code_produto][7]):
+    print()
+    print("###########################################")
+    print("######    Dados Atuais do Produto     #####")
+    print("###########################################")
+    print()
+    print("##### Nome do Livro: ",produtos[code_produto][0])
+    print("##### Descrição: ",produtos[code_produto][1])
+    print("##### Autor: ",produtos[code_produto][2])
+    print("##### Ano: ",produtos[code_produto][3])
+    print("##### Tipo de Capa: ",produtos[code_produto][4])
+    print("##### Gênero: ", produtos[code_produto][5])
+    print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
+    print()
+    print("##### Informe os novos dados do Produto:")
+    nome_livro = input("##### Nome do Livro: ")
+    print()
+    descricao = input("Descrição: ")
+    print()
+    autor = input("Autor: ")
+    print()
+    ano = input("Ano: ")
+    print()
+    tipo_capa = input("Tipo de Capa: ")
+    print()
+    print("###########################")
+    print("##### GÊNERO TEXTUTAL #####")
+    print("###########################")
+    print("| 1 - Ação \n| 2 - Ficção \n| 3 - Suspense \n| 4 - Educativo \n| 5 - Infantil \n| 6 - Recreativo \n| 7 - Amplo")
+    print()
+    genero = int(input("##### Tipo de Gênero (NÚMERO): "))
+    print()
+    qtd_estoque = int(input("##### Quantidade em Estoque (NÚMERO): "))
+    print()
+    ativo_prd = True
+    produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque, ativo_prd]
+  else:
+    print()
+    print("Produto inexistente ou deletado!")
   print()
   input("Tecle <ENTER> para continuar...")
 
@@ -497,7 +429,7 @@ def cadastrar_venda():
   print()
   nome_venda = input("##### Nome do Cliente: ")
   print()
-  livro_compradro = input("##### Nome do Livro Comprado: ")
+  livro_comprado = input("##### Nome do Livro Comprado: ")
   print()
   unidades = input("##### Unidades Adquiridas: ")
   print()
@@ -506,7 +438,7 @@ def cadastrar_venda():
   forma_pgto = input("##### Forma de pagamento: ")
   ativo_venda = True
   print()
-  vendas[code_venda] = [data, nome_venda, livro_compradro, unidades, valor, forma_pgto, ativo_venda]
+  vendas[code_venda] = [data_venda, nome_venda, livro_comprado, unidades, valor, forma_pgto, ativo_venda]
   print(vendas)
   print()
   print("Venda cadastrada com sucesso!")
@@ -546,86 +478,34 @@ def alterar_venda():
   print("############################################")
   print()
   code_venda = int(input("##### Digite o Código da Venda: "))
-  dados_venda = True
-  while dados_venda:
-    os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-    if (code_venda in vendas) and (vendas[code_venda][6]):
-      print()
-      print("##### Data de venda: ",vendas[code_venda][0])
-      print("##### Nome do Cliente: ",vendas[code_venda][1])
-      print("##### Livro Comprado: ",vendas[code_venda][2])
-      print("##### Unidades Adquiridas: ",vendas[code_venda][3])
-      print("##### Valor R$",vendas[code_venda][4])
-      print("##### Forma de Pagamento: ",vendas[code_venda][5])
-      print()
-      decisao = input("##### Qual dado você deseja ALTERAR? ")
-      decisao = decisao.upper()
-      if (decisao == "NOME DO CLIENTE") or (decisao == "NOME") or (decisao == "CLIENTE"):
-        print()
-        nome_venda = input("##### Digite o novo Nome do Cliente que realizou a venda: ")
-        print()
-        print("##### Venda Alterada com sucesso")
-        print()
-        resp = input("##### Deseja Alterar mais dados (S/N)? ")
-        resp = resp.upper()
-        if (resp == "SIM") or (resp == "S"):
-          print()
-        else:
-          dados_venda = False
-      elif (decisao == "NOME DO LIVRO") or (decisao == "LIVRO COMPRADO") or (decisao == "LIVRO"):
-        print()
-        livro_compradro = input("##### Digite o novo Nome do Livro que foi vendido: ")
-        print()
-        print("##### Venda Alterada com sucesso")
-        print()
-        resp = input("##### Deseja Alterar mais dados (S/N)? ")
-        resp = resp.upper()
-        if (resp == "SIM") or (resp == "S"):
-          print()
-        else:
-          dados_venda = False
-      elif (decisao == "UNIDADES") or (decisao == "UNIDADE") or (decisao == "UNIDADES VENDIDAS"):
-        print()
-        unidades = input("##### Digite a nova quantidade de unidade(s) vendida(s):  ")
-        print()
-        print("##### Venda Alterada com sucesso")
-        print()
-        resp = input("##### Deseja Alterar mais dados (S/N)? ")
-        resp = resp.upper()
-        if (resp == "SIM") or (resp == "S"):
-          print()
-        else:
-          dados_venda = False
-      elif (decisao == "VALOR") or (decisao == "VALOR DE VENDA"):
-        print()
-        valor = float(input("##### Digite o novo valor (R$) da venda: "))
-        print()
-        print("##### Venda Alterada com sucesso")
-        print()
-        resp = input("##### Deseja Alterar mais dados (S/N)? ")
-        resp = resp.upper()
-        if (resp == "SIM") or (resp == "S"):
-          print()
-        else:
-          dados_venda = False
-      elif (decisao == "FORMA DE PAGAMENTO") or (decisao == "PAGAMENTO"):
-        print()
-        forma_pgto = input("##### Digite a nova forma de pagamento desta venda: : ")
-        print()
-        print("##### Venda Alterada com sucesso")
-        print()
-        resp = input("##### Deseja Alterar mais dados (S/N)? ")
-        resp = resp.upper()
-        if (resp == "SIM") or (resp == "S"):
-          print()
-        else:
-          dados_venda = False
-      vendas[code_venda] = [nome_venda, livro_compradro, unidades, valor, forma_pgto]
-    else:
-      dados_venda = False
-      print()
-      print("Venda inexistente ou deletada!")
-      print()
+  if (code_venda in vendas) and (vendas[code_venda][6]):
+    print()
+    print("##### Data de venda: ",vendas[code_venda][0])
+    print("##### Nome do Cliente: ",vendas[code_venda][1])
+    print("##### Livro Comprado: ",vendas[code_venda][2])
+    print("##### Unidades Adquiridas: ",vendas[code_venda][3])
+    print("##### Valor R$",vendas[code_venda][4])
+    print("##### Forma de Pagamento: ",vendas[code_venda][5])
+    print()
+    print("##### Informe os novos dados da Venda: ")
+    print()
+    data_venda = ("%02d/%02d/%d"%(dia, mes, ano))
+    nome_venda = input("##### Nome do Cliente: ")
+    print()
+    livro_comprado = input("##### Livro Comprado: ")
+    print()
+    unidades = input("##### Unidades Adquiridas: ")
+    print()
+    valor = float(input("Valor R$: "))
+    print()
+    forma_pgto = input("##### Forma de Pagamento: ")
+    print()
+    ativo_venda = True
+    vendas[code_venda] = [data_venda, nome_venda, livro_comprado, unidades, valor, forma_pgto, ativo_venda]
+  else:
+    print()
+    print("Venda inexistente ou deletada!")
+    print()
   input("tecle <ENTER> para continuar...")
 
 
@@ -782,9 +662,6 @@ def menu_informacao():
   print("#############################################")
   print()
   input("Tecle <ENTER> para retornar ao Menu Principal...")
-
-
-
 
 
 

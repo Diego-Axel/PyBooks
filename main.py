@@ -11,6 +11,7 @@ import os
 import datetime
 import re
 
+# Pega a data Atual ->
 data = datetime.date.today()
 dia = data.day
 mes = data.month
@@ -52,7 +53,7 @@ vendas = {
 ################################################################
 
 
-def validar_email(email): # Função para verificar se o e-mail é válido
+def validar_email(email): # Função para verificar se o e-mail é válido (GPT)
   padrao = re.compile(r'^[\w-]+@[a-z\d]+\.[\w]{2,3}$')
   return padrao.match(email) is not None
 
@@ -121,7 +122,7 @@ def cadastrar_cliente():
   code_cliente = len(clientes) + 1
   nome = input("##### Nome: ")
   print()
-  verificador = True
+  verificador = True # Maneira de usar while atraves de variaveis que guardam operadoes lógicos, dica de Matheus Diniz.
   while verificador:
     email = input("#### E-mail: ")
     if validar_email(email):
@@ -282,7 +283,7 @@ def cadastrar_produto():
   print()
   verificador = True
   while verificador:
-    try: # Tratar exeções junto com o EXCEPT
+    try: # Tratar exeções junto com o EXCEPT | Estou usando para verificar se o usuário colocou o número como pedido (estudos na internet)
       genero = int(input("##### Tipo de Gênero (NÚMERO INTEIRO): "))
       verificador = False
     except ValueError:
@@ -715,13 +716,6 @@ def menu_informacao():
   input("Tecle <ENTER> para retornar ao Menu Principal...")
 
 
-
-################################################################
-################################################################
-##########    P R O G R A M A   P R I N C I P A L     ##########
-################################################################
-################################################################
-
 # Programa Principal
 
 op_princ = ""
@@ -804,35 +798,4 @@ print("""
                                                \_____\___\____ \        
                                              
   """)    
-
-
-#  SE FOR PRECISO PARA USAR DPS: 
-
-
-#import random
-#import string
-
-#def gerar_codigo(tamanho):     # Desenvolvido por: Paulo Douglas Github: Paulo-Douglas
-#    caracteres = string.ascii_uppercase  
-#    codigo = ''.join(random.choice(caracteres) for _ in range(tamanho))
-#    return codigo
-
-#tamanho_codigo = 4  # Tamanho do código desejado
-#codigo_gerado = gerar_codigo(tamanho_codigo)
-#print("Código gerado:", codigo_gerado)
-
-
-
-
-# import re
-
-# def validar_email(email):
-#     padrao = re.compile(r'^[\w-]+@[a-z\d]+\.[\w]{2,3}$')
-#     return padrao.match(email) is not None
-
-# Exemplo de uso:
-# email = input("Digite um endereço de e-mail: ")
-# if validar_email(email):
-#     print("O e-mail é válido.")
-# else:
-#     print("O e-mail não é válido.")
+# ASCCI(s) feitas no site: https://ascii-art.botecodigital.dev.br/  ;)

@@ -202,7 +202,13 @@ def alterar_cliente():
   print("#####     Alterar Dados do Cliente     #####")
   print("############################################")
   print()
-  code_cliente = int(input("##### Digite o Código do Cliente: "))
+  verificador = True
+  while verificador:
+    try:
+      code_cliente = int(input("##### Digite o Código do Cliente: "))
+      verificador = False
+    except ValueError:
+      print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
   if (code_cliente in clientes) and (clientes[code_cliente][4]):
     print()
     print("###########################################")

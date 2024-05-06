@@ -587,7 +587,13 @@ def alterar_venda():
   print("#####      Alterar Dados de Venda      #####")
   print("############################################")
   print()
-  code_venda = int(input("##### Digite o Código da Venda: "))
+  verificador = True
+  while verificador:
+    try:
+      code_venda = int(input("##### Digite o Código da Venda: "))
+      verificador = False
+    except ValueError:
+      print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
   if (code_venda in vendas) and (vendas[code_venda][6]):
     print()
     print("##### Data de venda: ",vendas[code_venda][0])

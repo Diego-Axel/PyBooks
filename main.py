@@ -223,7 +223,13 @@ def alterar_cliente():
         print()
     verificador = True
     while verificador:
+      print("##### Digite o Celular com DDD e o 9 adicional seguinddo este exemplo: (84) 99977-3321 (NÚMERO DE EXEMPLO)")
       celular = input("##### Celular: ")
+      if validar_numero(celular):
+        print("Número válido!")
+        verificador = False
+      else:
+        print("Número não válido. Digite um número válido.")
     print()
     cpf = input("##### CPF: ")
     print()

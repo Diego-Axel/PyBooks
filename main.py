@@ -147,7 +147,15 @@ def cadastrar_cliente():
       print("O e-mail não é válido. Por favor digite novamente.")
       print()
   print()
-  celular = input("##### Celular com DDD: ")
+  verificador = True
+  while verificador:
+    print("##### Digite o Celular com DDD e o 9 adicional seguinddo este exemplo: (84) 99977-3321 (NÚMERO DE EXEMPLO)")
+    celular = input("##### Digite seu Celular: ")
+    if validar_numero(celular):
+      print("Numero válido!")
+      verificador = False
+    else:
+      print("Número não válido. Digite um número válido.")
   print()
   cpf = input("##### CPF: ")
   print()

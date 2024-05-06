@@ -222,7 +222,8 @@ def alterar_cliente():
         print("O e-mail não é válido. Por favor digite novamente.")
         print()
     verificador = True
-    celular = input("##### Celular: ")
+    while verificador:
+      celular = input("##### Celular: ")
     print()
     cpf = input("##### CPF: ")
     print()

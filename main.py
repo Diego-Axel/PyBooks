@@ -240,7 +240,7 @@ def excluir_cliente():
   input("Tecle <ENTER> para continuar...")  
 
 
-def menu_estoque():
+def menu_estoque(): # Função do Menu de Estoque
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print()
   print("############################################")

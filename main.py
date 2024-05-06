@@ -363,7 +363,13 @@ def exibir_produto():
   print("#####      Exibir Dados do Produto     #####")
   print("############################################")
   print()
-  code_produto = int(input("##### Digite o Código do Produto: "))
+  verificador = True
+  while verificador:
+    try:
+      code_produto = int(input("##### Digite o Código do Produto: "))
+      verificador = False
+    except ValueError:
+      print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
   if (code_produto in produtos) and (produtos[code_produto][7]):
     print()
     print("##### Nome do Livro: ",produtos[code_produto][0])

@@ -426,7 +426,7 @@ def excluir_produto():
   input("Tecle <ENTER> para continuar...")
 
 
-def menu_vendas():
+def menu_vendas(): # Função do Menu de Vendas
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print()
   print("#############################################")
@@ -588,7 +588,7 @@ def excluir_venda():
   input("tecle <ENTER> para continuar...")
 
 
-def menu_relatorio():
+def menu_relatorio(): # Função do Menu dos Relatórios
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print()
   print("#################################################")

@@ -799,3 +799,16 @@ print("""
                                              
   """)    
 # ASCCI(s) feitas no site: https://ascii-art.botecodigital.dev.br/  ;)
+
+# def validar_telefone(numero): Função para validar telefone (GPT)
+#     # Regex para validar um número de telefone brasileiro
+#     # Formato esperado: (xx) xxxxx-xxxx ou (xx) xxxx-xxxx
+#     padrao = re.compile(r'^\(\d{2}\) \d{4,5}-\d{4}$')
+#     return padrao.match(numero) is not None
+
+# # Exemplo de uso
+# telefone = "(84) 99999-9999"
+# if validar_telefone(telefone):
+#     print("O número de telefone é válido.")
+# else:
+#     print("O número de telefone é inválido.")

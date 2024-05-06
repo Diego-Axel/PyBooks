@@ -27,10 +27,10 @@ ano = data.year
 # Dados para Testes
 
 clientes = {
-    1: ['Jaqueline', 'jaqueline@gmail.com', '(84)99977-2243', '123.321.123-33', True],
-    2: ['Carlos', 'carlos@gmail.com', '(84)99977-5500', '123.321.123-11', True],
-    3: ['Thomas Daniel', 'TDaniel@gmail.com', '(84)99911-0000', '123.321.123-07', True],
-    4: ['Joaqum Dutra', 'joaquim@gmail.com', '(84)99911-0000', '123.321.123-07', False]
+    1: ['Jaqueline', 'jaqueline@gmail.com', '(84) 99977-2243', '123.321.123-33', True],
+    2: ['Carlos', 'carlos@gmail.com', '(84) 99977-5500', '123.321.123-11', True],
+    3: ['Thomas Daniel', 'TDaniel@gmail.com', '(84) 99911-0000', '123.321.123-07', True],
+    4: ['Joaqum Dutra', 'joaquim@gmail.com', '(84) 99911-0000', '123.321.123-07', False]
     
 }
 
@@ -60,7 +60,7 @@ def validar_email(email): # Função para verificar se o e-mail é válido (GPT)
   return padrao.match(email) is not None
 
 
-def validar_numero(numero):
+def validar_numero(numero): # Função para validar telefone (GPT)
   padrao = re.compile(r'^\(\d{2}\) \d{4,5}-\d{4}$')
   return padrao.match(numero) is not None
 
@@ -221,6 +221,7 @@ def alterar_cliente():
       else:
         print("O e-mail não é válido. Por favor digite novamente.")
         print()
+    verificador = True
     celular = input("##### Celular: ")
     print()
     cpf = input("##### CPF: ")
@@ -822,16 +823,3 @@ print("""
                                              
   """)    
 # ASCCI(s) feitas no site: https://ascii-art.botecodigital.dev.br/  ;)
-
-# def validar_telefone(numero): Função para validar telefone (GPT)
-#     # Regex para validar um número de telefone brasileiro
-#     # Formato esperado: (xx) xxxxx-xxxx ou (xx) xxxx-xxxx
-#     padrao = re.compile(r'^\(\d{2}\) \d{4,5}-\d{4}$')
-#     return padrao.match(numero) is not None
-
-# # Exemplo de uso
-# telefone = "(84) 99999-9999"
-# if validar_telefone(telefone):
-#     print("O número de telefone é válido.")
-# else:
-#     print("O número de telefone é inválido.")

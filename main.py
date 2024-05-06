@@ -60,6 +60,11 @@ def validar_email(email): # Função para verificar se o e-mail é válido (GPT)
   return padrao.match(email) is not None
 
 
+def validar_numero(numero):
+  padrao = re.compile(r'^\(\d{2}\) \d{4,5}-\d{4}$')
+  return padrao.match(numero) is not None
+
+
 ################################################################
 ################################################################
 ##########               F U N Ç Õ E S                ##########

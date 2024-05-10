@@ -6,7 +6,7 @@
 ############################################################
 
 # imports
-import funcoes
+import funcoes # Arquivo com as minhas funções (modularização)
 import os
 
 ################################################################

@@ -684,30 +684,75 @@ def menu_relatorio(): # Função do Menu dos Relatórios
 
 def relatorio_clientes():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-  print()
-  print("#################################################")
-  print("#####          Relatório de Clientes        #####")
-  print("#################################################")
-  print()
-  print("---------------------------------------")
-  for code_cliente in clientes:
-    if clientes[code_cliente][4]:
-      print("##### Código do Cliente: ",code_cliente)
-      print("##### Nome: ",clientes[code_cliente][0])
-      print("##### E-mail: ",clientes[code_cliente][1])
-      print("##### Celular: ",clientes[code_cliente][2])
-      print("##### CPF: ",clientes[code_cliente][3])
-    else:
-      print("################################")
-      print("#####  CLIENTE NÃO ATIVO!  #####")
-      print("################################")
-      print("##### Código do Cliente: ",code_cliente)
-      print("##### Nome: ",clientes[code_cliente][0])
-      print("##### E-mail: ",clientes[code_cliente][1])
-      print("##### Celular: ",clientes[code_cliente][2])
-      print("##### CPF: ",clientes[code_cliente][3])
-    print("---------------------------------------")
-  input("tecle <ENTER> para continuar...")
+  resp = ""
+  while resp != "0":
+    os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+    print()
+    print("#################################################")
+    print("#####          Relatório de Clientes        #####")
+    print("#################################################")
+    print("##### 1 - Ver Clientes Ativos               #####")
+    print("##### 2 - Ver Clientes Inativos             #####")
+    print("##### 0 - Retornar ao Menu Relatório        #####")
+    print("#################################################")
+    print()
+    resp = input("##### Escolha sua opção: ")
+    if resp == "1":
+      os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+      print()
+      print("###########################################################################################################")
+      print("############################         Relatório de Clientes Ativos      ####################################")
+      print("###########################################################################################################")
+      print("|--------|-----------------------------|-----------------------|---------------------|--------------------|")
+      print("|  Cod   |         Nome Completo       |        E-mail         |       Celular       |          CPF       |")
+      print("|--------|-----------------------------|-----------------------|---------------------|--------------------|")
+      for code_cliente in clientes:
+        if clientes[code_cliente][4]:
+          print("| %-9s "%(code_cliente), end='')
+          print("| %-27s "%(clientes[code_cliente][0]), end='')
+          print("| %-17s "%(clientes[code_cliente][1]), end='')
+          print("| %-16s "%(clientes[code_cliente][2]), end='')
+          print("| %-17s "%(clientes[code_cliente][3])) 
+      print()
+      input("tecle <NETER> para continuar...")          
+    elif resp == "2":
+      os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+      print()
+      print("###########################################################################################################")
+      print("############################       Relatório de Clientes Inativos      ####################################")
+      print("###########################################################################################################")
+      print("|--------|-----------------------------|-----------------------|---------------------|--------------------|")
+      print("|  Cod   |         Nome Completo       |        E-mail         |       Celular       |          CPF       |")
+      print("|--------|-----------------------------|-----------------------|---------------------|--------------------|")
+      for code_cliente in clientes:
+        if clientes[code_cliente][4] == False:
+          print("| %-9s "%(code_cliente), end='')
+          print("| %-27s "%(clientes[code_cliente][0]), end='')
+          print("| %-17s "%(clientes[code_cliente][1]), end='')
+          print("| %-16s "%(clientes[code_cliente][2]), end='')
+          print("| %-17s "%(clientes[code_cliente][3]))
+      print()
+      input("tecle <NETER> para continuar...")          
+
+    # print("---------------------------------------")
+    # for code_cliente in clientes:
+    #     if clientes[code_cliente][4]:
+    #     print("##### Código do Cliente: ",code_cliente)
+    #     print("##### Nome: ",clientes[code_cliente][0])
+    #     print("##### E-mail: ",clientes[code_cliente][1])
+    #     print("##### Celular: ",clientes[code_cliente][2])
+    #     print("##### CPF: ",clientes[code_cliente][3])
+    #     else:
+    #     print("################################")
+    #     print("#####  CLIENTE NÃO ATIVO!  #####")
+    #     print("################################")
+    #     print("##### Código do Cliente: ",code_cliente)
+    #     print("##### Nome: ",clientes[code_cliente][0])
+    #     print("##### E-mail: ",clientes[code_cliente][1])
+    #     print("##### Celular: ",clientes[code_cliente][2])
+    #     print("##### CPF: ",clientes[code_cliente][3])
+    #     print("---------------------------------------")
+  
 
 
 def relatorio_estoque():

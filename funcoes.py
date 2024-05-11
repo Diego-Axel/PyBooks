@@ -755,8 +755,6 @@ def relatorio_clientes():
       input("tecle <NETER> para continuar...")          
 
 
-  
-
 
 def relatorio_estoque():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -816,10 +814,6 @@ def relatorio_estoque():
       print()
       input("tecle <ENTER> para continuar...")
 
-
-
-    
-  
 
 
 def relatorio_vendas():

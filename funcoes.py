@@ -357,32 +357,38 @@ def cadastrar_produto():
 
 def exibir_produto():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+  resp = ""
+  while resp != "0":
+    os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+    print()
+    print("############################################")
+    print("#####      Exibir Dados do Produto     #####")
+    print("############################################")
+    print("##### 0 - Retornar ao Menu Estoque     #####")
+    print("############################################")
+    print()
+    verificador = True
+    while verificador:
+      try:
+        code_produto = int(input("##### Digite o Código do Produto: "))
+        verificador = False
+      except ValueError:
+        print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
+    if (code_produto in produtos) and (produtos[code_produto][7]):
+      print()
+      print("##### Nome do Livro: ",produtos[code_produto][0])
+      print("##### Descrição: ",produtos[code_produto][1])
+      print("##### Autor: ",produtos[code_produto][2])
+      print("##### Ano: ",produtos[code_produto][3])
+      print("##### Tipo de Capa: ",produtos[code_produto][4])
+      print("##### Gênero: ", produtos[code_produto][5])
+      print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
+      print()
+    else:
+      print("Produto inexiste ou deletado!")
+      print()
+    resp = input("Deseja continuar (tecle <ENTER> para continuar ou 0 para retornar ao Menu Clientes)? ")
   print()
-  print("############################################")
-  print("#####      Exibir Dados do Produto     #####")
-  print("############################################")
-  print()
-  verificador = True
-  while verificador:
-    try:
-      code_produto = int(input("##### Digite o Código do Produto: "))
-      verificador = False
-    except ValueError:
-      print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
-  if (code_produto in produtos) and (produtos[code_produto][7]):
-    print()
-    print("##### Nome do Livro: ",produtos[code_produto][0])
-    print("##### Descrição: ",produtos[code_produto][1])
-    print("##### Autor: ",produtos[code_produto][2])
-    print("##### Ano: ",produtos[code_produto][3])
-    print("##### Tipo de Capa: ",produtos[code_produto][4])
-    print("##### Gênero: ", produtos[code_produto][5])
-    print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
-    print()
-  else:
-    print("Produto inexiste ou deletado!")
-    print()
-  input("Tecle <ENTER> para continuar...")
  
 
 def alterar_produto():

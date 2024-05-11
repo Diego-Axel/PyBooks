@@ -163,29 +163,35 @@ def cadastrar_cliente():
 
 def exibir_cliente():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-  print()
-  print("############################################")
-  print("#####      Exibir Dados do Cliente     #####")
-  print("############################################")
-  print()
-  verificador = True
-  while verificador:
-    try:
-      code_cliente = int(input("##### Digite o Código do Cliente: "))
-      verificador = False
-    except ValueError:
-      print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
-  if (code_cliente in clientes) and (clientes[code_cliente][4]):
+  resp = ""
+  while resp != "0":
+    os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
     print()
-    print("##### Nome: ",clientes[code_cliente][0])
-    print("##### E-mail: ",clientes[code_cliente][1])
-    print("##### Celular: ",clientes[code_cliente][2])
-    print("##### CPF: ",clientes[code_cliente][3])
+    print("############################################")
+    print("#####      Exibir Dados do Cliente     #####")
+    print("############################################")
+    print("##### 0 - Retornar ao Menu Clientes    #####")
+    print("############################################")
     print()
-  else:
-      print("Cliente inexistente ou inativo!")
+    verificador = True
+    while verificador:
+      try:
+        code_cliente = int(input("##### Digite o Código do Cliente: "))
+        verificador = False
+      except ValueError:
+        print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
+    if (code_cliente in clientes) and (clientes[code_cliente][4]):
       print()
-  input("Tecle <ENTER> para continuar...")
+      print("##### Nome: ",clientes[code_cliente][0])
+      print("##### E-mail: ",clientes[code_cliente][1])
+      print("##### Celular: ",clientes[code_cliente][2])
+      print("##### CPF: ",clientes[code_cliente][3])
+      print()
+    else:
+        print("Cliente inexistente ou inativo!")
+        print()
+    resp = input("Deseja continuar (tecle <ENTER> para continuar ou 0 para retornar ao Menu Clientes)? ")
+  print()
 
 
 def alterar_cliente():

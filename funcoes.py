@@ -777,35 +777,87 @@ def relatorio_clientes():
 
 def relatorio_estoque():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-  print()
-  print("#################################################")
-  print("#####          Relatório de Estoque         #####")
-  print("#################################################")
-  print()
-  print("-----------------------------------------------------------------------")
-  for code_produto in produtos:
-    if produtos[code_produto][7]:
-      print("##### Código do Produto: ",code_produto)
-      print("##### Nome do Livro: ",produtos[code_produto][0])
-      print("##### Descrição: ",produtos[code_produto][1])
-      print("##### Autor: ",produtos[code_produto][2])
-      print("##### Ano: ",produtos[code_produto][3])
-      print("##### Tipo de Capa: ",produtos[code_produto][4])
-      print("##### Gênero: ", produtos[code_produto][5])
-      print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
-    else:
-        print("################################")
-        print("#####   PRODUTO DELETADO   #####")
-        print("################################")
-        print("##### Nome do Livro: ",produtos[code_produto][0])
-        print("##### Descrição: ",produtos[code_produto][1])
-        print("##### Autor: ",produtos[code_produto][2])
-        print("##### Ano: ",produtos[code_produto][3])
-        print("##### Tipo de Capa: ",produtos[code_produto][4])
-        print("##### Gênero: ", produtos[code_produto][5])
-        print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
-    print("-----------------------------------------------------------------------")
-  input("tecle <ENTER> para continuar...")  
+  resp = ""
+  while resp != "0":
+    os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+    print()
+    print("#################################################")
+    print("#####          Relatório de Estoque         #####")
+    print("#################################################")
+    print("##### 1 - Ver Produtos Em Estoque           #####")
+    print("##### 2 - Ver Produtos Deletados            #####")
+    print("##### 0 - Retornar ao Menu Relatório        #####")
+    print("#################################################")
+    print()
+    resp = input("#### Escolha sua opção: ")
+    if resp == "1":
+      os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+      print()
+      print("################################################################################################################################")
+      print("#####################################         Relatório de Produtos em Estoque       ###########################################")
+      print("################################################################################################################################")
+      print("|-----|-----------------------------|-----------------------|------------------|-------|--------------|--------|---------------|")
+      print("| Cod |        Nome do Livro        |       Descrição       |       Autor      |  Ano  | Tipo de Capa | Gênero | Qtde. Esotque |")
+      print("|-----|-----------------------------|-----------------------|------------------|-------|--------------|--------|---------------|")
+      for code_produto in produtos:
+        if produtos[code_produto][7]:
+          print("| %-4s "%(code_produto), end="")
+          print("| %-27s "%(produtos[code_produto][0]), end="")
+          print("| %-25s "%(produtos[code_produto][1]), end="")
+          print("| %-27s "%(produtos[code_produto][2]), end="")
+          print("| %-5s "%(produtos[code_produto][3]), end="")
+          print("| %-5s "%(produtos[code_produto][4]), end="")
+          print("| %-4s "%(produtos[code_produto][5]), end="")
+          print("| %-4s "%(produtos[code_produto][6]))
+      print()
+      input("tecle <ENTER> para continuar...")
+    elif resp == "2":
+      os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+      print()
+      print("################################################################################################################################")
+      print("#####################################         Relatório de Produtos Deletados        ###########################################")
+      print("################################################################################################################################")
+      print("|-----|-----------------------------|-----------------------|------------------|-------|--------------|--------|---------------|")
+      print("| Cod |        Nome do Livro        |       Descrição       |       Autor      |  Ano  | Tipo de Capa | Gênero | Qtde. Esotque |")
+      print("|-----|-----------------------------|-----------------------|------------------|-------|--------------|--------|---------------|")
+      for code_produto in produtos:
+        if produtos[code_produto][7] == False:
+          print("| %-4s "%(code_produto), end="")
+          print("| %-27s "%(produtos[code_produto][0]), end="")
+          print("| %-25s "%(produtos[code_produto][1]), end="")
+          print("| %-27s "%(produtos[code_produto][2]), end="")
+          print("| %-5s "%(produtos[code_produto][3]), end="")
+          print("| %-5s "%(produtos[code_produto][4]), end="")
+          print("| %-4s "%(produtos[code_produto][5]), end="")
+          print("| %-4s "%(produtos[code_produto][6]))
+      print()
+      input("tecle <ENTER> para continuar...")
+
+
+
+    # for code_produto in produtos:
+    #   if produtos[code_produto][7]:
+    #     print("##### Código do Produto: ",code_produto)
+    #     print("##### Nome do Livro: ",produtos[code_produto][0])
+    #     print("##### Descrição: ",produtos[code_produto][1])
+    #     print("##### Autor: ",produtos[code_produto][2])
+    #     print("##### Ano: ",produtos[code_produto][3])
+    #     print("##### Tipo de Capa: ",produtos[code_produto][4])
+    #     print("##### Gênero: ", produtos[code_produto][5])
+    #     print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
+    #   else:
+    #       print("################################")
+    #       print("#####   PRODUTO DELETADO   #####")
+    #       print("################################")
+    #       print("##### Nome do Livro: ",produtos[code_produto][0])
+    #       print("##### Descrição: ",produtos[code_produto][1])
+    #       print("##### Autor: ",produtos[code_produto][2])
+    #       print("##### Ano: ",produtos[code_produto][3])
+    #       print("##### Tipo de Capa: ",produtos[code_produto][4])
+    #       print("##### Gênero: ", produtos[code_produto][5])
+    #       print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
+    #   print("-----------------------------------------------------------------------")
+  
 
 
 def relatorio_vendas():

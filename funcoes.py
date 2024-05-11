@@ -557,32 +557,38 @@ def cadastrar_venda():
 
 def exibir_venda():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+  resp = ""
+  while resp != "0":
+    os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+    print()
+    print("############################################")
+    print("#####      Exibir Dados do Vendas      #####")
+    print("############################################")
+    print("##### 0 - Retornar ao Menu Vendas     #####")
+    print("############################################")
+    print()
+    verificador = True
+    while verificador:
+      try:
+        code_venda = int(input("##### Digite o Código de Venda: "))
+        verificador = False
+      except ValueError:
+        print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
+    if (code_venda in vendas) and (vendas[code_venda][6]):
+      print()
+      print("##### Data de venda: ",vendas[code_venda][0])
+      print("##### Nome do Cliente: ",vendas[code_venda][1])
+      print("##### Livro Comprado: ",vendas[code_venda][2])
+      print("##### Unidades Adquiridas: ",vendas[code_venda][3])
+      print("##### Valor R$",vendas[code_venda][4])
+      print("##### Forma de Pagamento: ",vendas[code_venda][5])
+      print()
+    else:
+      print()
+      print("Venda inexistente ou deletada!")
+      print()
+    resp = input("Deseja continuar (tecle <ENTER> para continuar ou 0 para retornar ao Menu Clientes)? ")
   print()
-  print("############################################")
-  print("#####      Exibir Dados do Vendas      #####")
-  print("############################################")
-  print()
-  verificador = True
-  while verificador:
-    try:
-      code_venda = int(input("##### Digite o Código de Venda: "))
-      verificador = False
-    except ValueError:
-      print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
-  if (code_venda in vendas) and (vendas[code_venda][6]):
-    print()
-    print("##### Data de venda: ",vendas[code_venda][0])
-    print("##### Nome do Cliente: ",vendas[code_venda][1])
-    print("##### Livro Comprado: ",vendas[code_venda][2])
-    print("##### Unidades Adquiridas: ",vendas[code_venda][3])
-    print("##### Valor R$",vendas[code_venda][4])
-    print("##### Forma de Pagamento: ",vendas[code_venda][5])
-    print()
-  else:
-    print()
-    print("Venda inexistente ou deletada!")
-    print()
-  input("tecle <ENTER> para continuar...")
 
 
 def alterar_venda():

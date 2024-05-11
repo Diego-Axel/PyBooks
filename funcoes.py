@@ -754,24 +754,7 @@ def relatorio_clientes():
       print()
       input("tecle <NETER> para continuar...")          
 
-    # print("---------------------------------------")
-    # for code_cliente in clientes:
-    #     if clientes[code_cliente][4]:
-    #     print("##### Código do Cliente: ",code_cliente)
-    #     print("##### Nome: ",clientes[code_cliente][0])
-    #     print("##### E-mail: ",clientes[code_cliente][1])
-    #     print("##### Celular: ",clientes[code_cliente][2])
-    #     print("##### CPF: ",clientes[code_cliente][3])
-    #     else:
-    #     print("################################")
-    #     print("#####  CLIENTE NÃO ATIVO!  #####")
-    #     print("################################")
-    #     print("##### Código do Cliente: ",code_cliente)
-    #     print("##### Nome: ",clientes[code_cliente][0])
-    #     print("##### E-mail: ",clientes[code_cliente][1])
-    #     print("##### Celular: ",clientes[code_cliente][2])
-    #     print("##### CPF: ",clientes[code_cliente][3])
-    #     print("---------------------------------------")
+
   
 
 

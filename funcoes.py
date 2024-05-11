@@ -818,28 +818,7 @@ def relatorio_estoque():
 
 
 
-    # for code_produto in produtos:
-    #   if produtos[code_produto][7]:
-    #     print("##### Código do Produto: ",code_produto)
-    #     print("##### Nome do Livro: ",produtos[code_produto][0])
-    #     print("##### Descrição: ",produtos[code_produto][1])
-    #     print("##### Autor: ",produtos[code_produto][2])
-    #     print("##### Ano: ",produtos[code_produto][3])
-    #     print("##### Tipo de Capa: ",produtos[code_produto][4])
-    #     print("##### Gênero: ", produtos[code_produto][5])
-    #     print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
-    #   else:
-    #       print("################################")
-    #       print("#####   PRODUTO DELETADO   #####")
-    #       print("################################")
-    #       print("##### Nome do Livro: ",produtos[code_produto][0])
-    #       print("##### Descrição: ",produtos[code_produto][1])
-    #       print("##### Autor: ",produtos[code_produto][2])
-    #       print("##### Ano: ",produtos[code_produto][3])
-    #       print("##### Tipo de Capa: ",produtos[code_produto][4])
-    #       print("##### Gênero: ", produtos[code_produto][5])
-    #       print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
-    #   print("-----------------------------------------------------------------------")
+    
   
 
 

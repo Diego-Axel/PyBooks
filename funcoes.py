@@ -722,15 +722,16 @@ def relatorio_clientes():
       print("############################         Relatório de Clientes Ativos      ####################################")
       print("###########################################################################################################")
       print("|--------|-----------------------------|-----------------------|---------------------|--------------------|")
-      print("|  Cod   |         Nome Completo       |        E-mail         |       Celular       |          CPF       |")
+      print("|  Cod   |         Nome Completo       |        E-mail         |       Celular       |         CPF        |")
       print("|--------|-----------------------------|-----------------------|---------------------|--------------------|")
       for code_cliente in clientes:
         if clientes[code_cliente][4]:
-          print("| %-9s "%(code_cliente), end='')
+          print("| %-6s "%(code_cliente), end='')
           print("| %-27s "%(clientes[code_cliente][0]), end='')
-          print("| %-17s "%(clientes[code_cliente][1]), end='')
-          print("| %-16s "%(clientes[code_cliente][2]), end='')
+          print("| %-21s "%(clientes[code_cliente][1]), end='')
+          print("| %-19s "%(clientes[code_cliente][2]), end='')
           print("| %-17s "%(clientes[code_cliente][3])) 
+      print("-----------------------------------------------------------------------------------------------------------")
       print()
       input("tecle <NETER> para continuar...")          
     elif resp == "2":
@@ -744,11 +745,12 @@ def relatorio_clientes():
       print("|--------|-----------------------------|-----------------------|---------------------|--------------------|")
       for code_cliente in clientes:
         if clientes[code_cliente][4] == False:
-          print("| %-9s "%(code_cliente), end='')
+          print("| %-6s "%(code_cliente), end='')
           print("| %-27s "%(clientes[code_cliente][0]), end='')
-          print("| %-17s "%(clientes[code_cliente][1]), end='')
-          print("| %-16s "%(clientes[code_cliente][2]), end='')
+          print("| %-21s "%(clientes[code_cliente][1]), end='')
+          print("| %-19s "%(clientes[code_cliente][2]), end='')
           print("| %-17s "%(clientes[code_cliente][3]))
+      print("-----------------------------------------------------------------------------------------------------------")
       print()
       input("tecle <NETER> para continuar...")          
 

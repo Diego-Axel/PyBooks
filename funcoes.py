@@ -818,33 +818,45 @@ def relatorio_estoque():
 
 def relatorio_vendas():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-  print()
-  print("#################################################")
-  print("#####          Relatório de Vendas          #####")
-  print("#################################################")
-  print()
-  print("-------------------------------------")
-  for code_venda in vendas:
-    if vendas[code_venda][6]:
-      print("##### Código de Venda: ",code_venda)
-      print("##### Data de venda: ",vendas[code_venda][0])
-      print("##### Nome do Cliente: ",vendas[code_venda][1])
-      print("##### Livro Comprado: ",vendas[code_venda][2])
-      print("##### Unidades Adquiridas: ",vendas[code_venda][3])
-      print("##### Valor R$",vendas[code_venda][4])
-      print("##### Forma de Pagamento: ",vendas[code_venda][5])
-    else:
-        print("################################")
-        print("#####    VENDA DELETADA    #####")
-        print("################################")
-        print("##### Código de Venda: ",code_venda)
-        print("##### Data de venda: ",vendas[code_venda][0])
-        print("##### Nome do Cliente: ",vendas[code_venda][1])
-        print("##### Livro Comprado: ",vendas[code_venda][2])
-        print("##### Unidades Adquiridas: ",vendas[code_venda][3])
-        print("##### Valor R$",vendas[code_venda][4])
-        print("##### Forma de Pagamento: ",vendas[code_venda][5])
+  resp = ""
+  while resp != "0":
+    print()
+    print("#################################################")
+    print("#####          Relatório de Vendas          #####")
+    print("#################################################")
+    print("##### 1 - Ver Vendas                        #####")
+    print("##### 2 - Ver Vendas Deletadas              #####")
+    print("##### 0 - Retornar ao Menu Relatório        #####")
+    print("#################################################")
+    print()
     print("-------------------------------------")
+
+
+
+
+
+    
+    # for code_venda in vendas:
+    #   if vendas[code_venda][6]:
+    #     print("##### Código de Venda: ",code_venda)
+    #     print("##### Data de venda: ",vendas[code_venda][0])
+    #     print("##### Nome do Cliente: ",vendas[code_venda][1])
+    #     print("##### Livro Comprado: ",vendas[code_venda][2])
+    #     print("##### Unidades Adquiridas: ",vendas[code_venda][3])
+    #     print("##### Valor R$",vendas[code_venda][4])
+    #     print("##### Forma de Pagamento: ",vendas[code_venda][5])
+    #   else:
+    #       print("################################")
+    #       print("#####    VENDA DELETADA    #####")
+    #       print("################################")
+    #       print("##### Código de Venda: ",code_venda)
+    #       print("##### Data de venda: ",vendas[code_venda][0])
+    #       print("##### Nome do Cliente: ",vendas[code_venda][1])
+    #       print("##### Livro Comprado: ",vendas[code_venda][2])
+    #       print("##### Unidades Adquiridas: ",vendas[code_venda][3])
+    #       print("##### Valor R$",vendas[code_venda][4])
+    #       print("##### Forma de Pagamento: ",vendas[code_venda][5])
+    #   print("-------------------------------------")
   input("tecle <ENTER> para continuar...")
 
 

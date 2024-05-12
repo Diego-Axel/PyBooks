@@ -820,6 +820,7 @@ def relatorio_vendas():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   resp = ""
   while resp != "0":
+    os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
     print()
     print("#################################################")
     print("#####          Relatório de Vendas          #####")
@@ -829,13 +830,32 @@ def relatorio_vendas():
     print("##### 0 - Retornar ao Menu Relatório        #####")
     print("#################################################")
     print()
-    print("-------------------------------------")
+    resp = input("##### Escolha sua opção: ")
+    if resp == "1":
+      os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+      print()
+      print("#############################################################################################################################")
+      print("#####################################              Relatório de Vendas          #############################################")
+      print("#############################################################################################################################")
+      print("|-----|---------------|--------------------------|----------------------------|----------|------------|---------------------|")
+      print("| Cod | Data da Venda |      Nome do Cliente     |       Livro Comprado       | Unidades | Valor (R$) | Forma de Pagamaneto |")
+      print("|-----|---------------|--------------------------|----------------------------|----------|------------|---------------------|")
+      for code_venda in vendas:
+        if vendas[code_venda][6]:
+          print("| %-3s "%(code_venda), end="")
+          print("| %-6s "%(vendas[code_venda][0]), end="")
+          print("| %")
+      
+      print()
+      input("tecle <ENTER> para continuar...")
 
 
 
 
 
-    
+
+
+
     # for code_venda in vendas:
     #   if vendas[code_venda][6]:
     #     print("##### Código de Venda: ",code_venda)

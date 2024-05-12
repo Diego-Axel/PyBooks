@@ -28,9 +28,9 @@ clientes = {
 }
 
 produtos = {
-    1: ['Harry Potter', 'Um bruxinho que embarca em uma aventura cheia de fantasia.', 'Diego Axel', '2001', 'Dura', 2, 2, True],
-    2: ['Clean Code', 'Livro para programadores que querem deixar seu código mais legível e limpo.', 'Flavius Gorgônio', '2005', 'Dura', 4, 6, False],
-    3: ['Python Básico', 'Aprenda Python do Zero!', 'FULANO', '1999', 'Mole', 4, 10, True]
+    1: ['Harry Potter', 'Tste descrição', 'Diego', '2001', 'Dura', 2, 2, True],
+    2: ['Clean Code', 'Código limpo!', 'Flavius', '2005', 'Dura', 4, 6, False],
+    3: ['Python Básico', 'Aprenda Python do 0', 'FULANO', '1999', 'Mole', 4, 10, True]
 }
 
 vendas = {
@@ -782,14 +782,14 @@ def relatorio_estoque():
       print("|-----|-----------------------------|-----------------------|------------------|-------|--------------|--------|---------------|")
       for code_produto in produtos:
         if produtos[code_produto][7]:
-          print("| %-4s "%(code_produto), end="")
+          print("| %-3s "%(code_produto), end="")
           print("| %-27s "%(produtos[code_produto][0]), end="")
           print("| %-25s "%(produtos[code_produto][1]), end="")
-          print("| %-27s "%(produtos[code_produto][2]), end="")
-          print("| %-5s "%(produtos[code_produto][3]), end="")
-          print("| %-5s "%(produtos[code_produto][4]), end="")
-          print("| %-4s "%(produtos[code_produto][5]), end="")
-          print("| %-4s "%(produtos[code_produto][6]))
+          print("| %-20s "%(produtos[code_produto][2]), end="")
+          print("| %-9s "%(produtos[code_produto][3]), end="")
+          print("| %-16s "%(produtos[code_produto][4]), end="")
+          print("| %-10s "%(produtos[code_produto][5]), end="")
+          print("| %-17s "%(produtos[code_produto][6]))
       print()
       input("tecle <ENTER> para continuar...")
     elif resp == "2":
@@ -803,10 +803,10 @@ def relatorio_estoque():
       print("|-----|-----------------------------|-----------------------|------------------|-------|--------------|--------|---------------|")
       for code_produto in produtos:
         if produtos[code_produto][7] == False:
-          print("| %-4s "%(code_produto), end="")
+          print("| %-3s "%(code_produto), end="")
           print("| %-27s "%(produtos[code_produto][0]), end="")
           print("| %-25s "%(produtos[code_produto][1]), end="")
-          print("| %-27s "%(produtos[code_produto][2]), end="")
+          print("| %-20s "%(produtos[code_produto][2]), end="")
           print("| %-5s "%(produtos[code_produto][3]), end="")
           print("| %-5s "%(produtos[code_produto][4]), end="")
           print("| %-4s "%(produtos[code_produto][5]), end="")

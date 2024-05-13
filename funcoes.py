@@ -845,17 +845,32 @@ def relatorio_vendas():
           print("| %-3s "%(code_venda), end="")
           print("| %-6s "%(vendas[code_venda][0]), end="")
           print("| %-20s "%(vendas[code_venda][1]), end="")
-          print("| %-20s "%(vendas[code_venda][2]))
-      
+          print("| %-20s "%(vendas[code_venda][2]), end="")
+          print("| %-3s "%(vendas[code_venda][3]), end="")
+          print("| %-4s "%(vendas[code_venda][4]), end="")
+          print("| %-15s "%(vendas[code_venda][5]))
       print()
       input("tecle <ENTER> para continuar...")
-
-
-
-
-
-
-
+    elif resp == "2":
+      os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+      print()
+      print("#############################################################################################################################")
+      print("#####################################       Relatório de Vendas Deletadas         ###########################################")
+      print("#############################################################################################################################")
+      print("|-----|---------------|--------------------------|----------------------------|----------|------------|---------------------|")
+      print("| Cod | Data da Venda |      Nome do Cliente     |       Livro Comprado       | Unidades | Valor (R$) | Forma de Pagamaneto |")
+      print("|-----|---------------|--------------------------|----------------------------|----------|------------|---------------------|")
+      for code_venda in vendas:
+        if vendas[code_venda][6] == False:
+          print("| %-3s "%(code_venda), end="")
+          print("| %-6s "%(vendas[code_venda][0]), end="")
+          print("| %-20s "%(vendas[code_venda][1]), end="")
+          print("| %-20s "%(vendas[code_venda][2]), end="")
+          print("| %-3s "%(vendas[code_venda][3]), end="")
+          print("| %-4s "%(vendas[code_venda][4]), end="")
+          print("| %-15s "%(vendas[code_venda][5]))
+      print()
+      input("tecle <ENTER> para continuar...")
 
     # for code_venda in vendas:
     #   if vendas[code_venda][6]:

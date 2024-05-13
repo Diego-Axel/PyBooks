@@ -844,7 +844,8 @@ def relatorio_vendas():
         if vendas[code_venda][6]:
           print("| %-3s "%(code_venda), end="")
           print("| %-6s "%(vendas[code_venda][0]), end="")
-          print("| %")
+          print("| %-20s "%(vendas[code_venda][1]), end="")
+          print("| %-20s "%(vendas[code_venda][2]))
       
       print()
       input("tecle <ENTER> para continuar...")

@@ -874,7 +874,6 @@ def relatorio_vendas():
 
 
 
-
 def menu_informacao():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print()

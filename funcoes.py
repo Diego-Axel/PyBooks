@@ -872,27 +872,6 @@ def relatorio_vendas():
       print()
       input("tecle <ENTER> para continuar...")
 
-    # for code_venda in vendas:
-    #   if vendas[code_venda][6]:
-    #     print("##### Código de Venda: ",code_venda)
-    #     print("##### Data de venda: ",vendas[code_venda][0])
-    #     print("##### Nome do Cliente: ",vendas[code_venda][1])
-    #     print("##### Livro Comprado: ",vendas[code_venda][2])
-    #     print("##### Unidades Adquiridas: ",vendas[code_venda][3])
-    #     print("##### Valor R$",vendas[code_venda][4])
-    #     print("##### Forma de Pagamento: ",vendas[code_venda][5])
-    #   else:
-    #       print("################################")
-    #       print("#####    VENDA DELETADA    #####")
-    #       print("################################")
-    #       print("##### Código de Venda: ",code_venda)
-    #       print("##### Data de venda: ",vendas[code_venda][0])
-    #       print("##### Nome do Cliente: ",vendas[code_venda][1])
-    #       print("##### Livro Comprado: ",vendas[code_venda][2])
-    #       print("##### Unidades Adquiridas: ",vendas[code_venda][3])
-    #       print("##### Valor R$",vendas[code_venda][4])
-    #       print("##### Forma de Pagamento: ",vendas[code_venda][5])
-    #   print("-------------------------------------")
 
 
 

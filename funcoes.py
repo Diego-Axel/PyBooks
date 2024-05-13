@@ -893,7 +893,7 @@ def relatorio_vendas():
     #       print("##### Valor R$",vendas[code_venda][4])
     #       print("##### Forma de Pagamento: ",vendas[code_venda][5])
     #   print("-------------------------------------")
-  input("tecle <ENTER> para continuar...")
+
 
 
 def menu_informacao():

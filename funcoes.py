@@ -745,7 +745,7 @@ def relatorio_clientes():
       print("|--------|-----------------------------|-----------------------|---------------------|--------------------|")
       for code_cliente in clientes:
         if clientes[code_cliente][4] == False:
-          print("| %-6s "%(code_cliente), end='')
+          print("| %-6s "%(code_cliente), end='') # é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
           print("| %-27s "%(clientes[code_cliente][0]), end='')
           print("| %-21s "%(clientes[code_cliente][1]), end='')
           print("| %-19s "%(clientes[code_cliente][2]), end='')
@@ -843,12 +843,12 @@ def relatorio_vendas():
       for code_venda in vendas:
         if vendas[code_venda][6]:
           print("| %-3s "%(code_venda), end="")
-          print("| %-6s "%(vendas[code_venda][0]), end="")
-          print("| %-20s "%(vendas[code_venda][1]), end="")
-          print("| %-20s "%(vendas[code_venda][2]), end="")
-          print("| %-3s "%(vendas[code_venda][3]), end="")
-          print("| %-4s "%(vendas[code_venda][4]), end="")
-          print("| %-15s "%(vendas[code_venda][5]))
+          print("| %-13s "%(vendas[code_venda][0]), end="")
+          print("| %-24s "%(vendas[code_venda][1]), end="")
+          print("| %-26s "%(vendas[code_venda][2]), end="")
+          print("| %-8s "%(vendas[code_venda][3]), end="")
+          print("| %-10s "%(vendas[code_venda][4]), end="")
+          print("| %-19s "%(vendas[code_venda][5]))
       print()
       input("tecle <ENTER> para continuar...")
     elif resp == "2":
@@ -863,12 +863,12 @@ def relatorio_vendas():
       for code_venda in vendas:
         if vendas[code_venda][6] == False:
           print("| %-3s "%(code_venda), end="")
-          print("| %-6s "%(vendas[code_venda][0]), end="")
-          print("| %-20s "%(vendas[code_venda][1]), end="")
-          print("| %-20s "%(vendas[code_venda][2]), end="")
-          print("| %-3s "%(vendas[code_venda][3]), end="")
-          print("| %-4s "%(vendas[code_venda][4]), end="")
-          print("| %-15s "%(vendas[code_venda][5]))
+          print("| %-13s "%(vendas[code_venda][0]), end="")
+          print("| %-24s "%(vendas[code_venda][1]), end="")
+          print("| %-26s "%(vendas[code_venda][2]), end="")
+          print("| %-8s "%(vendas[code_venda][3]), end="")
+          print("| %-10s "%(vendas[code_venda][4]), end="")
+          print("| %-19s "%(vendas[code_venda][5]))
       print()
       input("tecle <ENTER> para continuar...")
 

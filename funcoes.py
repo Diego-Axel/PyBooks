@@ -454,58 +454,147 @@ def alterar_produto():
       verificador = False
     except ValueError:
       print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
-  if (code_produto in produtos) and (produtos[code_produto][7]):
+  verificador = True
+  while verificador:
+    os.system('celar || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+    if (code_produto in produtos) and (produtos[code_produto][7]):
+      print()
+      print("###########################################")
+      print("######    Dados Atuais do Produto     #####")
+      print("###########################################")
+      print()
+      print("##### Nome do Livro: ",produtos[code_produto][0])
+      print("##### Descrição: ",produtos[code_produto][1])
+      print("##### Autor: ",produtos[code_produto][2])
+      print("##### Ano: ",produtos[code_produto][3])
+      print("##### Tipo de Capa: ",produtos[code_produto][4])
+      print("##### Gênero: ", produtos[code_produto][5])
+      print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
+      print()
+      resp = input("#### Qual dado deseja alterar? ")
+      resp = resp.upper()
+      print()
+      ativo_prd = True
+      produtos[code_produto][7] = ativo_prd
+      if (resp == "NOME") or (resp == "NOME DO LIVRO") or (resp == "LIVRO"):
+        nome_livro = input("##### Digite o novo nome do Livro: ")
+        print("Dado alterado com sucesso!")
+        print("--------------------------")
+        print()
+        produtos[code_produto][0] = nome_livro
+        resp = input("#### Deseja Alterar mais dados(S/N)? ")
+        resp = resp.upper()
+        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
+          verificador = False
+          print()
+        else:
+          print()
+          verificador = True
+      elif (resp == "DESCRIÇÃO"):
+        descricao = input("##### Digite a nova descrição: ")
+        print("Dado alterado com sucesso!")
+        print("--------------------------")
+        print()
+        produtos[code_produto][1] = descricao
+        resp = input("#### Deseja Alterar mais dados(S/N)? ")
+        resp = resp.upper()
+        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
+          verificador = False
+          print()
+        else:
+          print()
+          verificador = True
+      elif (resp == "AUTOR"):
+        autor = input("##### Digite o novo nome do Autor: ")
+        print("Dado alterado com sucesso!")
+        print("--------------------------")
+        print()
+        produtos[code_produto][2] = autor
+        resp = input("#### Deseja Alterar mais dados(S/N)? ")
+        resp = resp.upper()
+        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
+          verificador = False
+          print()
+        else:
+          print()
+          verificador = True
+      elif (resp == "ANO"):
+        ano = input("##### Digite o novo ano deste livro: ")
+        print("Dado alterado com sucesso!")
+        print("--------------------------")
+        print()
+        produtos[code_produto][3] = ano
+        resp = input("#### Deseja Alterar mais dados(S/N)? ")
+        resp = resp.upper()
+        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
+          verificador = False
+          print()
+        else:
+          print()
+          verificador = True
+      elif (resp == "TIPO DE CAPA") or (resp == "CAPA"):
+        tipo_capa = input("##### Digite o novo tipo de capa: ")
+        print("Dado alterado com sucesso!")
+        print("--------------------------")
+        print()
+        produtos[code_produto][4] = tipo_capa
+        resp = input("#### Deseja Alterar mais dados(S/N)? ")
+        resp = resp.upper()
+        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
+          verificador = False
+          print()
+        else:
+          print()
+          verificador = True
+      elif (resp == "GENERO") or (resp == "GÊNERO") or (resp == "GÊNERO TEXTUAL"):
+        print("###########################")
+        print("##### GÊNERO TEXTUTAL #####")
+        print("###########################")
+        print("| 1 - Ação \n| 2 - Ficção \n| 3 - Suspense \n| 4 - Educativo \n| 5 - Infantil \n| 6 - Recreativo \n| 7 - Amplo")
+        print()
+        verificador = True
+        while verificador:
+          try:
+            genero = int(input("##### Digite o novo tipo de Gênero (NÚMERO INTEIRO): "))
+            print("Dado alterado com sucesso!")
+            print("--------------------------")
+            produtos[code_produto][5] = genero
+            verificador = False
+          except ValueError:
+            print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
+        print()
+        resp = input("#### Deseja Alterar mais dados(S/N)? ")
+        resp = resp.upper()
+        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
+          verificador = False
+          print()
+        else:
+          print()
+          verificador = True
+      elif (resp == "QUANTIDADE EM ESTOQUE") or (resp == "QUANTIDADE") or (resp == "ESSTOQUE"):
+        verificador = True
+        while verificador:
+          try:
+            qtd_estoque = int(input("##### Quantidade em Estoque (NÚMERO INTEIRO): "))
+            print("Dado alterado com sucesso!")
+            print("--------------------------")
+            produtos[code_produto][6] = qtd_estoque
+            verificador = False
+          except ValueError:
+            print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
+        print()
+        resp = input("#### Deseja Alterar mais dados(S/N)? ")
+        resp = resp.upper()
+        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
+          verificador = False
+          print()
+        else:
+          print()
+          verificador = True      
+    else:
+      print()
+      print("Produto inexistente ou deletado!")
     print()
-    print("###########################################")
-    print("######    Dados Atuais do Produto     #####")
-    print("###########################################")
-    print()
-    print("##### Nome do Livro: ",produtos[code_produto][0])
-    print("##### Descrição: ",produtos[code_produto][1])
-    print("##### Autor: ",produtos[code_produto][2])
-    print("##### Ano: ",produtos[code_produto][3])
-    print("##### Tipo de Capa: ",produtos[code_produto][4])
-    print("##### Gênero: ", produtos[code_produto][5])
-    print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
-    print()
-    print("##### Informe os novos dados do Produto:")
-    nome_livro = input("##### Nome do Livro: ")
-    print()
-    descricao = input("Descrição: ")
-    print()
-    autor = input("Autor: ")
-    print()
-    ano = input("Ano: ")
-    print()
-    tipo_capa = input("Tipo de Capa: ")
-    print()
-    print("###########################")
-    print("##### GÊNERO TEXTUTAL #####")
-    print("###########################")
-    print("| 1 - Ação \n| 2 - Ficção \n| 3 - Suspense \n| 4 - Educativo \n| 5 - Infantil \n| 6 - Recreativo \n| 7 - Amplo")
-    print()
-    verificador = True
-    while verificador:
-      try:
-        genero = int(input("##### Tipo de Gênero (NÚMERO INTEIRO): "))
-        verificador = False
-      except ValueError:
-        print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
-    print()
-    verificador = True
-    while verificador:
-      try:
-        qtd_estoque = int(input("##### Quantidade em Estoque (NÚMERO INTEIRO): "))
-        verificador = False
-      except ValueError:
-        print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
-    print()
-    ativo_prd = True
-    produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque, ativo_prd]
-  else:
-    print()
-    print("Produto inexistente ou deletado!")
-  print()
   input("Tecle <ENTER> para continuar...")
 
 

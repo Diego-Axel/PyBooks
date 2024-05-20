@@ -298,6 +298,7 @@ def alterar_cliente():
     else:
       print()
       print("Cliente inexistente ou inativo!")   
+      verificador = False
   print()
   input("Tecle <ENTER> para continuar...")
 
@@ -632,6 +633,7 @@ def excluir_produto():
       print("Exclusão não realizada!")
   else:
     print("Produto inexistente ou deletado!")
+    verificador = False
     print()
   input("Tecle <ENTER> para continuar...")
 
@@ -743,45 +745,122 @@ def alterar_venda():
       verificador = False
     except ValueError:
       print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
-  if (code_venda in vendas) and (vendas[code_venda][6]):
-    print()
-    print("##### Data de venda: ",vendas[code_venda][0])
-    print("##### Nome do Cliente: ",vendas[code_venda][1])
-    print("##### Livro Comprado: ",vendas[code_venda][2])
-    print("##### Unidades Adquiridas: ",vendas[code_venda][3])
-    print("##### Valor R$",vendas[code_venda][4])
-    print("##### Forma de Pagamento: ",vendas[code_venda][5])
-    print()
-    print("##### Informe os novos dados da Venda: ")
-    print()
-    data_venda = ("%02d/%02d/%d"%(dia, mes, ano))
-    nome_venda = input("##### Nome do Cliente: ")
-    print()
-    livro_comprado = input("##### Livro Comprado: ")
-    print()
-    verificador = True
-    while verificador:
-      try: 
-        unidades = int(input("##### Unidades Adquiridas (NÚMERO INTEIRO): "))
-        verificador = False
-      except ValueError:
-        print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
-    print()
-    verificador = True
-    while verificador:
-      try:
-        valor = float(input("##### Valor da compra (R$ -> DECIMAL): "))
-        verificador = False
-      except ValueError:
-        print("!!! Resposta não reconhecida como número DECIMAL(R$). Tente novamente !!!")
-    print()
-    forma_pgto = input("##### Forma de Pagamento: ")
-    print()
-    ativo_venda = True
-    vendas[code_venda] = [data_venda, nome_venda, livro_comprado, unidades, valor, forma_pgto, ativo_venda]
-  else:
-    print()
-    print("Venda inexistente ou deletada!")
+  verificador = True
+  while verificador:
+    os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+    if (code_venda in vendas) and (vendas[code_venda][6]):
+      print()
+      print("##### Data de venda: ",vendas[code_venda][0])
+      print("##### Nome do Cliente: ",vendas[code_venda][1])
+      print("##### Livro Comprado: ",vendas[code_venda][2])
+      print("##### Unidades Adquiridas: ",vendas[code_venda][3])
+      print("##### Valor R$",vendas[code_venda][4])
+      print("##### Forma de Pagamento: ",vendas[code_venda][5])
+      print()
+      resp = input("#### Qual dado deseja alterar? ")
+      resp = resp.upper()
+      print()
+      ativo_venda = True
+      vendas[code_venda][6] = ativo_venda
+      if (resp == "DATA DE VENDA") or (resp == "DATA"):
+        data_venda = ("%02d/%02d/%d"%(dia, mes, ano))
+        print("Data modificada para o dia de hoje!")
+        print("-----------------------------------")
+        print()
+        vendas[code_venda][0] = data_venda
+        resp = input("#### Deseja Alterar mais dados(S/N)? ")
+        resp = resp.upper()
+        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
+          verificador = False
+          print()
+        else:
+          print()
+          verificador = True
+      elif (resp == "NOME DO CLIENTE") or (resp == "NOME CLIENTE") or (resp == "CLIENTE"):    
+        nome_venda = input("##### Digite o novo nome do Cliente: ")
+        print("Dado alterado com sucesso!")
+        print("--------------------------")
+        print()
+        vendas[code_venda][1] = nome_venda
+        resp = input("#### Deseja Alterar mais dados(S/N)? ")
+        resp = resp.upper()
+        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
+          verificador = False
+          print()
+        else:
+          print()
+          verificador = True
+      elif (resp == "LIVRO COMPRADO") or (resp == "LIVRO") or (resp == "NOME DO LIVRO"):
+        livro_comprado = input("##### Digite o novo nome do livro Comprado: ")
+        print("Dado alterado com sucesso!")
+        print("--------------------------")
+        print()
+        vendas[code_venda][2] = livro_comprado
+        resp = input("#### Deseja Alterar mais dados(S/N)? ")
+        resp = resp.upper()
+        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
+          verificador = False
+          print()
+        else:
+          print()
+          verificador = True
+      elif (resp == "UNIDADES") or (resp == "UNIDADES ADQUIRIDAS") or (resp == "UNIDADES VENDIDAS"):
+        verificador = True
+        while verificador:
+          try:
+            unidades = int(input("##### Unidades Vendidas (NÚMERO INTEIRO): "))
+            print("Dado alterado com sucesso!")
+            print("--------------------------")
+            vendas[code_venda][3] = unidades
+            verificador = False
+          except ValueError:
+            print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
+        resp = input("#### Deseja Alterar mais dados(S/N)? ")
+        resp = resp.upper()
+        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
+          verificador = False
+          print()
+        else:
+          print()
+          verificador = True
+      elif (resp == "VALOR R$") or (resp == "VALOR DE VENDA") or (resp == "R$") or (resp == "VALOR"):
+        verificador = True
+        while verificador:
+          try:
+            valor = float(input("##### Valor de Venda (R$ -> DECIMAL): "))
+            print("Dado alterado com sucesso!")
+            print("--------------------------")
+            print()
+            vendas[code_venda][4] = valor
+            verificador = False
+          except ValueError:
+            print("!!! Resposta não reconhecida como número DECIMAL(R$). Tente novamente !!!")
+        resp = input("#### Deseja Alterar mais dados(S/N)? ")
+        resp = resp.upper()
+        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
+          verificador = False
+          print()
+        else:
+          print()
+          verificador = True
+      elif (resp == "FORMA DE PAGAMENTO") or (resp == "PAGAMENTO"):
+        forma_pgto = input("##### Digite a Forma de pagamento: ")
+        print("Dado alterado com sucesso!")
+        print("--------------------------")
+        print()
+        vendas[code_venda][5] = forma_pgto
+        resp = input("#### Deseja Alterar mais dados(S/N)? ")
+        resp = resp.upper()
+        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
+          verificador = False
+          print()
+        else:
+          print()
+          verificador = True
+    else:
+      print()
+      print("Venda inexistente ou deletada!")
+      verificador = False
     print()
   input("tecle <ENTER> para continuar...")
 

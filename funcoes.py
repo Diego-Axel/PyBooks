@@ -157,7 +157,6 @@ def cadastrar_cliente():
   ativo = True
   clientes[code_cliente] = [nome, email, celular, cpf, ativo]
   print()
-  print(clientes)
   print("Cliente cadastrado com sucesso!")
   print()
   input("Tecle <ENTER> para continuar...")
@@ -401,7 +400,6 @@ def cadastrar_produto():
   print()
   produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque, ativo_prd]
   print()
-  print(produtos)
   print("Produto cadastrado com sucesso!")
   print()
   input("Tecle <ENTER> para continuar...")
@@ -690,7 +688,6 @@ def cadastrar_venda():
   ativo_venda = True
   print()
   vendas[code_venda] = [data_venda, nome_venda, livro_comprado, unidades, valor, forma_pgto, ativo_venda]
-  print(vendas)
   print()
   print("Venda cadastrada com sucesso!")
   print()

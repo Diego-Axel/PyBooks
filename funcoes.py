@@ -945,7 +945,7 @@ def relatorio_clientes():
       print("|--------|-----------------------------|--------------------------|---------------------|--------------------|")
       for code_cliente in clientes:
         if clientes[code_cliente][4]:
-          print("| %-6s "%(code_cliente), end='') # é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
+          print("| %-6s "%(code_cliente), end='') # Para o %-3s(expl) é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
           print("| %-27s "%(clientes[code_cliente][0]), end='')
           print("| %-24s "%(clientes[code_cliente][1]), end='')
           print("| %-19s "%(clientes[code_cliente][2]), end='')
@@ -964,7 +964,7 @@ def relatorio_clientes():
       print("|--------|-----------------------------|--------------------------|---------------------|--------------------|")
       for code_cliente in clientes:
         if clientes[code_cliente][4] == False:
-          print("| %-6s "%(code_cliente), end='') # é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
+          print("| %-6s "%(code_cliente), end='') # Para o %-3s(expl) é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
           print("| %-27s "%(clientes[code_cliente][0]), end='')
           print("| %-24s "%(clientes[code_cliente][1]), end='')
           print("| %-19s "%(clientes[code_cliente][2]), end='')
@@ -1001,7 +1001,7 @@ def relatorio_estoque():
       print("|-----|-----------------------------|-----------------------|------------------|-------|--------------|--------|---------------|")
       for code_produto in produtos:
         if produtos[code_produto][7]:
-          print("| %-3s "%(code_produto), end="") # é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
+          print("| %-3s "%(code_produto), end="") # Para o %-3s(expl) é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
           print("| %-27s "%(produtos[code_produto][0]), end="")
           print("| %-21s "%(produtos[code_produto][1]), end="")
           print("| %-16s "%(produtos[code_produto][2]), end="")
@@ -1022,7 +1022,7 @@ def relatorio_estoque():
       print("|-----|-----------------------------|-----------------------|------------------|-------|--------------|--------|---------------|")
       for code_produto in produtos:
         if produtos[code_produto][7] == False:
-          print("| %-3s "%(code_produto), end="") # é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
+          print("| %-3s "%(code_produto), end="") # Para o %-3s(expl) é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
           print("| %-27s "%(produtos[code_produto][0]), end="")
           print("| %-21s "%(produtos[code_produto][1]), end="")
           print("| %-16s "%(produtos[code_produto][2]), end="")
@@ -1061,7 +1061,7 @@ def relatorio_vendas():
       print("|-----|---------------|--------------------------|----------------------------|----------|------------|---------------------|")
       for code_venda in vendas:
         if vendas[code_venda][6]:
-          print("| %-3s "%(code_venda), end="") # é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
+          print("| %-3s "%(code_venda), end="") # Para o %-3s(expl) é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
           print("| %-13s "%(vendas[code_venda][0]), end="")
           print("| %-24s "%(vendas[code_venda][1]), end="")
           print("| %-26s "%(vendas[code_venda][2]), end="")
@@ -1081,7 +1081,7 @@ def relatorio_vendas():
       print("|-----|---------------|--------------------------|----------------------------|----------|------------|---------------------|")
       for code_venda in vendas:
         if vendas[code_venda][6] == False:
-          print("| %-3s "%(code_venda), end="") # é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
+          print("| %-3s "%(code_venda), end="") # Para o %-3s(expl) é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
           print("| %-13s "%(vendas[code_venda][0]), end="")
           print("| %-24s "%(vendas[code_venda][1]), end="")
           print("| %-26s "%(vendas[code_venda][2]), end="")
@@ -1112,7 +1112,7 @@ def menu_informacao():
   input("Tecle <ENTER> para retornar ao Menu Principal...")
 
 
-def salvar_dados():
+def salvar_dados(): # Função para guardar os dados de CLIENTES, PRODUTOS e VENDAS
   # Gravando os dados no arquivo:
   arq_clientes = open("clientes.dat", "wb")
   pickle.dump(clientes, arq_clientes)

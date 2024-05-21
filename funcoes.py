@@ -215,7 +215,9 @@ def alterar_cliente():
     if (code_cliente in clientes) and (clientes[code_cliente][4]):
       print()
       print("###########################################")
-      print("######    Dados Atuais do Cliente     #####")
+      print("######     Dados Atuais do Cliente    #####")
+      print("###########################################")
+      print("##### 0 - Cancelar e Retornar         #####")
       print("###########################################")
       print()
       print("##### Nome: ",clientes[code_cliente][0])
@@ -223,7 +225,7 @@ def alterar_cliente():
       print("##### Celular: ",clientes[code_cliente][2])
       print("##### CPF: ",clientes[code_cliente][3])
       print()        
-      resp = input("#### Qual dado deseja alterar? ")
+      resp = input("#### Qual dado deseja alterar (0 Para Cancelar)? ")
       resp = resp.upper()
       print()
       ativo = True
@@ -296,6 +298,9 @@ def alterar_cliente():
         else:
           print()
           verificador = True
+      elif (resp == "0"):
+        print("Alteração Cancelada!")
+        verificador = False
     else:
       print()
       print("Cliente inexistente ou inativo!")   
@@ -463,6 +468,8 @@ def alterar_produto():
       print("###########################################")
       print("######    Dados Atuais do Produto     #####")
       print("###########################################")
+      print("##### 0 - Cancelar e Retornar         #####")
+      print("###########################################")
       print()
       print("##### Nome do Livro: ",produtos[code_produto][0])
       print("##### Descrição: ",produtos[code_produto][1])
@@ -472,7 +479,7 @@ def alterar_produto():
       print("##### Gênero: ", produtos[code_produto][5])
       print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
       print()
-      resp = input("#### Qual dado deseja alterar? ")
+      resp = input("#### Qual dado deseja alterar (0 Para Cancelar)? ")
       resp = resp.upper()
       print()
       ativo_prd = True
@@ -591,7 +598,10 @@ def alterar_produto():
           print()
         else:
           print()
-          verificador = True      
+          verificador = True     
+      elif (resp == "0"):
+        print("Alteração Cancelada!")
+        verificador = False 
     else:
       print()
       print("Produto inexistente ou deletado!")
@@ -749,6 +759,12 @@ def alterar_venda():
     os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
     if (code_venda in vendas) and (vendas[code_venda][6]):
       print()
+      print("###########################################")
+      print("######      Dados Atuais da Venda     #####")
+      print("###########################################")
+      print("##### 0 - Cancelar e Retornar         #####")
+      print("###########################################")
+      print()
       print("##### Data de venda: ",vendas[code_venda][0])
       print("##### Nome do Cliente: ",vendas[code_venda][1])
       print("##### Livro Comprado: ",vendas[code_venda][2])
@@ -856,6 +872,9 @@ def alterar_venda():
         else:
           print()
           verificador = True
+      elif (resp == "0"):
+        print("Alteração Cancelada!")
+        verificador = False
     else:
       print()
       print("Venda inexistente ou deletada!")

@@ -130,7 +130,7 @@ def cadastrar_cliente():
   print("############################################")
   print()
   code_cliente = len(clientes) + 1
-  nome = input("##### Nome: ")
+  nome_cliente = input("##### Nome: ")
   print()
   verificador = True # Maneira de usar while atraves de variaveis que guardam operadoes lógicos, dica de Matheus Diniz.
   while verificador:
@@ -155,7 +155,7 @@ def cadastrar_cliente():
   cpf = input("##### CPF: ")
   print()
   ativo = True
-  clientes[code_cliente] = [nome, email, celular, cpf, ativo]
+  clientes[code_cliente] = [nome_cliente, email, celular, cpf, ativo]
   print()
   print("Cliente cadastrado com sucesso!")
   print()
@@ -229,8 +229,8 @@ def alterar_cliente():
       ativo = True
       clientes[code_cliente][4] = ativo
       if (resp == "NOME"):
-        nome = input("##### Digite o novo nome: ")
-        clientes[code_cliente][0] = nome
+        nome_cliente = input("##### Digite o novo nome: ")
+        clientes[code_cliente][0] = nome_cliente
         print("Dado alterado com sucesso!")
         print("--------------------------")
         print()
@@ -664,14 +664,14 @@ def cadastrar_venda():
   code_venda = len(vendas) + 1
   data_venda = ("%02d/%02d/%d"%(dia, mes, ano))
   print()
-  nome_venda = input("##### Nome do Cliente: ")
+  nome_cliente_venda = input("##### Nome do Cliente: ")
   print()
   livro_comprado = input("##### Nome do Livro Comprado: ")
   print()
   verificador = True
   while verificador:
     try:
-      unidades = int(input("##### Unidades Adquiridas (NÚMERO INTEIRO): "))
+      unidades = int(input("##### Unidades Vendidas (NÚMERO INTEIRO): "))
       verificador = False
     except ValueError:
       print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
@@ -679,7 +679,7 @@ def cadastrar_venda():
   verificador = True
   while verificador:
     try:
-      valor = float(input("##### Valor da compra (R$ -> DECIMAL): "))
+      valor = float(input("##### Valor de Venda (R$ -> DECIMAL): "))
       verificador = False
     except ValueError:
       print("!!! Resposta não reconhecida como número DECIMAL(R$). Tente novamente !!!")
@@ -687,7 +687,7 @@ def cadastrar_venda():
   forma_pgto = input("##### Forma de pagamento: ")
   ativo_venda = True
   print()
-  vendas[code_venda] = [data_venda, nome_venda, livro_comprado, unidades, valor, forma_pgto, ativo_venda]
+  vendas[code_venda] = [data_venda, nome_cliente_venda, livro_comprado, unidades, valor, forma_pgto, ativo_venda]
   print()
   print("Venda cadastrada com sucesso!")
   print()
@@ -718,8 +718,8 @@ def exibir_venda():
       print("##### Data de venda: ",vendas[code_venda][0])
       print("##### Nome do Cliente: ",vendas[code_venda][1])
       print("##### Livro Comprado: ",vendas[code_venda][2])
-      print("##### Unidades Adquiridas: ",vendas[code_venda][3])
-      print("##### Valor R$",vendas[code_venda][4])
+      print("##### Unidades Vendias: ",vendas[code_venda][3])
+      print("##### Valor R$ da Venda",vendas[code_venda][4])
       print("##### Forma de Pagamento: ",vendas[code_venda][5])
       print()
     else:
@@ -752,8 +752,8 @@ def alterar_venda():
       print("##### Data de venda: ",vendas[code_venda][0])
       print("##### Nome do Cliente: ",vendas[code_venda][1])
       print("##### Livro Comprado: ",vendas[code_venda][2])
-      print("##### Unidades Adquiridas: ",vendas[code_venda][3])
-      print("##### Valor R$",vendas[code_venda][4])
+      print("##### Unidades Vendias: ",vendas[code_venda][3])
+      print("##### Valor R$ de Venda",vendas[code_venda][4])
       print("##### Forma de Pagamento: ",vendas[code_venda][5])
       print()
       resp = input("#### Qual dado deseja alterar? ")
@@ -776,11 +776,11 @@ def alterar_venda():
           print()
           verificador = True
       elif (resp == "NOME DO CLIENTE") or (resp == "NOME CLIENTE") or (resp == "CLIENTE"):    
-        nome_venda = input("##### Digite o novo nome do Cliente: ")
+        nome_cliente_venda = input("##### Digite o nome do Cliente: ")
         print("Dado alterado com sucesso!")
         print("--------------------------")
         print()
-        vendas[code_venda][1] = nome_venda
+        vendas[code_venda][1] = nome_cliente_venda
         resp = input("#### Deseja Alterar mais dados(S/N)? ")
         resp = resp.upper()
         if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
@@ -790,7 +790,7 @@ def alterar_venda():
           print()
           verificador = True
       elif (resp == "LIVRO COMPRADO") or (resp == "LIVRO") or (resp == "NOME DO LIVRO"):
-        livro_comprado = input("##### Digite o novo nome do livro Comprado: ")
+        livro_comprado = input("##### Digite o nome do livro Comprado: ")
         print("Dado alterado com sucesso!")
         print("--------------------------")
         print()
@@ -883,8 +883,8 @@ def excluir_venda():
     print("##### Data de venda: ",vendas[code_venda][0])
     print("##### Nome do Cliente: ",vendas[code_venda][1])
     print("##### Livro Comprado: ",vendas[code_venda][2])
-    print("##### Unidades Adquiridas: ",vendas[code_venda][3])
-    print("##### Valor R$",vendas[code_venda][4])
+    print("##### Unidades Vendidas: ",vendas[code_venda][3])
+    print("##### Valor R$ de Venda",vendas[code_venda][4])
     print("##### Forma de Pagamento: ",vendas[code_venda][5])
     print()
     decisao = input("Tem certeza que deseja EXCLUIR essa Venda (S/N)? ")

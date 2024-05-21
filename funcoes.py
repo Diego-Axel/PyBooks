@@ -962,10 +962,10 @@ def relatorio_clientes():
       for code_cliente in clientes:
         if clientes[code_cliente][4]:
           print("| %-5s "%(code_cliente), end='') # Para o %-5s(expl) é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
-          print("| %-43s "%(clientes[code_cliente][0]), end='')
-          print("| %-24s "%(clientes[code_cliente][1]), end='')
-          print("| %-19s "%(clientes[code_cliente][2]), end='')
-          print("| %-17s "%(clientes[code_cliente][3])) 
+          print("| %-43s "%(clientes[code_cliente][0]), end='') # 2
+          print("| %-24s "%(clientes[code_cliente][1]), end='') # 3
+          print("| %-19s "%(clientes[code_cliente][2]), end='') # 4
+          print("| %-17s "%(clientes[code_cliente][3]))         # 5
       print("-----------------------------------------------------------------------------------------------------------------------------")
       print()
       input("tecle <NETER> para continuar...")          
@@ -981,10 +981,10 @@ def relatorio_clientes():
       for code_cliente in clientes:
         if clientes[code_cliente][4] == False:
           print("| %-5s "%(code_cliente), end='') # Para o %-5s(expl) é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
-          print("| %-43s "%(clientes[code_cliente][0]), end='')
-          print("| %-24s "%(clientes[code_cliente][1]), end='')
-          print("| %-19s "%(clientes[code_cliente][2]), end='')
-          print("| %-17s "%(clientes[code_cliente][3]))
+          print("| %-43s "%(clientes[code_cliente][0]), end='') # 2
+          print("| %-24s "%(clientes[code_cliente][1]), end='') # 3
+          print("| %-19s "%(clientes[code_cliente][2]), end='') # 4
+          print("| %-17s "%(clientes[code_cliente][3]))         # 5 
       print("-----------------------------------------------------------------------------------------------------------------------------")
       print()
       input("tecle <NETER> para continuar...")          

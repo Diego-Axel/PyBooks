@@ -99,4 +99,4 @@ print("""
 # ASCCI(s) feitas no site: https://ascii-art.botecodigital.dev.br/  ;)
 
 # Gravando os dados no arquivo:
-funcoes.salvar_dados()
+funcoes.salvar_dados() # Função para guardar os dados de CLIENTES, PRODUTOS e VENDAS

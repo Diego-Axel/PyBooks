@@ -2,6 +2,7 @@
 import os
 import datetime
 import re
+import pickle
 
 # Pega a data Atual ->
 data = datetime.date.today()
@@ -17,29 +18,30 @@ ano = data.year
 ################################################################
 ################################################################
 
-# Dados para Testes
+clientes = {}
+try:
+  arq_clientes = open("clientes.dat", "rb")
+  clientes = pickle.load(arq_clientes)
+except:
+  arq_clientes = open("clientes.dat", "wb")
+arq_clientes.close()
 
-clientes = {
-    1: ['Jaqueline', 'jaqueline@gmail.com', '(84) 99977-2243', '123.321.123-33', True],
-    2: ['Carlos', 'carlos@gmail.com', '(84) 99977-5500', '123.321.123-11', True],
-    3: ['Thomas Daniel', 'TDaniel@gmail.com', '(84) 99911-0000', '123.321.123-07', True],
-    4: ['Joaqum Dutra', 'joaquim@gmail.com', '(84) 99911-0000', '123.321.123-07', False]
-    
-}
-
-produtos = {
-    1: ['Harry Potter', 'Tste descrição', 'Diego', '2001', 'Dura', 2, 2, True],
-    2: ['Clean Code', 'Código limpo!', 'Flavius', '2005', 'Dura', 4, 6, False],
-    3: ['Python Básico', 'Aprenda Python do 0', 'FULANO', '1999', 'Mole', 4, 10, True]
-}
-
-vendas = {
-    1: [datetime.date(2024, 5, 1), 'Axel', 'Harry Potter', '4', 20.43, 'Cartão', True],
-    2: [datetime.date(2024, 5, 1), 'Denise', 'Clean Code', '5', 15.67, 'Débito', True],
-    3: [datetime.date(2024, 5, 1), 'Carlos', 'Jurassic Park', '1', 20.23, 'Dinheiro', False]
-}
+produtos = {}
+try:
+  arq_produtos = open("produtos.dat", "rb")
+  produtos = pickle.load(arq_produtos)
+except:
+  arq_produtos = open("produtos.dat", "wb")
+arq_produtos.close()
 
 
+vendas = {}
+try:
+  arq_vendas = open("vendas.dat", "rb")
+  vendas = pickle.load(arq_vendas)
+except:
+  arq_vendas = open("vendas.dat", "wb")
+arq_vendas.close()
 
 ################################################################
 ################################################################
@@ -1108,3 +1110,18 @@ def menu_informacao():
   print("#############################################")
   print()
   input("Tecle <ENTER> para retornar ao Menu Principal...")
+
+
+def salvar_dados():
+  # Gravando os dados no arquivo:
+  arq_clientes = open("clientes.dat", "wb")
+  pickle.dump(clientes, arq_clientes)
+  arq_clientes.close()
+
+  arq_produtos = open("produtos.dat", "wb")
+  pickle.dump(produtos, arq_produtos)
+  arq_produtos.close()
+
+  arq_vendas = open("vendas.dat", "wb")
+  pickle.dump(vendas, arq_vendas)
+  arq_vendas.close()

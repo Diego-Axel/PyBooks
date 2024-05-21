@@ -7,7 +7,8 @@
 
 # imports
 import funcoes # Arquivo com as minhas funções (modularização)
-import os
+import os # função para limpar a tela do terminal
+import pickle
 
 ################################################################
 ################################################################
@@ -96,3 +97,6 @@ print("""
                                              
   """)    
 # ASCCI(s) feitas no site: https://ascii-art.botecodigital.dev.br/  ;)
+
+# Gravando os dados no arquivo:
+funcoes.salvar_dados()

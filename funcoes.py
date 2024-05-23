@@ -968,7 +968,7 @@ def relatorio_clientes():
           print("| %-17s "%(clientes[code_cliente][3]))         # 5
       print("-----------------------------------------------------------------------------------------------------------------------------")
       print()
-      input("tecle <NETER> para continuar...")          
+      input("tecle <ENTER> para continuar...")          
     elif resp == "2":
       os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
       print()
@@ -987,7 +987,7 @@ def relatorio_clientes():
           print("| %-17s "%(clientes[code_cliente][3]))         # 5 
       print("-----------------------------------------------------------------------------------------------------------------------------")
       print()
-      input("tecle <NETER> para continuar...")          
+      input("tecle <ENTER> para continuar...")          
 
 
 

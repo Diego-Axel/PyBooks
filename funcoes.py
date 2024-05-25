@@ -195,17 +195,6 @@ def exibir_cliente():
       print("| %-18s "%(clientes[code_cliente][3]))         # 4
       print("---------------------------------------------------------------------------------------------------------------------------")
       print()
-  
-      
-      
-      
-      
-      # print()
-      # print("##### Nome: ",clientes[code_cliente][0])
-      # print("##### E-mail: ",clientes[code_cliente][1])
-      # print("##### Celular: ",clientes[code_cliente][2])
-      # print("##### CPF: ",clientes[code_cliente][3])
-      # print()
     else:
         print("Cliente inexistente ou inativo!")
         print()

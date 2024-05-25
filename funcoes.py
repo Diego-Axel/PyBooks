@@ -183,11 +183,29 @@ def exibir_cliente():
         print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
     if (code_cliente in clientes) and (clientes[code_cliente][4]):
       print()
-      print("##### Nome: ",clientes[code_cliente][0])
-      print("##### E-mail: ",clientes[code_cliente][1])
-      print("##### Celular: ",clientes[code_cliente][2])
-      print("##### CPF: ",clientes[code_cliente][3])
+      print("###########################################################################################################################")
+      print("#############################################       Dados do Cliente        ###############################################")
+      print("###########################################################################################################################")
+      print("|---------------------------------------------|--------------------------------|---------------------|--------------------|")
+      print("|                Nome Completo                |             E-mail             |       Celular       |         CPF        |")
+      print("|---------------------------------------------|--------------------------------|---------------------|--------------------|")
+      print("| %-43s "%(clientes[code_cliente][0]), end='') # 1
+      print("| %-30s "%(clientes[code_cliente][1]), end='') # 2
+      print("| %-19s "%(clientes[code_cliente][2]), end='') # 3
+      print("| %-18s "%(clientes[code_cliente][3]))         # 4
+      print("---------------------------------------------------------------------------------------------------------------------------")
       print()
+  
+      
+      
+      
+      
+      # print()
+      # print("##### Nome: ",clientes[code_cliente][0])
+      # print("##### E-mail: ",clientes[code_cliente][1])
+      # print("##### Celular: ",clientes[code_cliente][2])
+      # print("##### CPF: ",clientes[code_cliente][3])
+      # print()
     else:
         print("Cliente inexistente ou inativo!")
         print()

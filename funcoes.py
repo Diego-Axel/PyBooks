@@ -314,7 +314,7 @@ def alterar_cliente():
     else:
       print()
       print("Cliente inexistente ou inativo!")   
-      verificador = False
+      verificador = False 
   print()
   input("Tecle <ENTER> para continuar...")
 
@@ -442,7 +442,7 @@ def exibir_produto():
     if (code_produto in produtos) and (produtos[code_produto][7]):
       print()
       print("###################################################################################################")
-      print("#########################                Dados do Produto                 #########################")
+      print("#####################################   Dados do Produto   ########################################")
       print("###################################################################################################")
       print("|----------------------------------------|-----------------------|-------|--------|---------------|")
       print("|              Nome do Livro             |         Autor         |  Ano  | Gênero | Qtde. Estoque |")
@@ -480,19 +480,20 @@ def alterar_produto():
     os.system('celar || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
     if (code_produto in produtos) and (produtos[code_produto][7]):
       print()
-      print("###########################################")
-      print("######    Dados Atuais do Produto     #####")
-      print("###########################################")
-      print("##### 0 - Cancelar e Retornar         #####")
-      print("###########################################")
       print()
-      print("##### Nome do Livro: ",produtos[code_produto][0])
-      print("##### Descrição: ",produtos[code_produto][1])
-      print("##### Autor: ",produtos[code_produto][2])
-      print("##### Ano: ",produtos[code_produto][3])
-      print("##### Tipo de Capa: ",produtos[code_produto][4])
-      print("##### Gênero: ", produtos[code_produto][5])
-      print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
+      print("###################################################################################################")
+      print("#################################   Dados Atuais do Produto   #####################################")
+      print("####################################   0 - Para Cancelar    #######################################")
+      print("###################################################################################################")
+      print("|----------------------------------------|-----------------------|-------|--------|---------------|")
+      print("|              Nome do Livro             |         Autor         |  Ano  | Gênero | Qtde. Estoque |")
+      print("|----------------------------------------|-----------------------|-------|--------|---------------|")
+      print("| %-38s "%(produtos[code_produto][0]), end="") # 1
+      print("| %-21s "%(produtos[code_produto][2]), end="") # 2
+      print("| %-5s "%(produtos[code_produto][3]), end="")  # 3
+      print("| %-6s "%(produtos[code_produto][5]), end="")  # 4
+      print("| %-13s "%(produtos[code_produto][6]))         # 5
+      print("---------------------------------------------------------------------------------------------------")
       print()
       resp = input("#### Qual dado deseja alterar (0 Para Cancelar)? ")
       resp = resp.upper()
@@ -620,6 +621,7 @@ def alterar_produto():
     else:
       print()
       print("Produto inexistente ou deletado!")
+      verificador = False
     print()
   input("Tecle <ENTER> para continuar...")
 

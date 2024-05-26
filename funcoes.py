@@ -198,7 +198,7 @@ def exibir_cliente():
     else:
         print("Cliente inexistente ou inativo!")
         print()
-    resp = input("Deseja continuar (tecle <ENTER> para continuar ou 0 para retornar ao Menu Clientes)? ")
+    resp = input("tecle <ENTER> para continuar ou 0 para retornar ao Menu Clientes: ")
   print()
 
 
@@ -438,18 +438,23 @@ def exibir_produto():
         print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
     if (code_produto in produtos) and (produtos[code_produto][7]):
       print()
-      print("##### Nome do Livro: ",produtos[code_produto][0])
-      print("##### Descrição: ",produtos[code_produto][1])
-      print("##### Autor: ",produtos[code_produto][2])
-      print("##### Ano: ",produtos[code_produto][3])
-      print("##### Tipo de Capa: ",produtos[code_produto][4])
-      print("##### Gênero: ", produtos[code_produto][5])
-      print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
+      print("###################################################################################################")
+      print("#########################                Dados do Produto                 #########################")
+      print("###################################################################################################")
+      print("|----------------------------------------|-----------------------|-------|--------|---------------|")
+      print("|              Nome do Livro             |         Autor         |  Ano  | Gênero | Qtde. Estoque |")
+      print("|----------------------------------------|-----------------------|-------|--------|---------------|")
+      print("| %-38s "%(produtos[code_produto][0]), end="") # 1
+      print("| %-21s "%(produtos[code_produto][2]), end="") # 2
+      print("| %-5s "%(produtos[code_produto][3]), end="")  # 3
+      print("| %-6s "%(produtos[code_produto][5]), end="")  # 4
+      print("| %-13s "%(produtos[code_produto][6]))         # 5
+      print("---------------------------------------------------------------------------------------------------")
       print()
     else:
       print("Produto inexiste ou deletado!")
       print()
-    resp = input("Deseja continuar (tecle <ENTER> para continuar ou 0 para retornar ao Menu Clientes)? ")
+    resp = input("tecle <ENTER> para continuar ou 0 para retornar ao Menu Clientes:  ")
   print()
  
 
@@ -743,7 +748,7 @@ def exibir_venda():
       print()
       print("Venda inexistente ou deletada!")
       print()
-    resp = input("Deseja continuar (tecle <ENTER> para continuar ou 0 para retornar ao Menu Clientes)? ")
+    resp = input("tecle <ENTER> para continuar ou 0 para retornar ao Menu Clientes: ")
   print()
 
 
@@ -1016,41 +1021,41 @@ def relatorio_estoque():
     if resp == "1":
       os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
       print()
-      print("################################################################################################")
-      print("########################        Relatório de Produtos em Estoque        ########################")
-      print("################################################################################################")
-      print("|-----|----------------------------------|--------------------|-------|--------|---------------|")
-      print("| Cod |           Nome do Livro          |       Autor        |  Ano  | Gênero | Qtde. Estoque |")
-      print("|-----|----------------------------------|--------------------|-------|--------|---------------|")
+      print("#########################################################################################################")
+      print("#############################        Relatório de Produtos em Estoque        ############################")
+      print("#########################################################################################################")
+      print("|-----|----------------------------------------|-----------------------|-------|--------|---------------|")
+      print("| Cod |              Nome do Livro             |         Autor         |  Ano  | Gênero | Qtde. Estoque |")
+      print("|-----|----------------------------------------|-----------------------|-------|--------|---------------|")
       for code_produto in produtos:
         if produtos[code_produto][7]:
           print("| %-3s "%(code_produto), end="") # Para o %-3s(expl) é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
-          print("| %-32s "%(produtos[code_produto][0]), end="") # 2
-          print("| %-18s "%(produtos[code_produto][2]), end="") # 3
+          print("| %-38s "%(produtos[code_produto][0]), end="") # 2
+          print("| %-21s "%(produtos[code_produto][2]), end="") # 3
           print("| %-5s "%(produtos[code_produto][3]), end="")  # 4
           print("| %-6s "%(produtos[code_produto][5]), end="")  # 5
           print("| %-13s "%(produtos[code_produto][6]))         # 6
-      print("|-----------------------------------------------------------------------------------------------")
+      print("---------------------------------------------------------------------------------------------------------")
       print()
       input("tecle <ENTER> para continuar...")
     elif resp == "2":
       os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
       print()
-      print("################################################################################################")
-      print("########################        Relatório de Produtos Deletados         ########################")
-      print("################################################################################################")
-      print("|-----|----------------------------------|--------------------|-------|--------|---------------|")
-      print("| Cod |           Nome do Livro          |       Autor        |  Ano  | Gênero | Qtde. Estoque |")
-      print("|-----|----------------------------------|--------------------|-------|--------|---------------|")
+      print("#########################################################################################################")
+      print("#############################        Relatório de Produtos Deletados         ############################")
+      print("#########################################################################################################")
+      print("|-----|----------------------------------------|-----------------------|-------|--------|---------------|")
+      print("| Cod |              Nome do Livro             |         Autor         |  Ano  | Gênero | Qtde. Estoque |")
+      print("|-----|----------------------------------------|-----------------------|-------|--------|---------------|")
       for code_produto in produtos:
         if produtos[code_produto][7] == False:
           print("| %-3s "%(code_produto), end="") # Para o %-3s(expl) é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
-          print("| %-32s "%(produtos[code_produto][0]), end="") # 2
-          print("| %-18s "%(produtos[code_produto][2]), end="") # 3
+          print("| %-38s "%(produtos[code_produto][0]), end="") # 2
+          print("| %-21s "%(produtos[code_produto][2]), end="") # 3
           print("| %-5s "%(produtos[code_produto][3]), end="")  # 4
           print("| %-6s "%(produtos[code_produto][5]), end="")  # 5
           print("| %-13s "%(produtos[code_produto][6]))         # 6
-      print("|-----------------------------------------------------------------------------------------------")
+      print("---------------------------------------------------------------------------------------------------------")
       print()
       input("tecle <ENTER> para continuar...")
 

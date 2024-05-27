@@ -591,7 +591,7 @@ def alterar_produto():
         print("###########################")
         print("##### GÊNERO TEXTUTAL #####")
         print("###########################")
-        print("| 1 - Ação \n| 2 - Ficção \n| 3 - Suspense \n| 4 - Educativo \n| 5 - Infantil \n| 6 - Recreativo \n| 7 - Amplo")
+        print("| 1 - Ação \n| 2 - Ficção \n| 3 - Suspense \n| 4 - Educativo \n| 5 - Infantil \n| 6 - Recreativo \n| 7 - Romance \n| 8 - Amplo")
         print()
         verificador = True
         while verificador:

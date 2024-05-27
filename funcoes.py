@@ -418,9 +418,15 @@ def cadastrar_produto():
     except ValueError:
       print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
   print()
+  verificador = True
+  while verificador:
+    try:
+      valor_livro = float(input("##### Valor desse Livro (R$ -> NÚMERO DECIMAL): "))
+      verificador = False
+    except ValueError:
+      print("'!!! Resposta não reconhecida como um número DECIMAL. Tente novamente !!!")
   ativo_prd = True
-  print()
-  produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque, ativo_prd]
+  produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque, valor_livro, ativo_prd]
   print()
   print("Produto cadastrado com sucesso!")
   print()
@@ -446,22 +452,23 @@ def exibir_produto():
         verificador = False
       except ValueError:
         print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
-    if (code_produto in produtos) and (produtos[code_produto][7]):
+    if (code_produto in produtos) and (produtos[code_produto][8]):
       print()
-      print("##################################################################################################################################################################")
-      print("##################################################################    Dados do Produto    ########################################################################")
-      print("##################################################################################################################################################################")
-      print("|---------------------------------------------|------------------------------------------|-----------------------------------------|-------|--------|------|-----|")
-      print("|              Nome do Livro                  |                Descrição                 |                  Autor                  |  Ano  | Tp.Cp. | Gên. | Qtd.|")
-      print("|---------------------------------------------|------------------------------------------|-----------------------------------------|-------|--------|------|-----|")
+      print("##########################################################################################################################################################################")
+      print("####################################################################    Dados do Produto    ##############################################################################")
+      print("##########################################################################################################################################################################")
+      print("|---------------------------------------------|------------------------------------------|-----------------------------------------|-------|--------|------|-----|-------|")
+      print("|              Nome do Livro                  |                Descrição                 |                  Autor                  |  Ano  | Tp.Cp. | Gên. | Qtd.|   R$  |")
+      print("|---------------------------------------------|------------------------------------------|-----------------------------------------|-------|--------|------|-----|-------|")
       print("| %-43s "%(produtos[code_produto][0]), end="") # 1
       print("| %-40s "%(produtos[code_produto][1]), end="") # 2
       print("| %-39s "%(produtos[code_produto][2]), end="") # 3
       print("| %-5s "%(produtos[code_produto][3]), end="")  # 4
       print("| %-6s "%(produtos[code_produto][4]), end="")  # 5
       print("| %-4s "%(produtos[code_produto][5]), end="")  # 6
-      print("| %-3s "%(produtos[code_produto][6]))         # 7
-      print("------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+      print("| %-3s "%(produtos[code_produto][6]), end="")  # 7
+      print("| %-5s "%(produtos[code_produto][7]))          # 8
+      print("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
       print()
     else:
       print("Produto inexiste ou deletado!")
@@ -487,7 +494,7 @@ def alterar_produto():
   verificador = True
   while verificador:
     os.system('celar || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-    if (code_produto in produtos) and (produtos[code_produto][7]):
+    if (code_produto in produtos) and (produtos[code_produto][8]):
       print()
       print()
       print("###################################################################################################")
@@ -508,7 +515,7 @@ def alterar_produto():
       resp = resp.upper()
       print()
       ativo_prd = True
-      produtos[code_produto][7] = ativo_prd
+      produtos[code_produto][8] = ativo_prd
       if (resp == "NOME") or (resp == "NOME DO LIVRO") or (resp == "LIVRO"):
         nome_livro = input("##### Digite o novo nome do Livro: ")
         print("Dado alterado com sucesso!")
@@ -649,7 +656,7 @@ def excluir_produto():
       verificador = False
     except ValueError:
       print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
-  if (code_produto in produtos) and (produtos[code_produto][7]):
+  if (code_produto in produtos) and (produtos[code_produto][8]):
     print()
     print("###################################################################################################")
     print("#####################################   Dados do Produto   ########################################")
@@ -1048,7 +1055,7 @@ def relatorio_estoque():
       print("| Cod |              Nome do Livro             |         Autor         |  Ano  | Gênero | Qtde. Estoque |")
       print("|-----|----------------------------------------|-----------------------|-------|--------|---------------|")
       for code_produto in produtos:
-        if produtos[code_produto][7]:
+        if produtos[code_produto][8]:
           print("| %-3s "%(code_produto), end="") # Para o %-3s(expl) é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
           print("| %-38s "%(produtos[code_produto][0]), end="") # 2
           print("| %-21s "%(produtos[code_produto][2]), end="") # 3
@@ -1068,7 +1075,7 @@ def relatorio_estoque():
       print("| Cod |              Nome do Livro             |         Autor         |  Ano  | Gênero | Qtde. Estoque |")
       print("|-----|----------------------------------------|-----------------------|-------|--------|---------------|")
       for code_produto in produtos:
-        if produtos[code_produto][7] == False:
+        if produtos[code_produto][8] == False:
           print("| %-3s "%(code_produto), end="") # Para o %-3s(expl) é so pegar esses traçoes '-' e a contagem deles diminuir de 2.
           print("| %-38s "%(produtos[code_produto][0]), end="") # 2
           print("| %-21s "%(produtos[code_produto][2]), end="") # 3

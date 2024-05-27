@@ -650,13 +650,18 @@ def excluir_produto():
       print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
   if (code_produto in produtos) and (produtos[code_produto][7]):
     print()
-    print("##### Nome do Livro: ",produtos[code_produto][0])
-    print("##### Descrição: ",produtos[code_produto][1])
-    print("##### Autor: ",produtos[code_produto][2])
-    print("##### Ano: ",produtos[code_produto][3])
-    print("##### Tipo de Capa: ",produtos[code_produto][4])
-    print("##### Gênero: ", produtos[code_produto][5])
-    print("##### Quantidade Em Estoque: ",produtos[code_produto][6])
+    print("###################################################################################################")
+    print("#####################################   Dados do Produto   ########################################")
+    print("###################################################################################################")
+    print("|----------------------------------------|-----------------------|-------|--------|---------------|")
+    print("|              Nome do Livro             |         Autor         |  Ano  | Gênero | Qtde. Estoque |")
+    print("|----------------------------------------|-----------------------|-------|--------|---------------|")
+    print("| %-38s "%(produtos[code_produto][0]), end="") # 1
+    print("| %-21s "%(produtos[code_produto][2]), end="") # 2
+    print("| %-5s "%(produtos[code_produto][3]), end="")  # 3
+    print("| %-6s "%(produtos[code_produto][5]), end="")  # 4
+    print("| %-13s "%(produtos[code_produto][6]))         # 5
+    print("---------------------------------------------------------------------------------------------------")
     print()
     decisao = input("Tem certeza que deseja EXCLUIR esse Produto (S/N)? ")
     decisao = decisao.upper()
@@ -670,6 +675,7 @@ def excluir_produto():
     print("Produto inexistente ou deletado!")
     verificador = False
     print()
+  print()
   input("Tecle <ENTER> para continuar...")
 
 

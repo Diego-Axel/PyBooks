@@ -631,7 +631,27 @@ def alterar_produto():
           print()
         else:
           print()
-          verificador = True     
+          verificador = True 
+      elif (resp == "R$") or (resp == "VALOR") or (resp == "VALOR DO LIVRO"):
+        verificador = True
+        while verificador:
+          try:
+            valor_livro = float(input("##### Valor desse Livro (R$ -> NÚMERO DECIMAL): "))
+            print("Dado alterado com sucesso!")
+            print("--------------------------")
+            produtos[code_produto][7] = valor_livro
+            verificador = False
+          except ValueError:
+            print("!!! Resposta não reconheicda como um número DECIMAL. Tente novamente !!!")
+          print()
+        resp = input("#### Deseja Alterar mais dados(S/N)? ")
+        resp = resp.upper()
+        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
+          verificador = False
+          print()
+        else:
+          print()
+          verificador = True
       elif (resp == "0"):
         print("Alteração Cancelada!")
         verificador = False 

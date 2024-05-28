@@ -971,12 +971,19 @@ def excluir_venda():
       print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
   if (code_venda in vendas) and (vendas[code_venda][6]):
     print()
-    print("##### Data de venda: ",vendas[code_venda][0])
-    print("##### Nome do Cliente: ",vendas[code_venda][1])
-    print("##### Livro Comprado: ",vendas[code_venda][2])
-    print("##### Unidades Vendidas: ",vendas[code_venda][3])
-    print("##### Valor R$ de Venda",vendas[code_venda][4])
-    print("##### Forma de Pagamento: ",vendas[code_venda][5])
+    print("#####################################################################################################################################")
+    print("##########################################               Dados da Venda              ################################################")
+    print("#####################################################################################################################################")
+    print("|------------|---------------------------------------------|---------------------------------------------|----|--------|------------|")
+    print("| Data Venda |        Nome do Cliente/Comprador            |                 Livro Comprado              | UN |   R$   | Forma Pgt. |")
+    print("|------------|---------------------------------------------|---------------------------------------------|----|--------|------------|")
+    print("| %-10s "%(vendas[code_venda][0]), end="") # 1
+    print("| %-43s "%(vendas[code_venda][1]), end="") # 2
+    print("| %-43s "%(vendas[code_venda][2]), end="") # 3
+    print("| %-2s "%(vendas[code_venda][3]), end="")  # 4
+    print("| %-6s "%(vendas[code_venda][4]), end="")  # 5
+    print("| %-10s "%(vendas[code_venda][5]))         # 6
+    print("-------------------------------------------------------------------------------------------------------------------------------------")
     print()
     decisao = input("Tem certeza que deseja EXCLUIR essa Venda (S/N)? ")
     decisao = decisao.upper()
@@ -985,9 +992,12 @@ def excluir_venda():
       vendas[code_venda][6] = False
       print("Venda excluída com sucesso!")
       print()
+    else:
+      print("Exclusão não realizada!")
   else:
     print("##### Venda inexistente ou deletada!")
     print()
+  print()
   input("tecle <ENTER> para continuar...")
 
 

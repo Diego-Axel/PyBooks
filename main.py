@@ -77,11 +77,26 @@ while op_princ != "0":
             funcoes.relatorio_clientes_off()
       elif op_relatorio == "2":
         funcoes.menu_relatorio_estoque()
-        
+        op_relatorio_estoque = ""
+        while op_relatorio_estoque != "0":
+          op_relatorio_estoque = funcoes.menu_relatorio_estoque()
+          print()
+          if op_relatorio_estoque == "1":
+            funcoes.relatorio_estoque_on()
+          elif op_relatorio_estoque == "2":
+            funcoes.relatorio_estoque_off()
       elif op_relatorio == "3":
-        funcoes.relatorio_vendas()
+        funcoes.menu_relatorio_vendas()
+        op_relatorio_vendas = ""
+        while op_relatorio_vendas != "0":
+          op_relatorio_vendas = funcoes.menu_relatorio_vendas()
+          print()
+          if op_relatorio_vendas == "1":
+            funcoes.relatorio_vendas_on()
+          elif op_relatorio_vendas == "2":
+            funcoes.relatorio_vendas_off()
   elif op_princ == "5":
-    funcoes.menu_informacao()
+    interfaces.menu_informacao()
 
 os.system('claer || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
 print()

@@ -66,9 +66,18 @@ while op_princ != "0":
       op_relatorio = funcoes.menu_relatorio()
       print()
       if op_relatorio == "1":
-        funcoes.relatorio_clientes()
+        funcoes.menu_relatorio_clientes()
+        op_relatorio_clientes = ""
+        while op_relatorio_clientes != "0":
+          op_relatorio_clientes = funcoes.menu_relatorio_clientes()
+          print()
+          if op_relatorio_clientes == "1":
+            funcoes.relatorio_clientes_on()
+          elif op_relatorio_clientes == "2":
+            funcoes.relatorio_clientes_off()
       elif op_relatorio == "2":
-        funcoes.relatorio_estoque()
+        funcoes.menu_relatorio_estoque()
+        
       elif op_relatorio == "3":
         funcoes.relatorio_vendas()
   elif op_princ == "5":

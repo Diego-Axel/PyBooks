@@ -7,6 +7,7 @@
 
 # imports
 import funcoes # Arquivo com as minhas funções (modularização)
+import interfaces # Arquvio com as minhas interfaces (modularização)
 import os # função para limpar a tela do terminal
 import pickle
 
@@ -75,28 +76,7 @@ while op_princ != "0":
 
 os.system('claer || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
 print()
-print("Programa encerrado.")
+print("Programa encerrado. Até breve...")
 print()
-print("""
-  ___                         _     _    _                      _   ___  _                  _           _ 
- |   \ ___ ______ _ ___ _____| |_ ___)__| |___   _ __ ___ _ _  (_) |   \(_)___ __ _ ___    /_\ __ _____| |
- | |) / -_)_-< -_) ' \ V / _ \ \ V / / _` / _ \ | '_ \ _ \ '_|  _  | |) | / -_) _` / _ \  / _ \ \ \ /-_) |
- |___/\___/__\___|_||_\_/\___/_|\_/|_\__,_\___/ | .__\___/_|   (_) |___/|_\___\__, \___/ /_/ \_\_\_\___|_|
-                                                |_|                           |___/                       
-                                             ______________         
-                                            ||            ||        
-                                            ||            ||        
-                                            ||    < / >   ||        
-                                            ||            ||        
-                                            ||____________||        
-                                            |______________|        
-                                            \  ############ \       
-                                             \  ############ \      
-                                              \      ____     \     
-                                               \_____\___\____ \        
-                                             
-  """)    
-# ASCCI(s) feitas no site: https://ascii-art.botecodigital.dev.br/  ;)
-
-# Gravando os dados no arquivo:
+interfaces.encerramento() 
 funcoes.salvar_dados() # Função para guardar os dados de CLIENTES, PRODUTOS e VENDAS

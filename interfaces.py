@@ -1,4 +1,26 @@
+'''imports'''
+import os
+
 '''Interfaces'''
+
+def menu_informacao():
+  os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+  print()
+  print("#############################################")
+  print("#####  Você está no Módulo Informações  #####")
+  print("#############################################")
+  print("##### Projeto de Gestão de uma Livraria #####")
+  print("##### Desenvolvido por: Diêgo Axel      #####")
+  print("##### Instagram: @diegoaxelbsr          #####")
+  print("##### E-mail: diegoaxelbsr@gmail.com    #####")
+  print("##### Telefone: 55 (84) 99977-4459      #####")
+  print("##### Projeto do curso de: BSI  ->      #####")
+  print("##### Sistemas de Informação - UFRN     #####")
+  print("##### GitHub: Diego-Axel | Olha lá ;)   #####")
+  print("#############################################")
+  print()
+  input("Tecle <ENTER> para retornar ao Menu Principal...")
+
 
 def encerramento(): # Interface ao encerrar o programa
     print("""

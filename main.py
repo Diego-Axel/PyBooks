@@ -9,7 +9,6 @@
 import funcoes # Arquivo com as minhas funções (modularização)
 import interfaces # Arquvio com as minhas interfaces (modularização)
 import os # função para limpar a tela do terminal
-import pickle
 
 ################################################################
 ################################################################

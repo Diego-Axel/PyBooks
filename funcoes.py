@@ -18,7 +18,7 @@ ano = data.year
 ################################################################
 ################################################################
 
-clientes = {}
+clientes = {}  # Dicionário onde sera Salvo os Dados dos Clientes
 try:
   arq_clientes = open("clientes.dat", "rb")
   clientes = pickle.load(arq_clientes)
@@ -26,7 +26,7 @@ except:
   arq_clientes = open("clientes.dat", "wb")
 arq_clientes.close()
 
-produtos = {}
+produtos = {} # Dicionário onde sera Salvo os Dados dos Produtos(Livros)
 try:
   arq_produtos = open("produtos.dat", "rb")
   produtos = pickle.load(arq_produtos)
@@ -35,7 +35,7 @@ except:
 arq_produtos.close()
 
 
-vendas = {}
+vendas = {} # Dicionário onde sera Salvo os Dados das Vendas
 try:
   arq_vendas = open("vendas.dat", "rb")
   vendas = pickle.load(arq_vendas)
@@ -155,7 +155,7 @@ def cadastrar_cliente():
   cpf = input("##### CPF: ")
   print()
   ativo = True
-  clientes[code_cliente] = [nome_cliente, email, celular, cpf, ativo]
+  clientes[code_cliente] = [nome_cliente, email, celular, cpf, ativo] # Dados sendo guardados dentro do Dicionário Clientes, onde o indeteficador daquele dado será o código do Cliente, que aqui, funciona como um chave do tipo SERIAL, é única e não se repete
   print()
   print("Cliente cadastrado com sucesso!")
   print()
@@ -350,7 +350,12 @@ def excluir_cliente():
     decisao = decisao.upper()
     if (decisao == "SIM") or (decisao == "S"):
       print()
-      clientes[code_cliente][4] = False
+      '''
+      Para não acontecer de, ser excluido um cliente de cód 2, exemplo, e quando for cadastrar outro cliente, esse cliente não pegar
+      o mesmo cód que foi excluido, deixando um pouco bagunçado... Cada cliente fica com um ativo em seus dados, estiver on = True, for excluído, ativo = False -> Assim, o cód_cliente é unico e não se repete!      
+
+      '''
+      clientes[code_cliente][4] = False 
       print("Cliente excluído(a) com sucesso!")
     else:
       print("Exclusão não realizada!")
@@ -426,7 +431,7 @@ def cadastrar_produto():
     except ValueError:
       print("'!!! Resposta não reconhecida como um número DECIMAL. Tente novamente !!!")
   ativo_prd = True
-  produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque, valor_livro, ativo_prd]
+  produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque, valor_livro, ativo_prd] # Dados sendo guardados dentro do Dicionário produtos, onde o indeteficador daquele dado será o código do Produto, que aqui, funciona como um chave do tipo SERIAL, é única e não se repete
   print()
   print("Produto cadastrado com sucesso!")
   print()
@@ -700,6 +705,11 @@ def excluir_produto():
     decisao = decisao.upper()
     if (decisao == "SIM") or (decisao == "S"):
       print()
+      '''
+      Para não acontecer de, ser excluido um produto de cód 2, exemplo, e quando for cadastrar outro produto, esse produto não pegar
+      o mesmo cód que foi excluido, deixando um pouco bagunçado... Cada produto fica com um ativo em seus dados, estiver on = True, for excluído, ativo = False -> Assim, o cód_produto é unico e não se repete! 
+      
+      '''
       produtos[code_produto][7] = False
       print("Produto excluído com sucesso!")
     else:
@@ -761,7 +771,7 @@ def cadastrar_venda():
   forma_pgto = input("##### Forma de pagamento: ")
   ativo_venda = True
   print()
-  vendas[code_venda] = [data_venda, nome_cliente_venda, livro_comprado, unidades, valor, forma_pgto, ativo_venda]
+  vendas[code_venda] = [data_venda, nome_cliente_venda, livro_comprado, unidades, valor, forma_pgto, ativo_venda] # Dados sendo guardados dentro do Dicionário vendas, onde o indeteficador daquele dado será o código da venda, que aqui, funciona como um chave do tipo SERIAL, é única e não se repete
   print()
   print("Venda cadastrada com sucesso!")
   print()
@@ -989,6 +999,11 @@ def excluir_venda():
     decisao = decisao.upper()
     if (decisao == "SIM") or (decisao == "S"):
       print()
+      '''
+      Para não acontecer de, ser excluido uma venda de cód 2, exemplo, e quando for cadastrar outra venda, essa venda não pegar
+      o mesmo cód que foi excluido, deixando um pouco bagunçado... Cada venda fica com um ativo em seus dados, estiver on = True, for excluído, ativo = False -> Assim, o cód_venda é unico e não se repete!
+
+      '''
       vendas[code_venda][6] = False
       print("Venda excluída com sucesso!")
       print()

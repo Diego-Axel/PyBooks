@@ -1,7 +1,7 @@
 '''Arquivo das Funções de CLIENTES'''
 
 '''imports'''
-import re
+import validadores
 import pickle
 import os
 
@@ -16,22 +16,6 @@ try:
 except:
   arq_clientes = open("clientes.dat", "wb")
 arq_clientes.close()
-
-
-################################################################
-##########               VERIFICADORES                ##########
-################################################################
-
-
-def validar_email(email): # Função para verificar se o e-mail é válido (GPT)
-  padrao = re.compile(r'^[\w-]+@[a-z\d]+\.[\w]{2,3}$')
-  return padrao.match(email) is not None
-
-
-def validar_numero(numero): # Função para validar telefone (GPT)
-  padrao = re.compile(r'^\(\d{2}\) \d{4,5}-\d{4}$')
-  return padrao.match(numero) is not None
-
 
 #################################################
 #####          FUNÇÕES DE CLIENTES          #####
@@ -55,7 +39,7 @@ def cadastrar_cliente():
   verificador = True # Maneira de usar while atraves de variaveis que guardam operadoes lógicos, dica de Matheus Diniz.
   while verificador:
     email = input("#### E-mail: ")
-    if validar_email(email):
+    if validadores.validar_email(email):
       print("E-mail válido!")
       verificador = False
     else:
@@ -66,7 +50,7 @@ def cadastrar_cliente():
   while verificador:
     print("##### Digite o Celular com DDD e o 9 adicional seguinddo este exemplo: (xx) xxxxx-xxxx (NÚMERO DE EXEMPLO)")
     celular = input("##### Digite seu Celular: ")
-    if validar_numero(celular):
+    if validadores.validar_numero(celular):
       print("Numero válido!")
       verificador = False
     else:
@@ -187,7 +171,7 @@ def alterar_cliente():
         verificador = True
         while verificador:
           email = input("##### Digite o novo e-mail: ")
-          if validar_email(email):
+          if validadores.validar_email(email):
             print("E-mail válido e alterado com sucesso!")
             print("-------------------------------------")
             print()
@@ -209,7 +193,7 @@ def alterar_cliente():
         while verificador:
           print("##### Digite o novo, lembre-se Celular com DDD e o 9 adicional seguinddo este exemplo: (xx) xxxxx-xxxx (NÚMERO DE EXEMPLO)")
           celular = input("##### Novo Celular: ")
-          if validar_numero(celular):
+          if validadores.validar_numero(celular):
             print("Número válido e alterado com sucesso!")
             print("-------------------------------------")
             clientes[code_cliente][2] = celular

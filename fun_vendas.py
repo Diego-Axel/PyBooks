@@ -96,6 +96,8 @@ def exibir_venda():
         verificador = False
       except ValueError:
         print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
+    if code_venda == 0:
+      return
     if (code_venda in vendas) and (vendas[code_venda][6]):
       print()
       print("#####################################################################################################################################")

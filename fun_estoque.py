@@ -105,6 +105,8 @@ def exibir_produto():
         verificador = False
       except ValueError:
         print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
+    if code_produto == 0:
+      return
     if (code_produto in produtos) and (produtos[code_produto][8]):
       print()
       print("##########################################################################################################################################################################")

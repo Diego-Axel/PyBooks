@@ -43,7 +43,7 @@ def cadastrar_cliente():
       print("E-mail válido!")
       verificador = False
     else:
-      print("O e-mail não é válido. Por favor digite novamente.")
+      print("O e-mail não é válido, veja se você não esquceu o '@'/domínio/'.com'. Por favor digite novamente.")
       print()
   print()
   verificador = True
@@ -180,7 +180,7 @@ def alterar_cliente():
             clientes[code_cliente][1] = email
             verificador = False
           else:
-            print("O e-mail não é válido. Por favor digite novamente.")
+            print("O e-mail não é válido, veja se você não esquceu o '@'/domínio/'.com'. Por favor digite novamente.")
             print()
         resp = input("#### Deseja Alterar mais dados(S/N)? ")
         resp = resp.upper()

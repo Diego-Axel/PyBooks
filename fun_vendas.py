@@ -4,6 +4,7 @@
 import pickle
 import os
 import datetime
+import time
 
 '''Pegando a Data Atual'''
 data = datetime.date.today()
@@ -34,6 +35,19 @@ arq_vendas.close()
 #################################################
 
 def cadastrar_venda():
+  os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+  print("############################################")
+  print("#####         Cadastrar Venda          #####")
+  print("#####       <ENTER> - Prosseguir       #####")
+  print("#####           0 - Cancelar           #####")
+  print("############################################")
+  print()
+  confirmacao = input("Entrando em 'Cadastro de Venda' -> Digite '0' Para Cancelar e <ENTER> para prosseguir: ")
+  if confirmacao == "0":
+    return
+  else:
+    print("Iniciando cadastro.")
+    time.sleep(3)
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print("############################################")
   print("#####         Cadastrar Venda          #####")

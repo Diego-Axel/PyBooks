@@ -4,6 +4,7 @@
 import validadores
 import pickle
 import os
+import time
 
 #################################################
 #####          DICIONÁRIO CLIENTE           #####
@@ -27,6 +28,20 @@ arq_clientes.close()
 #################################################
 
 def cadastrar_cliente():
+  os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+  print()
+  print("############################################")
+  print("#####        Cadastrar Cliente         #####")
+  print("#####       <ENTER> - Prosseguir       #####")
+  print("#####           0 - Cancelar           #####")
+  print("############################################")
+  print()
+  confirmacao = input("Entrando em 'Cadastro de Cliente' -> Digite '0' Para Cancelar e <ENTER> para prosseguir: ")
+  if confirmacao == "0":
+    return
+  else:
+    print("Iniciando cadastro.")
+    time.sleep(3)
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print()
   print("############################################")

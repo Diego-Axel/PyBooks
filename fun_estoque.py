@@ -3,6 +3,7 @@
 '''imports'''
 import pickle
 import os
+import time
 
 #################################################
 #####          DICIONÁRIO ESTOQUE           #####
@@ -27,6 +28,20 @@ arq_produtos.close()
 #################################################
 
 def cadastrar_produto():
+  os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+  print()
+  print("############################################")
+  print("#####        Cadastrar Produto         #####")
+  print("#####       <ENTER> - Prosseguir       #####")
+  print("#####           0 - Cancelar           #####")
+  print("############################################")
+  print()
+  confirmacao = input("Entrando em 'Cadastro de Produto' -> Digite '0' Para Cancelar e <ENTER> para prosseguir: ")
+  if confirmacao == "0":
+    return
+  else:
+    print("Iniciando cadastro.")
+    time.sleep(3)
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print()
   print("############################################")

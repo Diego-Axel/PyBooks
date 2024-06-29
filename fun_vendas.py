@@ -81,7 +81,7 @@ def cadastrar_venda():
   print()
   vendas[code_venda] = [data_venda, nome_cliente_venda, livro_comprado, unidades, valor, forma_pgto, ativo_venda] # Dados sendo guardados dentro do Dicionário vendas, onde o indeteficador daquele dado será o código da venda, que aqui, funciona como um chave do tipo SERIAL, é única e não se repete
   print()
-  print("Venda cadastrada com sucesso!")
+  print(f"Venda cadastrada com sucesso sob código: {code_venda}")
   print()
   input("Tecle <ENTER> para continuar...")
 #-----------------------------------------------

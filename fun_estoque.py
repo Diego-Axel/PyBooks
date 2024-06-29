@@ -91,7 +91,7 @@ def cadastrar_produto():
   ativo_prd = True
   produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque, valor_livro, ativo_prd] # Dados sendo guardados dentro do Dicionário produtos, onde o indeteficador daquele dado será o código do Produto, que aqui, funciona como um chave do tipo SERIAL, é única e não se repete
   print()
-  print("Produto cadastrado com sucesso!")
+  print(f"Produto cadastrado com sucesso sob código: {code_produto}")
   print()
   input("Tecle <ENTER> para continuar...")
   #-----------------------------------------------
@@ -385,7 +385,7 @@ def excluir_produto():
       o mesmo cód que foi excluido, deixando um pouco bagunçado... Cada produto fica com um ativo em seus dados, estiver on = True, for excluído, ativo = False -> Assim, o cód_produto é unico e não se repete! 
       
       '''
-      produtos[code_produto][7] = False
+      produtos[code_produto][8] = False
       print("Produto excluído com sucesso!")
     else:
       print("Exclusão não realizada!")

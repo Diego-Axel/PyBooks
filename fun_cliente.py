@@ -82,6 +82,51 @@ def cadastrar_cliente():
   #---------------------------------------------------------------------
 
 
+########################################################
+#####          CADASTRAR CLIENTE NA VENDA          #####
+########################################################
+
+def cadastrar_cliente_venda(): # Estou usando essa função no meu arquivo de vendas, para cadastro de cliente se o mesmo não possuir cadastro
+  os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+  print()
+  print("############################################")
+  print("#####         Cadastrar Cliente        #####")
+  print("############################################")
+  print()
+  code_cliente = len(clientes) + 1
+  nome_cliente = input("##### Nome: ")
+  print()
+  verificador = True # Maneira de usar while atraves de variaveis que guardam operadoes lógicos, dica de Matheus Diniz.
+  while verificador:
+    email = input("#### E-mail: ")
+    if validadores.validar_email(email):
+      print("E-mail válido!")
+      verificador = False
+    else:
+      print("O e-mail não é válido, veja se você não esquceu o '@'/domínio/'.com'. Por favor digite novamente.")
+      print()
+  print()
+  verificador = True
+  while verificador:
+    print("##### Digite o Celular com DDD e o 9 adicional seguinddo este exemplo: (xx) xxxxx-xxxx (NÚMERO DE EXEMPLO)")
+    celular = input("##### Digite seu Celular: ")
+    if validadores.validar_numero(celular):
+      print("Numero válido!")
+      verificador = False
+    else:
+      print("Número não válido. Digite um número válido.")
+  print()
+  cpf = input("##### CPF: ")
+  print()
+  ativo = True
+  clientes[code_cliente] = [nome_cliente, email, celular, cpf, ativo] # Dados sendo guardados dentro do Dicionário Clientes, onde o indeteficador daquele dado será o código do Cliente, que aqui, funciona como um chave do tipo SERIAL, é única e não se repete
+  print()
+  print(f"Cliente cadastrado com sucesso sob código: {code_cliente}")
+  print()
+  input("Tecle <ENTER> para continuar...")
+  #---------------------------------------------------------------------
+
+
 #################################################
 #####          EXIBIR DADOS CLIENTE         #####
 #################################################

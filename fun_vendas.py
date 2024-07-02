@@ -1,6 +1,7 @@
 '''Arquivo das Funções das VENDAS'''
 
 '''imports'''
+import fun_cliente
 import pickle
 import os
 import datetime
@@ -24,6 +25,17 @@ except:
   arq_vendas = open("vendas.dat", "wb")
 arq_vendas.close()
 
+################################################
+#####          DICIONÁRIO CLIENTES         #####
+################################################
+
+clientes = {}  # Dicionário onde sera Salvo os Dados dos Clientes
+try:
+  arq_clientes = open("clientes.dat", "rb")
+  clientes = pickle.load(arq_clientes)
+except:
+  arq_clientes = open("clientes.dat", "wb")
+arq_clientes.close()
 
 #################################################
 #####          FUNÇÕES DAS VENDAS           #####
@@ -57,6 +69,26 @@ def cadastrar_venda():
   data_venda = ("%02d/%02d/%d"%(dia, mes, ano))
   print()
   nome_cliente_venda = input("##### Nome do Cliente: ")
+  cliente_encontrado = False
+  for cliente in clientes.values():
+    if cliente[0] == nome_cliente_venda:
+      cliente_encontrado = True
+      break
+  if cliente_encontrado:
+    print("##### Ok! Cliente cadastrado na base de dados!")
+  else:
+    print("##### OPS! Cliente não cadastrado")
+    print()
+    print("##### Por favor, cadastre esse cliente para darmos prosseguimento!")
+    fun_cliente.cadastrar_cliente()
+  os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+  print("############################################")
+  print("#####         Cadastrar Venda          #####")
+  print("############################################")
+  print()
+  print("##### Cliente Cadastrado! Por favor, continue o cadastro da venda.")
+  print()
+  print(f"##### Nome do Cliente: {nome_cliente_venda}")
   print()
   livro_comprado = input("##### Nome do Livro Comprado: ")
   print()

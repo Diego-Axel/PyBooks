@@ -80,7 +80,9 @@ def cadastrar_venda():
     print("##### OPS! Cliente não cadastrado")
     print()
     print("##### Por favor, cadastre esse cliente para darmos prosseguimento!")
-    fun_cliente.cadastrar_cliente()
+    print()
+    input("tecle <ENTER> para prosseguir para o cadastro de cliente...")
+    fun_cliente.cadastrar_cliente_venda()
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print("############################################")
   print("#####         Cadastrar Venda          #####")

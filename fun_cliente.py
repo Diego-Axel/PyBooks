@@ -75,7 +75,6 @@ def cadastrar_cliente():
   print()
   ativo = True
   clientes[code_cliente] = [nome_cliente, email, celular, cpf, ativo] # Dados sendo guardados dentro do Dicionário Clientes, onde o indeteficador daquele dado será o código do Cliente, que aqui, funciona como um chave do tipo SERIAL, é única e não se repete
-  print()
   print(f"Cliente cadastrado com sucesso sob código: {code_cliente}")
   print()
   input("Tecle <ENTER> para continuar...")
@@ -120,7 +119,6 @@ def cadastrar_cliente_venda(): # Estou usando essa função no meu arquivo de ve
   print()
   ativo = True
   clientes[code_cliente] = [nome_cliente, email, celular, cpf, ativo] # Dados sendo guardados dentro do Dicionário Clientes, onde o indeteficador daquele dado será o código do Cliente, que aqui, funciona como um chave do tipo SERIAL, é única e não se repete
-  print()
   print(f"Cliente cadastrado com sucesso sob código: {code_cliente}")
   print()
   input("Tecle <ENTER> para continuar...")

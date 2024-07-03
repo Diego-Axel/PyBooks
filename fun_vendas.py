@@ -70,7 +70,7 @@ def cadastrar_venda():
   print()
   nome_cliente_venda = input("##### Nome do Cliente: ")
   cliente_encontrado = False
-  for cliente in clientes.values():
+  for cliente in clientes.values(): # Verificando se o nome do cliente inserido está presente no dicionário 'Clientes'
     if cliente[0] == nome_cliente_venda:
       cliente_encontrado = True
       break
@@ -79,7 +79,7 @@ def cadastrar_venda():
   else:
     print("##### OPS! Cliente não cadastrado")
     print()
-    print("##### Por favor, cadastre esse cliente para darmos prosseguimento!")
+    print("##### Por favor, cadastre esse cliente para dar prosseguimento ao cadastro!")
     print()
     input("tecle <ENTER> para prosseguir para o cadastro de cliente...")
     fun_cliente.cadastrar_cliente_venda()
@@ -114,7 +114,6 @@ def cadastrar_venda():
   ativo_venda = True
   print()
   vendas[code_venda] = [data_venda, nome_cliente_venda, livro_comprado, unidades, valor, forma_pgto, ativo_venda] # Dados sendo guardados dentro do Dicionário vendas, onde o indeteficador daquele dado será o código da venda, que aqui, funciona como um chave do tipo SERIAL, é única e não se repete
-  print()
   print(f"Venda cadastrada com sucesso sob código: {code_venda}")
   print()
   input("Tecle <ENTER> para continuar...")

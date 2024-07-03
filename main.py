@@ -10,7 +10,7 @@ import interfaces # Arquvio com as minhas interfaces (modularização)
 import fun_cliente # Arquivo com as minhas funções de Clientes (modularização)
 import fun_estoque # Arquivo com as minhas funções do Estoque (modularização)
 import fun_vendas # Arquivo com as minhas funções  de Vendas (modularização)
-import os # função para limpar a tela do terminal
+import os
 
 ################################################################
 ################################################################

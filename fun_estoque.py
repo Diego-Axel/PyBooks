@@ -97,6 +97,65 @@ def cadastrar_produto():
   #-----------------------------------------------
 
 
+#########################################################
+#####           CADASTRAR PRODUTO NA VENDA          #####
+#########################################################
+
+def cadastrar_produto_venda(): # Estou usando essa função no meu arquivo de vendas, para cadastro de produto se o mesmo não possuir cadastro
+  os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+  print()
+  print("############################################")
+  print("#####        Cadastrar Produto         #####")
+  print("############################################")
+  print()
+  code_produto = len(produtos) + 1
+  print()
+  nome_livro = input("##### Nome do Livro: ")
+  print()
+  descricao = input("##### Descrição: ")
+  print()
+  autor = input("##### Autor: ")
+  print()
+  ano = input("##### Ano: ")
+  print()
+  tipo_capa = input("##### Tipo de Capa: ")
+  print()
+  print("###########################")
+  print("##### GÊNERO TEXTUTAL #####")
+  print("###########################")
+  print("| 1 - Ação \n| 2 - Ficção \n| 3 - Suspense \n| 4 - Educativo \n| 5 - Infantil \n| 6 - Recreativo \n| 7 - Romance \n| 8 - Amplo")
+  print()
+  verificador = True
+  while verificador:
+    try: # Tratar exeções junto com o EXCEPT | Estou usando para verificar se o usuário colocou o número como pedido (estudos na internet)
+      genero = int(input("##### Tipo de Gênero (NÚMERO INTEIRO): "))
+      verificador = False
+    except ValueError:
+      print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
+  print()
+  verificador = True
+  while verificador:
+    try:
+      qtd_estoque = int(input("##### Quantidade em Estoque (NÚMERO INTEIRO): "))
+      verificador = False
+    except ValueError:
+      print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
+  print()
+  verificador = True
+  while verificador:
+    try:
+      valor_livro = float(input("##### Valor desse Livro (R$ -> NÚMERO DECIMAL): "))
+      verificador = False
+    except ValueError:
+      print("'!!! Resposta não reconhecida como um número DECIMAL. Tente novamente !!!")
+  ativo_prd = True
+  produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque, valor_livro, ativo_prd] # Dados sendo guardados dentro do Dicionário produtos, onde o indeteficador daquele dado será o código do Produto, que aqui, funciona como um chave do tipo SERIAL, é única e não se repete
+  print()
+  print(f"Produto cadastrado com sucesso sob código: {code_produto}")
+  print()
+  input("Tecle <ENTER> para continuar...")
+  #-----------------------------------------------
+
 #################################################
 #####          EXIBIR DADOS PRODUTO         #####
 #################################################
@@ -109,14 +168,13 @@ def exibir_produto():
     print()
     print("############################################")
     print("#####      Exibir Dados do Produto     #####")
-    print("############################################")
-    print("##### 0 - Retornar ao Menu Estoque     #####")
+    print("#####         0 - Para Retornar        #####")
     print("############################################")
     print()
     verificador = True
     while verificador:
       try:
-        code_produto = int(input("##### Digite o Código do Produto: "))
+        code_produto = int(input("##### Digite o Código do Produto ou Digite '0' Para Retornar: "))
         verificador = False
       except ValueError:
         print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
@@ -157,15 +215,18 @@ def alterar_produto():
   print()
   print("############################################")
   print("#####     Alterar Dados do Produto     #####")
+  print("#####         0 - Para Retornar        #####")
   print("############################################")
   print()
   verificador = True
   while verificador:
     try:
-      code_produto = int(input("##### Digite o Código do Produto: "))
+      code_produto = int(input("##### Digite o Código do Produto ou Digite '0' Para Retornar: "))
       verificador = False
     except ValueError:
       print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
+  if code_produto == 0:
+    return
   verificador = True
   while verificador:
     os.system('celar || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -349,15 +410,18 @@ def excluir_produto():
   print()
   print("############################################")
   print("#####          Excluir Produto         #####")
+  print("#####         0 - Para Retornar        #####")
   print("############################################")
   print()
   verificador = True
   while verificador:
     try:
-      code_produto = int(input("##### Digite o Código do Produto: "))
+      code_produto = int(input("##### Digite o Código do Produto ou Digite '0' Para Retornar: "))
       verificador = False
     except ValueError:
       print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
+  if code_produto == 0:
+    return
   if (code_produto in produtos) and (produtos[code_produto][8]):
     print()
     print("##########################################################################################################################################################################")

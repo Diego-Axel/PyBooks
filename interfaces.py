@@ -137,6 +137,12 @@ def menu_vendas(): # Função do Menu de Vendas
 
 def menu_relatorio(): # Função do Menu dos Relatórios
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+  print('''
+       ___     _      _           _ 
+      | _ \___| |__ _| |_ ___ _ _(_)___ ___
+      |   / -_) / _` |  _/ _ \ '_| / _ (_-<
+      |_|_\___|_\__,_|\__\___/_| |_\___/__/                                 
+  ''')
   print()
   print("#################################################")
   print("#####     Você está no Módulo Relatório     #####")

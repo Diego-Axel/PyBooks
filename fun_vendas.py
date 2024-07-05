@@ -2,6 +2,7 @@
 
 '''imports'''
 import fun_cliente
+import fun_estoque
 import pickle
 import os
 import datetime
@@ -36,6 +37,18 @@ try:
 except:
   arq_clientes = open("clientes.dat", "wb")
 arq_clientes.close()
+
+#################################################
+#####          DICIONÁRIO ESTOQUE           #####
+#################################################
+
+produtos = {} # Dicionário onde sera Salvo os Dados dos Produtos(Livros)
+try:
+  arq_produtos = open("produtos.dat", "rb")
+  produtos = pickle.load(arq_produtos)
+except:
+  arq_produtos = open("produtos.dat", "wb")
+arq_produtos.close()
 
 #################################################
 #####          FUNÇÕES DAS VENDAS           #####
@@ -93,6 +106,30 @@ def cadastrar_venda():
   print(f"##### Nome do Cliente: {nome_cliente_venda}")
   print()
   livro_comprado = input("##### Nome do Livro Comprado: ")
+  livro_encontrado = False
+  for livro in produtos.values():
+    if livro[0] == livro_comprado:
+      livro_encontrado = True
+      break
+  if livro_encontrado:
+    print("##### Ok! Livro cadastrado na base de dados!")
+  else:
+    print("##### OPS! Livro não cadastrado")
+    print()
+    print("##### Por favor, cadastre esse livro para dar prosseguimento ao cadastro!")
+    print()
+    input("tecle <ENTER> para prosseguir para o cadastro de livro...")
+    fun_estoque.cadastrar_produto_venda()
+  os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+  print("############################################")
+  print("#####         Cadastrar Venda          #####")
+  print("############################################")
+  print()
+  print("Finalizando cadastro de Venda.")
+  print()
+  print(f"##### Nome do Cliente: {nome_cliente_venda}")
+  print()
+  print(f"##### Livro Comprado: {livro_comprado}")
   print()
   verificador = True
   while verificador:
@@ -132,14 +169,13 @@ def exibir_venda():
     print()
     print("############################################")
     print("#####      Exibir Dados de Vendas      #####")
-    print("############################################")
-    print("##### 0 - Retornar ao Menu Vendas      #####")
+    print("#####        0 - Para Retornar         #####")
     print("############################################")
     print()
     verificador = True
     while verificador:
       try:
-        code_venda = int(input("##### Digite o Código de Venda: "))
+        code_venda = int(input("##### Digite o Código de Venda ou Digite '0' Para Retornar: "))
         verificador = False
       except ValueError:
         print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
@@ -178,15 +214,18 @@ def alterar_venda():
   print()
   print("############################################")
   print("#####      Alterar Dados de Venda      #####")
+  print("#####         0 - Para Retornar        #####")
   print("############################################")
   print()
   verificador = True
   while verificador:
     try:
-      code_venda = int(input("##### Digite o Código da Venda: "))
+      code_venda = int(input("##### Digite o Código da Venda ou Digite '0' Para Retornar: "))
       verificador = False
     except ValueError:
       print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
+  if code_venda == 0:
+    return
   verificador = True
   while verificador:
     os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -365,15 +404,18 @@ def excluir_venda():
   print()
   print("############################################")
   print("#####           Excluir Venda          #####")
+  print("#####         0 - Para Retornar        #####")
   print("############################################")
   print()
   verificador = True
   while verificador:
     try:
-      code_venda = int(input("##### Digite o Código da Venda: "))
+      code_venda = int(input("##### Digite o Código da Venda ou Digite '0' Para Retornar: "))
       verificador = False
     except ValueError:
       print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
+  if code_venda == 0:
+    return
   if (code_venda in vendas) and (vendas[code_venda][6]):
     print()
     print("#####################################################################################################################################")

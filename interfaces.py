@@ -52,6 +52,12 @@ def menu_principal(): # Funcão do Menu Principal
 
 def menu_cliente(): # Função do Menu Clientes
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+  print('''
+        ___ _ _         _          
+       / __| (_)___ _ _| |_ ___ ___
+      | (__| | / -_) ' \  _/ -_)_-<
+       \___|_|_\___|_||_\__\___/__/                          
+  ''')
   print()
   print("############################################")
   print("#####   Você está no Módulo Clientes   #####")
@@ -74,6 +80,13 @@ def menu_cliente(): # Função do Menu Clientes
 
 def menu_estoque(): # Função do Menu de Estoque
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+  print('''
+         ___    _                     
+        | __|___ |_ ___ __ _ _  _ ___ 
+        | _|(_-<  _/ _ \ _` | || / -_)
+        |___/__/\__\___\__, |\_,_\___|
+                          |_|         
+  ''')
   print()
   print("############################################")
   print("#####    Você está no Módulo Estoque   #####")
@@ -96,6 +109,12 @@ def menu_estoque(): # Função do Menu de Estoque
 
 def menu_vendas(): # Função do Menu de Vendas
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
+  print('''
+        __   __           _         
+        \ \ / /__ _ _  __| |__ _ ___
+         \ V / -_) ' \/ _` / _` (_-<
+          \_/\___|_||_\__,_\__,_/__/
+  ''')
   print()
   print("#############################################")
   print("#####    Você está no Módulo Vendas     #####")

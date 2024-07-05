@@ -137,14 +137,13 @@ def exibir_cliente():
     print()
     print("############################################")
     print("#####      Exibir Dados do Cliente     #####")
-    print("############################################")
-    print("##### 0 - Retornar ao Menu Clientes    #####")
+    print("#####        0 - Para Retornar         #####")
     print("############################################")
     print()
     verificador = True
     while verificador:
       try:
-        code_cliente = int(input("##### Digite o Código do Cliente: "))
+        code_cliente = int(input("##### Digite o Código do Cliente ou Digite '0' Para Retornar: "))
         verificador = False
       except ValueError:
         print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
@@ -181,15 +180,18 @@ def alterar_cliente():
   print()
   print("############################################")
   print("#####     Alterar Dados do Cliente     #####")
+  print("#####         0 - Para Retornar        #####")
   print("############################################")
   print()
   verificador = True
   while verificador:
     try:
-      code_cliente = int(input("##### Digite o Código do Cliente: "))
+      code_cliente = int(input("##### Digite o Código do Cliente ou Digite '0' Para Retornar: "))
       verificador = False
     except ValueError:
       print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
+  if code_cliente == 0:
+    return
   verificador = True
   while verificador:
     os.system('celar || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -302,15 +304,18 @@ def excluir_cliente():
   print()
   print("############################################")
   print("#####          Excluir Cliente         #####")
+  print("#####         0 - Para Retornar        #####")
   print("############################################")
   print()
   verificador = True
   while verificador:
     try:
-      code_cliente = int(input("##### Digite o Código do Cliente: "))
+      code_cliente = int(input("##### Digite o Código do Cliente ou Digite '0' Para Retornar: "))
       verificador = False
     except ValueError:
       print("!!!! Resposta não reconhecida como um número INTEIRO. Tente novamente.")
+  if code_cliente == 0:
+    return
   if (code_cliente in clientes) and (clientes[code_cliente][4]):
     print()
     print("#################################################################################################################################")

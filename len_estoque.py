@@ -36,9 +36,13 @@ def ler_genero():
     print()
     verificador = True
     while verificador:
-        try: # Tratar exeções junto com o EXCEPT | Estou usando para verificar se o usuário colocou o número como pedido (estudos na internet)
+        try: 
             genero = int(input("##### Tipo de Gênero (NÚMERO INTEIRO): "))
-            verificador = False
+            if (genero >= 1) and (genero <= 8):
+                verificador = False
+            else:
+                print("-> Insira um número que pertence a lista de gêneros!")
+                print()
         except ValueError:
             print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
     return genero
@@ -49,7 +53,11 @@ def ler_qtd():
     while verificador:
         try:
             qtd_estoque = int(input("##### Quantidade em Estoque (NÚMERO INTEIRO): "))
-            verificador = False
+            if (qtd_estoque >= 0):
+                verificador = False
+            else:
+                print("-> Insira uma quantidade válida!")
+                print()
         except ValueError:
             print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
     return qtd_estoque
@@ -60,7 +68,11 @@ def ler_valor():
     while verificador:
         try:
             valor_livro = float(input("##### Valor desse Livro (R$ -> NÚMERO DECIMAL): "))
-            verificador = False
+            if (valor_livro >= 0):
+                verificador = False
+            else:
+                print("-> Insira um valor(R$) válido!")
+                print()
         except ValueError:
             print("'!!! Resposta não reconhecida como um número DECIMAL. Tente novamente !!!")
     return valor_livro

@@ -2,7 +2,7 @@
 
 '''imports'''
 import interfaces
-import validadores
+import len_cliente
 import pickle
 import os
 import time
@@ -50,29 +50,13 @@ def cadastrar_cliente():
   print("############################################")
   print()
   code_cliente = len(clientes) + 1
-  nome_cliente = input("##### Nome: ")
+  nome_cliente = len_cliente.ler_nome()
   print()
-  verificador = True # Maneira de usar while atraves de variaveis que guardam operadoes lógicos, dica de Matheus Diniz.
-  while verificador:
-    email = input("#### E-mail: ")
-    if validadores.validar_email(email):
-      print("E-mail válido!")
-      verificador = False
-    else:
-      print("O e-mail não é válido, veja se você não esquceu o '@'/domínio/'.com'. Por favor digite novamente.")
-      print()
+  email = len_cliente.ler_email()
   print()
-  verificador = True
-  while verificador:
-    print("##### Digite o Celular com DDD e o 9 adicional seguinddo este exemplo: (xx) xxxxx-xxxx (NÚMERO DE EXEMPLO)")
-    celular = input("##### Digite seu Celular: ")
-    if validadores.validar_numero(celular):
-      print("Numero válido!")
-      verificador = False
-    else:
-      print("Número não válido. Digite um número válido.")
+  celular = len_cliente.ler_celular()  
   print()
-  cpf = input("##### CPF: ")
+  cpf = len_cliente.ler_cpf()
   print()
   ativo = True
   clientes[code_cliente] = [nome_cliente, email, celular, cpf, ativo] # Dados sendo guardados dentro do Dicionário Clientes, onde o indeteficador daquele dado será o código do Cliente, que aqui, funciona como um chave do tipo SERIAL, é única e não se repete
@@ -94,29 +78,13 @@ def cadastrar_cliente_venda(): # Estou usando essa função no meu arquivo de ve
   print("############################################")
   print()
   code_cliente = len(clientes) + 1
-  nome_cliente = input("##### Nome: ")
+  nome_cliente = len_cliente.ler_nome()
   print()
-  verificador = True # Maneira de usar while atraves de variaveis que guardam operadoes lógicos, dica de Matheus Diniz.
-  while verificador:
-    email = input("#### E-mail: ")
-    if validadores.validar_email(email):
-      print("E-mail válido!")
-      verificador = False
-    else:
-      print("O e-mail não é válido, veja se você não esquceu o '@'/domínio/'.com'. Por favor digite novamente.")
-      print()
+  email = len_cliente.ler_email()
   print()
-  verificador = True
-  while verificador:
-    print("##### Digite o Celular com DDD e o 9 adicional seguinddo este exemplo: (xx) xxxxx-xxxx (NÚMERO DE EXEMPLO)")
-    celular = input("##### Digite seu Celular: ")
-    if validadores.validar_numero(celular):
-      print("Numero válido!")
-      verificador = False
-    else:
-      print("Número não válido. Digite um número válido.")
+  celular = len_cliente.ler_celular()  
   print()
-  cpf = input("##### CPF: ")
+  cpf = len_cliente.ler_cpf()
   print()
   ativo = True
   clientes[code_cliente] = [nome_cliente, email, celular, cpf, ativo] # Dados sendo guardados dentro do Dicionário Clientes, onde o indeteficador daquele dado será o código do Cliente, que aqui, funciona como um chave do tipo SERIAL, é única e não se repete
@@ -205,74 +173,34 @@ def alterar_cliente():
       print()
       ativo = True
       clientes[code_cliente][4] = ativo
-      if (resp == "NOME"):
-        nome_cliente = input("##### Digite o novo nome: ")
+      if (resp == "NOME") or (resp == "CLIENTE"):
+        nome_cliente = len_cliente.ler_nome()
         clientes[code_cliente][0] = nome_cliente
-        print("Dado alterado com sucesso!")
-        print("--------------------------")
         print()
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_cliente.ler_decisao_alteracao()
       elif (resp == "E-MAIL") or (resp == "EMAIL"):
-        verificador = True
-        while verificador:
-          email = input("##### Digite o novo e-mail: ")
-          if validadores.validar_email(email):
-            print("E-mail válido e alterado com sucesso!")
-            print("-------------------------------------")
-            print()
-            clientes[code_cliente][1] = email
-            verificador = False
-          else:
-            print("O e-mail não é válido, veja se você não esquceu o '@'/domínio/'.com'. Por favor digite novamente.")
-            print()
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
+        email = len_cliente.ler_email()
+        clientes[code_cliente][1] = email
+        print()
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_cliente.ler_decisao_alteracao()
       elif (resp == "CELULAR") or (resp == "TELEFONE"):
-        verificador = True
-        while verificador:
-          print("##### Digite o novo, lembre-se Celular com DDD e o 9 adicional seguinddo este exemplo: (xx) xxxxx-xxxx (NÚMERO DE EXEMPLO)")
-          celular = input("##### Novo Celular: ")
-          if validadores.validar_numero(celular):
-            print("Número válido e alterado com sucesso!")
-            print("-------------------------------------")
-            clientes[code_cliente][2] = celular
-            verificador = False
-          else:
-            print("Número não válido. Digite um número válido.")
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
+        celular = len_cliente.ler_celular()
+        clientes[code_cliente][2] = celular
+        print()
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_cliente.ler_decisao_alteracao()
       elif (resp == "CPF"):
-        cpf = input("##### Digite o novo CPF: ")
-        print("Dado alterado com sucesso!")
-        print("--------------------------")
+        cpf = len_cliente.ler_cpf()
         clientes[code_cliente][3] = cpf
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
+        print()
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_cliente.ler_decisao_alteracao()
       elif (resp == "0"):
         print("Alteração Cancelada!")
         verificador = False
@@ -288,6 +216,11 @@ def alterar_cliente():
 #################################################
 #####         EXCLUIR DADOS CLIENTE         #####
 #################################################
+
+'''
+Para não acontecer de, ser excluido um cliente de cód 2, exemplo, e quando for cadastrar outro cliente, esse cliente não pegar o mesmo cód que foi excluido, deixando um pouco bagunçado... Cada cliente fica com um ativo em seus dados, estiver on = True, for excluído, ativo = False -> Assim, o cód_cliente é unico e não se repete!      
+
+'''
 
 def excluir_cliente():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -317,20 +250,14 @@ def excluir_cliente():
     print()
     decisao = input(" -> Tem certeza que deseja EXCLUIR esse Cliente (S/N)? ")
     decisao = decisao.upper()
+    print()
     if (decisao == "SIM") or (decisao == "S"):
-      print()
-      '''
-      Para não acontecer de, ser excluido um cliente de cód 2, exemplo, e quando for cadastrar outro cliente, esse cliente não pegar
-      o mesmo cód que foi excluido, deixando um pouco bagunçado... Cada cliente fica com um ativo em seus dados, estiver on = True, for excluído, ativo = False -> Assim, o cód_cliente é unico e não se repete!      
-
-      '''
       clientes[code_cliente][4] = False 
       print("Cliente excluído(a) com sucesso!")
     else:
       print("Exclusão não realizada!")
   else:
     print("Cliente inexistente ou inativo!")
-    print()
   print()
   input("Tecle <ENTER> para continuar...")  
 #---------------------------------------------------------------------

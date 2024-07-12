@@ -422,6 +422,7 @@ def confirmar_alteracao():
   print("| Dado alterado com sucesso! |")
   print("##############################")
 
+
 #################################################
 #####      INTERFACE DE ENCERRAMENTO        #####
 #################################################

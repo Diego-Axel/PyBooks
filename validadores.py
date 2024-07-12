@@ -6,7 +6,7 @@ import datetime # Para ver se a data inserida é valida.
 import re
 
 #################################################
-#####            VALIDAR -EMAIL             #####
+#####            VALIDAR E-MAIL             #####
 #################################################
 
 def validar_email(email): # Função para verificar se o e-mail é válido (GPT)
@@ -21,3 +21,11 @@ def validar_email(email): # Função para verificar se o e-mail é válido (GPT)
 def validar_numero(numero): # Função para validar telefone (GPT)
     padrao = re.compile(r'^\(\d{2}\) \d{4,5}-\d{4}$')
     return padrao.match(numero) is not None
+
+
+#################################################
+#####             VALIDAR CPF               #####
+#################################################
+
+def validar_cpf(cpf): # Vou colocar ainda
+    pass

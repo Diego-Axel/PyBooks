@@ -1,6 +1,7 @@
 '''Arquivo das Funções do ESTOQUE'''
 
 '''imports'''
+import len_estoque
 import interfaces
 import pickle
 import os
@@ -51,47 +52,24 @@ def cadastrar_produto():
   print()
   code_produto = len(produtos) + 1
   print()
-  nome_livro = input("##### Nome do Livro: ")
+  nome_livro = len_estoque.ler_nome()
   print()
-  descricao = input("##### Descrição: ")
+  descricao = len_estoque.ler_descricao()
   print()
-  autor = input("##### Autor: ")
+  autor = len_estoque.ler_autor()
   print()
-  ano = input("##### Ano: ")
+  ano = len_estoque.ler_ano()
   print()
-  tipo_capa = input("##### Tipo de Capa: ")
+  tipo_capa = len_estoque.ler_capa()
   print()
-  print("###########################")
-  print("##### GÊNERO TEXTUTAL #####")
-  print("###########################")
-  print("| 1 - Ação \n| 2 - Ficção \n| 3 - Suspense \n| 4 - Educativo \n| 5 - Infantil \n| 6 - Recreativo \n| 7 - Romance \n| 8 - Amplo")
+  genero = len_estoque.ler_genero()
   print()
-  verificador = True
-  while verificador:
-    try: # Tratar exeções junto com o EXCEPT | Estou usando para verificar se o usuário colocou o número como pedido (estudos na internet)
-      genero = int(input("##### Tipo de Gênero (NÚMERO INTEIRO): "))
-      verificador = False
-    except ValueError:
-      print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
+  qtd_estoque = len_estoque.ler_qtd()
   print()
-  verificador = True
-  while verificador:
-    try:
-      qtd_estoque = int(input("##### Quantidade em Estoque (NÚMERO INTEIRO): "))
-      verificador = False
-    except ValueError:
-      print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
+  valor_livro = len_estoque.ler_valor()
   print()
-  verificador = True
-  while verificador:
-    try:
-      valor_livro = float(input("##### Valor desse Livro (R$ -> NÚMERO DECIMAL): "))
-      verificador = False
-    except ValueError:
-      print("'!!! Resposta não reconhecida como um número DECIMAL. Tente novamente !!!")
   ativo_prd = True
   produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque, valor_livro, ativo_prd] # Dados sendo guardados dentro do Dicionário produtos, onde o indeteficador daquele dado será o código do Produto, que aqui, funciona como um chave do tipo SERIAL, é única e não se repete
-  print()
   print(f"Produto cadastrado com sucesso sob código: {code_produto}")
   print()
   input("Tecle <ENTER> para continuar...")
@@ -111,44 +89,22 @@ def cadastrar_produto_venda(): # Estou usando essa função no meu arquivo de ve
   print()
   code_produto = len(produtos) + 1
   print()
-  nome_livro = input("##### Nome do Livro: ")
+  nome_livro = len_estoque.ler_nome()
   print()
-  descricao = input("##### Descrição: ")
+  descricao = len_estoque.ler_descricao()
   print()
-  autor = input("##### Autor: ")
+  autor = len_estoque.ler_autor()
   print()
-  ano = input("##### Ano: ")
+  ano = len_estoque.ler_ano()
   print()
-  tipo_capa = input("##### Tipo de Capa: ")
+  tipo_capa = len_estoque.ler_capa()
   print()
-  print("###########################")
-  print("##### GÊNERO TEXTUTAL #####")
-  print("###########################")
-  print("| 1 - Ação \n| 2 - Ficção \n| 3 - Suspense \n| 4 - Educativo \n| 5 - Infantil \n| 6 - Recreativo \n| 7 - Romance \n| 8 - Amplo")
+  genero = len_estoque.ler_genero()
   print()
-  verificador = True
-  while verificador:
-    try: # Tratar exeções junto com o EXCEPT | Estou usando para verificar se o usuário colocou o número como pedido (estudos na internet)
-      genero = int(input("##### Tipo de Gênero (NÚMERO INTEIRO): "))
-      verificador = False
-    except ValueError:
-      print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
+  qtd_estoque = len_estoque.ler_qtd()
   print()
-  verificador = True
-  while verificador:
-    try:
-      qtd_estoque = int(input("##### Quantidade em Estoque (NÚMERO INTEIRO): "))
-      verificador = False
-    except ValueError:
-      print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
+  valor_livro = len_estoque.ler_valor()
   print()
-  verificador = True
-  while verificador:
-    try:
-      valor_livro = float(input("##### Valor desse Livro (R$ -> NÚMERO DECIMAL): "))
-      verificador = False
-    except ValueError:
-      print("'!!! Resposta não reconhecida como um número DECIMAL. Tente novamente !!!")
   ativo_prd = True
   produtos[code_produto] = [nome_livro, descricao, autor, ano, tipo_capa, genero, qtd_estoque, valor_livro, ativo_prd] # Dados sendo guardados dentro do Dicionário produtos, onde o indeteficador daquele dado será o código do Produto, que aqui, funciona como um chave do tipo SERIAL, é única e não se repete
   print()
@@ -245,140 +201,61 @@ def alterar_produto():
       ativo_prd = True
       produtos[code_produto][8] = ativo_prd
       if (resp == "NOME") or (resp == "NOME DO LIVRO") or (resp == "LIVRO"):
-        nome_livro = input("##### Digite o novo nome do Livro: ")
-        print("Dado alterado com sucesso!")
-        print("--------------------------")
-        print()
+        nome_livro = len_estoque.ler_nome()
         produtos[code_produto][0] = nome_livro
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
+        print()
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_estoque.ler_decisao_alteracao()
       elif (resp == "DESCRIÇÃO"):
-        descricao = input("##### Digite a nova descrição: ")
-        print("Dado alterado com sucesso!")
-        print("--------------------------")
-        print()
+        descricao = len_estoque.ler_descricao()
         produtos[code_produto][1] = descricao
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
+        print()
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_estoque.ler_decisao_alteracao()
       elif (resp == "AUTOR"):
-        autor = input("##### Digite o novo nome do Autor: ")
-        print("Dado alterado com sucesso!")
-        print("--------------------------")
-        print()
+        autor = len_estoque.ler_autor()
         produtos[code_produto][2] = autor
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
+        print()
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_estoque.ler_decisao_alteracao()
       elif (resp == "ANO"):
-        ano = input("##### Digite o novo ano deste livro: ")
-        print("Dado alterado com sucesso!")
-        print("--------------------------")
-        print()
+        ano = len_estoque.ler_ano()
         produtos[code_produto][3] = ano
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
+        print()
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_estoque.ler_decisao_alteracao()
       elif (resp == "TIPO DE CAPA") or (resp == "CAPA"):
-        tipo_capa = input("##### Digite o novo tipo de capa: ")
-        print("Dado alterado com sucesso!")
-        print("--------------------------")
-        print()
+        tipo_capa = len_estoque.ler_capa()
         produtos[code_produto][4] = tipo_capa
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
+        print()
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_estoque.ler_decisao_alteracao()
       elif (resp == "GENERO") or (resp == "GÊNERO") or (resp == "GÊNERO TEXTUAL"):
-        print("###########################")
-        print("##### GÊNERO TEXTUTAL #####")
-        print("###########################")
-        print("| 1 - Ação \n| 2 - Ficção \n| 3 - Suspense \n| 4 - Educativo \n| 5 - Infantil \n| 6 - Recreativo \n| 7 - Romance \n| 8 - Amplo")
+        genero = len_estoque.ler_genero()
+        produtos[code_produto][5] = genero
         print()
-        verificador = True
-        while verificador:
-          try:
-            genero = int(input("##### Digite o novo tipo de Gênero (NÚMERO INTEIRO): "))
-            print("Dado alterado com sucesso!")
-            print("--------------------------")
-            produtos[code_produto][5] = genero
-            verificador = False
-          except ValueError:
-            print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
+        interfaces.confirmar_alteracao()
         print()
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
+        verificador = len_estoque.ler_decisao_alteracao()
       elif (resp == "QUANTIDADE EM ESTOQUE") or (resp == "QUANTIDADE") or (resp == "ESSTOQUE"):
-        verificador = True
-        while verificador:
-          try:
-            qtd_estoque = int(input("##### Quantidade em Estoque (NÚMERO INTEIRO): "))
-            print("Dado alterado com sucesso!")
-            print("--------------------------")
-            produtos[code_produto][6] = qtd_estoque
-            verificador = False
-          except ValueError:
-            print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
+        qtd_estoque = len_estoque.ler_qtd()
+        produtos[code_produto][6] = qtd_estoque
         print()
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True 
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_estoque.ler_decisao_alteracao()
       elif (resp == "R$") or (resp == "VALOR") or (resp == "VALOR DO LIVRO"):
-        verificador = True
-        while verificador:
-          try:
-            valor_livro = float(input("##### Valor desse Livro (R$ -> NÚMERO DECIMAL): "))
-            print("Dado alterado com sucesso!")
-            print("--------------------------")
-            produtos[code_produto][7] = valor_livro
-            verificador = False
-          except ValueError:
-            print("!!! Resposta não reconheicda como um número DECIMAL. Tente novamente !!!")
-          print()
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
+        valor_livro = len_estoque.ler_valor()
+        produtos[code_produto][7] = valor_livro    
+        print()
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_estoque.ler_decisao_alteracao()   
       elif (resp == "0"):
         print("Alteração Cancelada!")
         verificador = False 

@@ -272,6 +272,12 @@ def alterar_produto():
 #####         EXCLUIR DADOS PRODUTO         #####
 #################################################
 
+'''
+Para não acontecer de, ser excluido um produto de cód 2, exemplo, e quando for cadastrar outro produto, esse produto não pegar
+o mesmo cód que foi excluido, deixando um pouco bagunçado... Cada produto fica com um ativo em seus dados, estiver on = True, for excluído, ativo = False -> Assim, o cód_produto é unico e não se repete! 
+
+'''
+
 def excluir_produto():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print()
@@ -306,11 +312,6 @@ def excluir_produto():
     decisao = decisao.upper()
     if (decisao == "SIM") or (decisao == "S"):
       print()
-      '''
-      Para não acontecer de, ser excluido um produto de cód 2, exemplo, e quando for cadastrar outro produto, esse produto não pegar
-      o mesmo cód que foi excluido, deixando um pouco bagunçado... Cada produto fica com um ativo em seus dados, estiver on = True, for excluído, ativo = False -> Assim, o cód_produto é unico e não se repete! 
-      
-      '''
       produtos[code_produto][8] = False
       print("Produto excluído com sucesso!")
     else:

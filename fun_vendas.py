@@ -2,6 +2,8 @@
 
 '''imports'''
 import interfaces
+import validadores
+import len_vendas
 import fun_cliente
 import fun_estoque
 import pickle
@@ -80,9 +82,9 @@ def cadastrar_venda():
   print("############################################")
   print()
   code_venda = len(vendas) + 1
-  data_venda = ("%02d/%02d/%d"%(dia, mes, ano))
+  data_venda = len_vendas.ler_data()
   print()
-  nome_cliente_venda = input("##### Nome do Cliente: ")
+  nome_cliente_venda = len_vendas.ler_nome()
   cliente_encontrado = False
   for cliente in clientes.values(): # Verificando se o nome do cliente inserido está presente no dicionário 'Clientes'
     if cliente[0] == nome_cliente_venda:
@@ -106,7 +108,7 @@ def cadastrar_venda():
   print()
   print(f"##### Nome do Cliente: {nome_cliente_venda}")
   print()
-  livro_comprado = input("##### Nome do Livro Comprado: ")
+  livro_comprado = len_vendas.ler_livro()
   livro_encontrado = False
   for livro in produtos.values():
     if livro[0] == livro_comprado:
@@ -132,25 +134,12 @@ def cadastrar_venda():
   print()
   print(f"##### Livro Comprado: {livro_comprado}")
   print()
-  verificador = True
-  while verificador:
-    try:
-      unidades = int(input("##### Unidades Vendidas (NÚMERO INTEIRO): "))
-      verificador = False
-    except ValueError:
-      print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
+  unidades = len_vendas.ler_unidades()   
   print()
-  verificador = True
-  while verificador:
-    try:
-      valor = float(input("##### Valor de Venda (R$ -> DECIMAL): "))
-      verificador = False
-    except ValueError:
-      print("!!! Resposta não reconhecida como número DECIMAL(R$). Tente novamente !!!")
+  valor = len_vendas.ler_valor()
   print()
-  forma_pgto = input("##### Forma de pagamento: ")
+  forma_pgto = len_vendas.ler_forma_pgto()
   ativo_venda = True
-  print()
   vendas[code_venda] = [data_venda, nome_cliente_venda, livro_comprado, unidades, valor, forma_pgto, ativo_venda] # Dados sendo guardados dentro do Dicionário vendas, onde o indeteficador daquele dado será o código da venda, que aqui, funciona como um chave do tipo SERIAL, é única e não se repete
   print(f"Venda cadastrada com sucesso sob código: {code_venda}")
   print()
@@ -242,137 +231,45 @@ def alterar_venda():
       ativo_venda = True
       vendas[code_venda][6] = ativo_venda
       if (resp == "DATA DE VENDA") or (resp == "DATA") or (resp == "DATA VENDA"):
-        verificador = True
-        while verificador:
-          try:
-              dia_venda = int(input("Insira o dia da venda: "))
-              if (dia_venda <= 31) and (dia_venda >= 1):
-                  verificador = False
-              else:
-                  print("OPS! Aparentemente você colocou um dia inválido. Tente novamante.")
-                  print()
-          except ValueError:
-              print("Coloque um dia válido ou certifique-se que está inserindo um número inteiro. Por favor, digite novamente.")
-              print()
-        verificador = True
-        while verificador:
-            try:
-                mes_venda = int(input("Insira o mês da venda: "))
-                if (mes_venda <= 12) and (mes_venda >= 1):
-                    verificador = False
-                else:
-                    print("OPS! Aparentemente você colocou um mês inválido. Tente novamante.")
-                    print()
-            except ValueError:
-                print("Coloque um mês válido ou certifique-se que está inserindo um número inteiro. Por favor, digite novamente.")
-                print()
-        verificador = True
-        while verificador:
-            try:
-                ano_venda = int(input("Insira o ano da venda: "))
-                if (ano_venda <= ano) and (ano_venda >= 2000):
-                    verificador = False
-                else:
-                    print("OPS! Aparentemente você colocou um ano inválido. Tente novamante.")
-                    print()
-            except ValueError:
-                print("Coloque um ano válido ou certifique-se que está inserindo um número inteiro. Por favor, digite novamente.")
-                print()
-        print()
-        data_venda = ("%02d/%02d/%d"%(dia_venda,mes_venda,ano_venda))
-        print("Data modificada para a dia desejado!")
-        print("------------------------------------")
-        print()
+        data_venda = validadores.validar_data()
         vendas[code_venda][0] = data_venda
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
+        print()
+        verificador = len_vendas.ler_decisao_alteracao()
       elif (resp == "NOME DO CLIENTE") or (resp == "NOME CLIENTE") or (resp == "CLIENTE") or (resp == "COMPRADOR") or (resp == "NOME DO COMPRADOR"):    
-        nome_cliente_venda = input("##### Digite o nome do Cliente: ")
-        print("Dado alterado com sucesso!")
-        print("--------------------------")
-        print()
+        nome_cliente_venda = len_vendas.ler_nome()
         vendas[code_venda][1] = nome_cliente_venda
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
+        print()
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_vendas.ler_decisao_alteracao()
       elif (resp == "LIVRO COMPRADO") or (resp == "LIVRO") or (resp == "NOME DO LIVRO"):
-        livro_comprado = input("##### Digite o nome do livro Comprado: ")
-        print("Dado alterado com sucesso!")
-        print("--------------------------")
-        print()
+        livro_comprado = len_vendas.ler_livro()
         vendas[code_venda][2] = livro_comprado
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
-      elif (resp == "UNIDADES") or (resp == "UNIDADES ADQUIRIDAS") or (resp == "UNIDADES VENDIDAS") or (resp == "UN"):
-        verificador = True
-        while verificador:
-          try:
-            unidades = int(input("##### Unidades Vendidas (NÚMERO INTEIRO): "))
-            print("Dado alterado com sucesso!")
-            print("--------------------------")
-            vendas[code_venda][3] = unidades
-            verificador = False
-          except ValueError:
-            print("!!! Resposta não reconhecida como número INTEIRO. Tente novamente !!!")
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
-      elif (resp == "VALOR R$") or (resp == "VALOR DE VENDA") or (resp == "R$") or (resp == "VALOR"):
-        verificador = True
-        while verificador:
-          try:
-            valor = float(input("##### Valor de Venda (R$ -> DECIMAL): "))
-            print("Dado alterado com sucesso!")
-            print("--------------------------")
-            print()
-            vendas[code_venda][4] = valor
-            verificador = False
-          except ValueError:
-            print("!!! Resposta não reconhecida como número DECIMAL(R$). Tente novamente !!!")
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
-      elif (resp == "FORMA DE PAGAMENTO") or (resp == "PAGAMENTO") or (resp == "Forma Pgt") or (resp == "Forma Pgt."):
-        forma_pgto = input("##### Digite a Forma de pagamento: ")
-        print("Dado alterado com sucesso!")
-        print("--------------------------")
         print()
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_vendas.ler_decisao_alteracao()
+      elif (resp == "UNIDADES") or (resp == "UNIDADES ADQUIRIDAS") or (resp == "UNIDADES VENDIDAS") or (resp == "UN"):
+        unidades = len_vendas.ler_unidades()
+        vendas[code_venda][3] = unidades
+        print()
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_vendas.ler_decisao_alteracao()
+      elif (resp == "VALOR R$") or (resp == "VALOR DE VENDA") or (resp == "R$") or (resp == "VALOR"):
+        valor = len_vendas.ler_valor()
+        vendas[code_venda][4] = valor
+        print()
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_vendas.ler_decisao_alteracao()
+      elif (resp == "FORMA DE PAGAMENTO") or (resp == "PAGAMENTO") or (resp == "Forma Pgt") or (resp == "Forma Pgt."):
+        forma_pgto = len_vendas.ler_forma_pgto()
         vendas[code_venda][5] = forma_pgto
-        resp = input("#### Deseja Alterar mais dados(S/N)? ")
-        resp = resp.upper()
-        if (resp == "NÃO") or (resp == "NAO") or (resp == "N"):
-          verificador = False
-          print()
-        else:
-          print()
-          verificador = True
+        print()
+        interfaces.confirmar_alteracao()
+        print()
+        verificador = len_vendas.ler_decisao_alteracao()
       elif (resp == "0"):
         print("Alteração Cancelada!")
         verificador = False
@@ -388,6 +285,12 @@ def alterar_venda():
 #################################################
 #####          EXCLUIR DADOS VENDA          #####
 #################################################
+
+'''
+Para não acontecer de, ser excluido uma venda de cód 2, exemplo, e quando for cadastrar outra venda, essa venda não pegar
+o mesmo cód que foi excluido, deixando um pouco bagunçado... Cada venda fica com um ativo em seus dados, estiver on = True, for excluído, ativo = False -> Assim, o cód_venda é unico e não se repete!
+
+'''
 
 def excluir_venda():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
@@ -421,11 +324,6 @@ def excluir_venda():
     decisao = decisao.upper()
     if (decisao == "SIM") or (decisao == "S"):
       print()
-      '''
-      Para não acontecer de, ser excluido uma venda de cód 2, exemplo, e quando for cadastrar outra venda, essa venda não pegar
-      o mesmo cód que foi excluido, deixando um pouco bagunçado... Cada venda fica com um ativo em seus dados, estiver on = True, for excluído, ativo = False -> Assim, o cód_venda é unico e não se repete!
-
-      '''
       vendas[code_venda][6] = False
       print("Venda excluída com sucesso!")
       print()

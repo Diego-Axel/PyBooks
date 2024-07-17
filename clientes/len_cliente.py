@@ -3,9 +3,10 @@
 '''imports'''
 import validadores
 
-
 def ler_nome():
     nome = input("##### Nome: ")
+    nome = nome.replace('  ', ' ')
+    nome = nome.replace('   ', ' ')
     return nome
 
 
@@ -35,7 +36,18 @@ def ler_celular():
 
 
 def ler_cpf():
-    cpf = input("##### CPF: ")
+    verificador = True
+    while verificador:
+        cpf = input("#### Informe seu CFP: ")
+        cpf = cpf.replace('.', '')
+        cpf = cpf.replace('-', '')
+        cpf = cpf.replace(' ', '')
+        if validadores.validar_cpf(cpf):
+            print("# CPF Válido!")
+            verificador = False
+        else:
+            print("-> CPF Inválido. Tnete novamente")
+            print()
     return cpf
 
 

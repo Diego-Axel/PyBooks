@@ -1,19 +1,23 @@
 '''Arquivo para a leitura dos dados dos produtos no estoque e ações de decisão.'''
 
-'''OBS: Irei fazer verificadores para essas funções'''
-
 def ler_nome():
     nome_livro = input("##### Nome do Livro: ")
+    nome_livro = nome_livro.replace('  ', ' ')
+    nome_livro = nome_livro.replace('   ', ' ')
     return nome_livro
 
 
 def ler_descricao():
     descricao = input("##### Descrição: ")
+    descricao = descricao.replace('  ', ' ')
+    descricao = descricao.replace('   ', ' ')
     return descricao
 
 
 def ler_autor():
     autor = input("##### Autor: ")
+    autor = autor.replace('  ', ' ')
+    autor = autor.replace('   ', ' ')
     return autor
 
 

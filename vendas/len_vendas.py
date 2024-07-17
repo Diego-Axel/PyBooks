@@ -16,11 +16,15 @@ def ler_data():
 
 def ler_nome():
     nome_cliente_venda = input("##### Nome do Cliente: ")
+    nome_cliente_venda = nome_cliente_venda.replace('  ', ' ')
+    nome_cliente_venda = nome_cliente_venda.replace('   ', ' ')
     return nome_cliente_venda
 
 
 def ler_livro():
     livro_comprado = input("##### Nome do Livro Comprado: ")
+    livro_comprado = livro_comprado.replace('  ', ' ')
+    livro_comprado = livro_comprado.replace('   ', ' ')
     return livro_comprado
 
 

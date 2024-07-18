@@ -12,10 +12,7 @@ def exibir_venda():
   while resp != "0":
     os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
     print()
-    print("############################################")
-    print("#####      Exibir Dados de Vendas      #####")
-    print("#####        0 - Para Retornar         #####")
-    print("############################################")
+    interfaces.exibir()
     print()
     verificador = True
     while verificador:

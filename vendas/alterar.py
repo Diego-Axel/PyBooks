@@ -11,10 +11,7 @@ import validadores
 def alterar_venda():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print()
-  print("############################################")
-  print("#####      Alterar Dados de Venda      #####")
-  print("#####         0 - Para Retornar        #####")
-  print("############################################")
+  interfaces.alterar()
   print()
   verificador = True
   while verificador:

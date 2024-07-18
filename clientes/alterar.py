@@ -10,10 +10,7 @@ import clientes.len_cliente as len_cliente
 def alterar_cliente():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print()
-  print("############################################")
-  print("#####     Alterar Dados do Cliente     #####")
-  print("#####         0 - Para Retornar        #####")
-  print("############################################")
+  interfaces.alterar()
   print()
   verificador = True
   while verificador:

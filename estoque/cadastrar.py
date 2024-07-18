@@ -2,6 +2,7 @@ import os
 import time
 import estoque.dicionario as arqv_es
 import estoque.len_estoque as len_estoque
+import estoque.interfaces as interfaces
 
 #################################################
 #####           CADASTRAR PRODUTO           #####
@@ -10,11 +11,7 @@ import estoque.len_estoque as len_estoque
 def cadastrar_produto():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print()
-  print("############################################")
-  print("#####        Cadastrar Produto         #####")
-  print("#####       <ENTER> - Prosseguir       #####")
-  print("#####           0 - Cancelar           #####")
-  print("############################################")
+  interfaces.confirmar_cadastro()
   print()
   confirmacao = input("Entrando em 'Cadastro de Produto' -> Digite '0' Para Cancelar e <ENTER> para prosseguir: ")
   if confirmacao == "0":
@@ -24,9 +21,7 @@ def cadastrar_produto():
     time.sleep(3)
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print()
-  print("############################################")
-  print("#####        Cadastrar Produto         #####")
-  print("############################################")
+  interfaces.cadastro()
   print()
   code_produto = len(arqv_es.produtos) + 1
   print()
@@ -61,9 +56,7 @@ def cadastrar_produto():
 def cadastrar_produto_venda(): # Estou usando essa função no meu arquivo de vendas, para cadastro de produto se o mesmo não possuir cadastro
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print()
-  print("############################################")
-  print("#####        Cadastrar Produto         #####")
-  print("############################################")
+  interfaces.cadastro()
   print()
   code_produto = len(arqv_es.produtos) + 1
   print()

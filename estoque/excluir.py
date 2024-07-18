@@ -15,10 +15,7 @@ o mesmo cód que foi excluido, deixando um pouco bagunçado... Cada produto fica
 def excluir_produto():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print()
-  print("############################################")
-  print("#####          Excluir Produto         #####")
-  print("#####         0 - Para Retornar        #####")
-  print("############################################")
+  interfaces.excluir()
   print()
   verificador = True
   while verificador:

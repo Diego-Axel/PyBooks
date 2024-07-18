@@ -51,18 +51,42 @@ def menu_principal(): # Funcão do Menu Principal
 
 def menu_informacao():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-  print()
+  print("""
+  ___       __                                  
+ |_ _|_ _  / _|___ _ _ _ __  __ _ __ ___ ___ ___
+  | || ' \|  _/ _ \ '_| '  \/ _` / _/ _ \ -_)_-<
+ |___|_||_|_| \___/_| |_|_|_\__,_\__\___\___/__/
+                                           
+  """)
+
   print("#############################################")
   print("#####  Você está no Módulo Informações  #####")
   print("#############################################")
   print("##### Projeto de Gestão de uma Livraria #####")
-  print("##### Desenvolvido por: Diêgo Axel      #####")
-  print("##### Instagram: @diegoaxelbsr          #####")
-  print("##### E-mail: diegoaxelbsr@gmail.com    #####")
-  print("##### Telefone: 55 (84) 99977-4459      #####")
-  print("##### Projeto do curso de: BSI  ->      #####")
-  print("##### Sistemas de Informação - UFRN     #####")
-  print("##### GitHub: Diego-Axel | Olha lá ;)   #####")
+  print("#####    Desenvolvido por: Diêgo Axel   #####")
+  print("#####   Apresentado no dia 18/07/2024   #####")
+  print("#####      Projeto do curso de: BSI     #####")
+  print("#####    Sistemas de Informação - UFRN  #####")
+  print("#####                                   #####")
+  print("##### - - - - - - - - - - - - - - - - - #####")
+  print("##### |        BREVE EXPLICAÇÃO       | #####")
+  print("##### - - - - - - - - - - - - - - - - - #####")
+  print("#####                                   #####")
+  print("#####   PyBooks, foi desenvolvido para  #####")
+  print("#####  facilitar a vida administrativa  #####")
+  print("#####     das livrarias, trazendo um    #####")
+  print("#####      sistema fácil, didático,     #####")
+  print("#####     rápido e que qualquer um      #####")
+  print("#####           consegue usar!          #####")
+  print("#####                                   #####")
+  print("##### - - - - - - - - - - - - - - - - - #####")
+  print("##### |          FALA COMIGO!         | #####")
+  print("##### - - - - - - - - - - - - - - - - - #####")
+  print("#####                                   #####")
+  print("#####      Instagram: @diegoaxelbsr     #####")
+  print("#####   E-mail: diegoaxelbsr@gmail.com  #####")
+  print("#####    Telefone: 55 (84) 99977-4459   #####")
+  print("#####   GitHub: Diego-Axel | Olha lá ;) #####") 
   print("#############################################")
   print()
   input("Tecle <ENTER> para retornar ao Menu Principal...")

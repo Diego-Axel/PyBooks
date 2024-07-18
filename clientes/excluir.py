@@ -14,10 +14,7 @@ Para não acontecer de, ser excluido um cliente de cód 2, exemplo, e quando for
 def excluir_cliente():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print()
-  print("############################################")
-  print("#####          Excluir Cliente         #####")
-  print("#####         0 - Para Retornar        #####")
-  print("############################################")
+  interfaces.excluir()
   print()
   verificador = True
   while verificador:

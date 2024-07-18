@@ -6,6 +6,7 @@ import clientes.dicionario as arqv_cl
 import clientes.cadastrar as cadastrar_cl
 import estoque.dicionario as arqv_es
 import estoque.cadastrar as cadastrar_es
+import vendas.interfaces as interfaces
 
 #################################################
 #####            CADASTRAR VENDA            #####
@@ -13,11 +14,7 @@ import estoque.cadastrar as cadastrar_es
 
 def cadastrar_venda():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-  print("############################################")
-  print("#####         Cadastrar Venda          #####")
-  print("#####       <ENTER> - Prosseguir       #####")
-  print("#####           0 - Cancelar           #####")
-  print("############################################")
+  interfaces.confirmar_cadastro()
   print()
   confirmacao = input("Entrando em 'Cadastro de Venda' -> Digite '0' Para Cancelar e <ENTER> para prosseguir: ")
   if confirmacao == "0":
@@ -26,9 +23,7 @@ def cadastrar_venda():
     print("Iniciando cadastro.")
     time.sleep(3)
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-  print("############################################")
-  print("#####         Cadastrar Venda          #####")
-  print("############################################")
+  interfaces.cadastro()
   print()
   code_venda = len(arqv_vd.vendas) + 1
   data_venda = len_vendas.ler_data()
@@ -49,9 +44,7 @@ def cadastrar_venda():
     input("tecle <ENTER> para prosseguir para o cadastro de cliente...")
     cadastrar_cl.cadastrar_cliente_venda()
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-  print("############################################")
-  print("#####         Cadastrar Venda          #####")
-  print("############################################")
+  interfaces.cadastro()
   print()
   print("##### Cliente Cadastrado! Por favor, continue o cadastro da venda.")
   print()
@@ -73,9 +66,7 @@ def cadastrar_venda():
     input("tecle <ENTER> para prosseguir para o cadastro de livro...")
     cadastrar_es.cadastrar_produto_venda()
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
-  print("############################################")
-  print("#####         Cadastrar Venda          #####")
-  print("############################################")
+  interfaces.cadastro()
   print()
   print("Finalizando cadastro de Venda.")
   print()

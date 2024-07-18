@@ -31,7 +31,7 @@ def validar_numero(numero): # Função para validar telefone (GPT)
 #####             VALIDAR DATA              #####
 #################################################
 
-def validar_data(): # Função para validar a data (feita por mim)
+def validar_data(): # Função para validar a data (feita por mim - Diêgo Axel)
     verificador = True
     while verificador:
         try:

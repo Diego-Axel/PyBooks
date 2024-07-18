@@ -15,10 +15,7 @@ o mesmo cód que foi excluido, deixando um pouco bagunçado... Cada venda fica c
 def excluir_venda():
   os.system('clear || cls') # se for Linux use 'clear' e se for Windowns use 'cls'
   print()
-  print("############################################")
-  print("#####           Excluir Venda          #####")
-  print("#####         0 - Para Retornar        #####")
-  print("############################################")
+  interfaces.excluir()
   print()
   verificador = True
   while verificador:
